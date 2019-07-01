@@ -1,53 +1,66 @@
 const path = require('path');
+const merge = require('webpack-merge');
+const webpack = require('webpack');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CompressionPlugin = require('compression-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const baseConfig = require('./webpack.base.js');
 
-module.exports = {
-  entry: './client/index.jsx',
-  output: {
-    path: path.join(__dirname, './client/dist'),
-    filename: 'index_bundle.js',
-    publicPath: '/',
-  },
-  resolve: {
-    extensions: ['.jsx', '.js', '.json', '.css'],
-    alias: {
-      actions: path.resolve(__dirname, './client/src/actions'),
-      components: path.resolve(__dirname, './client/src/components'),
-      config: path.resolve(__dirname, './client/src/config'),
-      helpers: path.resolve(__dirname, './client/src/helpers'),
-      reducers: path.resolve(__dirname, './client/src/reducers'),
-      utils: path.resolve(__dirname, './client/src/utils'),
-      validations: path.resolve(__dirname, './client/src/validations'),
-    },
-  },
+module.exports = merge(baseConfig, {
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
+        test: /\.scss$/,
         exclude: /node_modules/,
-        loader: ['babel-loader', 'eslint-loader']
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [
+            {
+              loader: 'css-loader',
+              options: {
+                minimize: true
+              }
+            },
+            'sass-loader'
+          ]
+        })
       },
-      {
-        test: /\.css$/,
-        use: [
-          { loader: 'style-loader' },
-          { loader: 'css-loader' }
-        ]
-      },
-      {
-        test: /\.(png|svg|jpg|gif)$/,
-        use: ['file-loader'],
-      },
-      {
-        test: /\.(woff|woff2|eot|ttf|otf)$/,
-        use: ['file-loader'],
-      },
-    ]
+    ],
   },
+
   plugins: [
+    new ExtractTextPlugin('./style.css'),
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify('production')
+    }),
     new HtmlWebpackPlugin({
-      template: './client/index.html'
+      title: 'Authors Haven',
+      template: './client/index.html',
+      path: path.join(__dirname, './client/dist'),
+      filename: 'index.html',
+      minify: {
+        collapseWhitespace: true,
+        collapseInlineTagWhitespace: true,
+        removeComments: true,
+        removeRedundantAttributes: true,
+        useShortDoctype: true,
+        removeEmptyAttributes: true,
+        removeStyleLinkTypeAttributes: true,
+        minifyJS: true,
+        minifyCSS: true,
+        minifyURLs: true
+      }
+    }),
+    new webpack.optimize.AggressiveMergingPlugin(),
+    new webpack.optimize.ModuleConcatenationPlugin(),
+    new CompressionPlugin({
+      filename: '[path].gz[query]',
+      algorithm: 'gzip',
+      test: /\.js$|\.css$|\.html$|\.eot?.+$|\.ttf?.+$|\.woff?.+$|\.svg?.+$/,
+      threshold: 10240,
+      minRatio: 0.8
     })
   ],
+  
   mode: 'production'
-}
+});

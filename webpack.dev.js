@@ -1,52 +1,57 @@
-const path = require('path');
+const merge = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const baseConfig = require('./webpack.base.js');
 
-module.exports = {
-  entry: './client/index.jsx',
-  output: {
-    path: path.join(__dirname, './client/dist'),
-    filename: 'index_bundle.js'
-  },
-  resolve: {
-    extensions: ['.jsx', '.js', '.json', '.css'],
-    alias: {
-      actions: path.resolve(__dirname, './client/src/actions'),
-      components: path.resolve(__dirname, './client/src/components'),
-      config: path.resolve(__dirname, './client/src/config'),
-      helpers: path.resolve(__dirname, './client/src/helpers'),
-      reducers: path.resolve(__dirname, './client/src/reducers'),
-      utils: path.resolve(__dirname, './client/src/utils'),
-      validations: path.resolve(__dirname, './client/src/validations'),
+module.exports = merge(baseConfig, {
+  devtool: 'inline-source-map',
+
+  devServer: {
+    historyApiFallback: true,
+    hot: true,
+    inline: true,
+    host: 'localhost',
+    port: 8000,
+    proxy: {
+      '/api/*': {
+        target: 'http://localhost:3000/',
+        secure: false,
+        changeOrigin: true,
+      },
     },
   },
+
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
+        test: /\.scss$/,
         exclude: /node_modules/,
-        loader: ['babel-loader', 'eslint-loader']
-      },
-      {
-        test: /\.css$/,
         use: [
-          { loader: 'style-loader' },
-          { loader: 'css-loader' }
-        ]
+          {
+            loader: 'style-loader',
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true,
+            },
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true,
+            },
+          }
+        ],
       },
-      {
-        test: /\.(png|svg|jpg|gif)$/,
-        use: ['file-loader'],
-      },
-      {
-        test: /\.(woff|woff2|eot|ttf|otf)$/,
-        use: ['file-loader'],
-      },
-    ]
+    ],
   },
+
   plugins: [
     new HtmlWebpackPlugin({
+      title: 'Authors Haven',
       template: './client/index.html'
-    })
+    }),
   ],
+  
   mode: 'development'
-}
+});

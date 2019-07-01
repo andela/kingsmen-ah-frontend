@@ -1,0 +1,34 @@
+{
+  "compilerOptions": {
+    "target": "es2018",
+    "module": "commonjs",
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "paths": {
+      "@actions": [
+        "./client/src/actions"
+      ],
+      "@components": [
+        "./client/src/components"
+      ],
+      "@config": [
+        "./client/src/config"
+      ],
+      "@helpers": [
+        "./client/src/helpers"
+      ],
+      "@reducers": [
+        "./client/src/reducers"
+      ],
+      "@utils": [
+        "./client/src/utils"
+      ],
+      "@validations": [
+        "./client/src/validations"
+      ],
+    }
+  },
+  "exclude": [
+    "node_modules"
+  ],
+}

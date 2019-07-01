@@ -18,7 +18,7 @@ module.exports = {
     sourceType: 'module',
   },
   rules: {
-    "import/no-unresolved": [1, {
+    "import/no-unresolved": [2, {
       commonjs: true
     }],
     "react/jsx-filename-extension": [1, {

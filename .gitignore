@@ -95,3 +95,5 @@ fabric.properties
 
 .vscode/settings.json
 .vscode/launch.json
+
+.env
