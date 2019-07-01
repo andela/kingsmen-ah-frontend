@@ -3,12 +3,8 @@ module.exports = {
     browser: true,
     es6: true,
   },
-  extends: [
-    'airbnb',
-    "eslint:recommended",
-    "plugin:import/errors",
-    "plugin:import/warnings"
-  ],
+  parser: 'babel-eslint',
+  extends: 'airbnb',
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
@@ -18,16 +14,17 @@ module.exports = {
       jsx: true,
       "modules": true
     },
-    ecmaVersion: 6,
+    ecmaVersion: 2018,
     sourceType: 'module',
   },
-  plugins: [
-    'react',
-  ],
   rules: {
-    "import/no-unresolved": [2, {
+    "import/no-unresolved": [1, {
       commonjs: true
-    }]
+    }],
+    "react/jsx-filename-extension": [1, {
+      "extensions": [".js", ".jsx"]
+    }],
+    "import/no-named-as-default": 0,
   },
   settings: {
     "import/resolver": "webpack"

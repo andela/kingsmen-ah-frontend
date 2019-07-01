@@ -4,10 +4,12 @@
   "description": "Authors Haven - A Social platform for the creative at heart.",
   "main": "app.js",
   "scripts": {
-    "start": "babel-node -- app.jsx",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack-dev-server --mode development --open --hot --inline --history-api-fallback",
-    "build": "webpack --mode production"
+    "start": "webpack-dev-server",
+    "start:dev": "webpack-dev-server --config webpack.dev.js --open",
+    "start:prod": "npm run clean && webpack --config webpack.prod.js",
+    "clean": "rm -rf client/dist",
+    "build": "webpack --mode production",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -29,6 +31,7 @@
     "@babel/plugin-proposal-class-properties": "^7.4.4",
     "@babel/preset-env": "^7.4.5",
     "@babel/preset-react": "^7.0.0",
+    "babel-eslint": "^10.0.2",
     "babel-loader": "^8.0.6",
     "eslint": "^5.16.0",
     "eslint-config-airbnb": "^17.1.0",
