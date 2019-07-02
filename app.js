@@ -1,15 +1,19 @@
 import express from 'express';
-import path from "path";
+import path from 'path';
+import debug from 'debug';
+import { config } from 'dotenv';
 
 const port = process.env.PORT || 8000;
 const app = express();
+const debugged = debug('app');
+config();
 
-app.use(express.static(__dirname + '/dist'));
+app.use(express.static(path.join(__dirname, '/dist')));
 
 app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname + '/dist', 'index.html'));
+  res.sendFile(path.join(__dirname, '/dist/index.html'));
 });
 
 app.listen(port, () => {
-  console.log(`Listening from port ${port}`);
+  debugged(`Listening from port ${port}`);
 });

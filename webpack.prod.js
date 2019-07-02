@@ -3,9 +3,8 @@ const merge = require('webpack-merge');
 const webpack = require('webpack');
 const CompressionPlugin = require('compression-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-
-const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 const baseConfig = require('./webpack.base.js');
 
 module.exports = merge(baseConfig, {
@@ -36,7 +35,7 @@ module.exports = merge(baseConfig, {
     new webpack.LoaderOptionsPlugin({
       minimize: true
     }),
-    new LodashModuleReplacementPlugin,
+    new LodashModuleReplacementPlugin(),
     new MiniCssExtractPlugin({
       filename: 'stylesheets/[name].[hash].css', allChunks: true
     }),
