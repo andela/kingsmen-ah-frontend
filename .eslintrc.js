@@ -27,6 +27,6 @@ module.exports = {
     "import/no-named-as-default": 0,
   },
   settings: {
-    "import/resolver": "webpack"
+    "import/resolver": {webpack: {config: 'webpack.base.js'}}
   }
 };

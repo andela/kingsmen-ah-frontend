@@ -1,45 +1,50 @@
 const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = {
-  entry: './client/index.jsx',
+  entry: './src/index.jsx',
   output: {
-    path: path.join(__dirname, './client/dist'),
-    filename: 'index_bundle.js'
+    filename: 'index_bundle.js',
+    path: path.join(__dirname, './dist'),
+    publicPath: '/',
   },
   resolve: {
-    extensions: ['.jsx', '.js', '.json', '.css'],
+    extensions: ['.jsx', '.js'],
     alias: {
-      '@actions': path.resolve(__dirname, './client/src/actions'),
-      '@components': path.resolve(__dirname, './client/src/components'),
-      '@config': path.resolve(__dirname, './client/src/config'),
-      '@helpers': path.resolve(__dirname, './client/src/helpers'),
-      '@reducers': path.resolve(__dirname, './client/src/reducers'),
-      '@utils': path.resolve(__dirname, './client/src/utils'),
-      '@validations': path.resolve(__dirname, './client/src/validations'),
+      '@actions': path.resolve(__dirname, './src/actions'),
+      '@components': path.resolve(__dirname, './src/components'),
+      '@config': path.resolve(__dirname, './src/config'),
+      '@helpers': path.resolve(__dirname, './src/helpers'),
+      '@reducers': path.resolve(__dirname, './src/reducers'),
+      '@utils': path.resolve(__dirname, './src/utils'),
+      '@validations': path.resolve(__dirname, './src/validations'),
     },
   },
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
+        enforce: 'pre',
+        test: /\.jsx|js?$/,
         exclude: /node_modules/,
-        loader: ['babel-loader']
+        loader: 'eslint-loader'
       },
       {
-        test: /\.css$/,
+        test: /\.jsx|js?$/,
         exclude: /node_modules/,
+        loader: 'babel-loader'
+      },
+      {
+        test: /\.(css|scss|sass|less)$/i,
         use: [
+          MiniCssExtractPlugin.loader,
           { loader: 'style-loader' },
-          { loader: 'css-loader' }
+          { loader: 'css-loader', options: { sourceMap: true } },
+          { loader: 'less-loader', options: { sourceMap: true } },
+          { loader: 'node-sass', options: { sourceMap: true } }
         ]
       },
       {
-        test: /\.(png|svg|jpg|gif)$/,
-        exclude: /node_modules/,
-        use: ['file-loader'],
-      },
-      {
-        test: /\.(woff|woff2|eot|ttf|otf)$/,
+        test: /\.(png|svg|jpg|gif|woff|woff2|eot|ttf|otf)$/,
         exclude: /node_modules/,
         use: ['file-loader'],
       },
@@ -49,4 +54,27 @@ module.exports = {
       }
     ]
   },
-}
+  optimization: {
+    splitChunks: {
+      chunks: 'async',
+      minSize: 30000,
+      maxSize: 0,
+      minChunks: 1,
+      maxAsyncRequests: 5,
+      maxInitialRequests: 3,
+      automaticNameDelimiter: '~',
+      name: true,
+      cacheGroups: {
+        vendors: {
+          test: /[\\/]node_modules[\\/]/,
+          priority: -10
+        },
+        default: {
+          minChunks: 2,
+          priority: -20,
+          reuseExistingChunk: true
+        }
+      }
+    }
+  }
+};
