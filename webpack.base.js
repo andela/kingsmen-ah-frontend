@@ -24,7 +24,7 @@ module.exports = {
     rules: [
       {
         enforce: 'pre',
-        test: /\.jsx|js?$/,
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: [{
           options: {
@@ -34,17 +34,16 @@ module.exports = {
         }]
       },
       {
-        test: /\.jsx|js?$/,
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         loader: 'babel-loader'
       },
       {
-        test: /\.(css|scss|sass|less)$/i,
+        test: /\.(css|scss|sass)$/i,
         use: [
           MiniCssExtractPlugin.loader,
           { loader: 'style-loader' },
           { loader: 'css-loader', options: { sourceMap: true } },
-          { loader: 'less-loader', options: { sourceMap: true } },
           { loader: 'sass-loader', options: { sourceMap: true } }
         ]
       },
