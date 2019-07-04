@@ -97,3 +97,4 @@ fabric.properties
 .vscode/launch.json
 
 .env
+junit.xml

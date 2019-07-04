@@ -20,10 +20,7 @@ jobs: # a collection of steps
             - ./node_modules
       - run: # run tests
           name: test
-          command: npm run test:coverage
-      - run:
-          name: Install JUnit coverage reporter
-          command: npm install jest-junit
+          command: npm run test
       - run:
           name: Run tests with JUnit as reporter
           command: npm run jest:coverage
