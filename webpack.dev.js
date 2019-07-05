@@ -19,9 +19,9 @@ module.exports = merge(baseConfig, {
       '/api/v1/*': {
         target: 'http://localhost:3000/',
         secure: false,
-        changeOrigin: true,
-      },
-    },
+        changeOrigin: true
+      }
+    }
   },
 
   plugins: [
@@ -29,7 +29,7 @@ module.exports = merge(baseConfig, {
       title: 'Authors Haven',
       template: './src/index.html'
     }),
-    new webpack.HotModuleReplacementPlugin({}),
+    new webpack.HotModuleReplacementPlugin({})
   ],
 
   mode: 'development'

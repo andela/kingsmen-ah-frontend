@@ -97,3 +97,7 @@ fabric.properties
 .vscode/launch.json
 
 .env
+
+cypress/fixtures
+cypress/plugins
+cypress/support
