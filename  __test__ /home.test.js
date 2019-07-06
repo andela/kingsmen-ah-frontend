@@ -17,7 +17,7 @@ describe('<Home />', () => {
     wrapper = setup();
   });
 
-  it('should display This is the Home page', () => {
+  it('should display this is the home page', () => {
     const text = wrapper.find('h1').text();
     expect(text).toEqual('This is the Home page');
   });

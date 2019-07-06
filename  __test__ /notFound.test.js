@@ -17,7 +17,7 @@ describe('<NotFound />', () => {
     wrapper = setup();
   });
 
-  it('should display This page is not found', () => {
+  it('should display this page is not found', () => {
     const text = wrapper.find('h1').text();
     expect(text).toEqual('This page is not found');
   });

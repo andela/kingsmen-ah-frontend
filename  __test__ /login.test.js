@@ -17,7 +17,7 @@ describe('<Login />', () => {
     wrapper = setup();
   });
 
-  it('should display This is the login page', () => {
+  it('should display this is the login page', () => {
     const text = wrapper.find('h1').text();
     expect(text).toEqual('This is the login page');
   });
