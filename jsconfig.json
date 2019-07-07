@@ -6,25 +6,25 @@
     "baseUrl": ".",
     "paths": {
       "@actions": [
-        "src/actions"
+        "src/actions/*"
       ],
       "@components": [
-        "src/components"
+        "src/components/*"
       ],
       "@config": [
-        "src/config"
+        "src/config/*"
       ],
       "@helpers": [
-        "src/helpers"
+        "src/helpers/*"
       ],
       "@reducers": [
-        "src/reducers"
+        "src/reducers/*"
       ],
       "@utils": [
-        "src/utils"
+        "src/utils/*"
       ],
       "@validations": [
-        "src/validations"
+        "src/validations/*"
       ],
     }
   },
