@@ -5,9 +5,11 @@ jobs: # a collection of steps
   build: # runs not using Workflows must have a `build` job as entry point
     environment:
       CC_TEST_REPORTER_ID: ${TEST_REPORTER_ID}
+      TERM: xterm
     working_directory: ~/authors-haven # directory where steps will run
     docker:
       - image: circleci/node:10.3.0
+      - image: cypress/base:8
     steps: # a collection of executable commands
       - checkout # special step to check out source code to working directory
       - restore_cache: # special step to restore the dependency cache
@@ -35,9 +37,10 @@ jobs: # a collection of steps
       - store_test_results: # for display in Test Summary: https://circleci.com/docs/2.0/collect-test-data/
           path: reports/junit
         # See https://circleci.com/docs/2.0/deployment-integrations/ for deploy examples
-        
+
       # checks out code, installs npm dependencies
       # and runs all Cypress tests and records results on Cypress Dashboard
       # cypress/run job comes from "cypress" orb imported above
-      - cypress/run:
-          record: true
+      - run:
+          name: cypress test
+          command: npm run cypress:all
