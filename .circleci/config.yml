@@ -5,20 +5,7 @@ defaults: &defaults
   environment:
     CC_TEST_REPORTER_ID: ${TEST_REPORTER_ID}
     TERM: xterm
-npm_install: &install
-   name: install-npm-authors-haven-dependencies
-   command: npm install
-
-aliases: 
-  - &restore_cache: 
-      key: dependency-cache-{{ checksum "package.json" }}
-  - &run:
-     
-  - &save_cache: # special step to save the dependency cache
-      key: dependency-cache-{{ checksum "package.json" }}
-      paths:
-        - ./node_modules
-
+  
 orbs:
   cypress: cypress-io/cypress@1
 
@@ -29,10 +16,15 @@ jobs: # a collection of steps
       - image: circleci/node:10.3.0
     steps: #*csteps
       - checkout # special step to check out source code to working directory
-      - *restore_cache
-      - run
-        <<: *install
-      - *save_cache
+      - restore_cache: 
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: install-npm-authors-haven-dependencies
+          command: npm install
+      - save_cache: # special step to save the dependency cache
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
       - run: # run tests
           name: test
           command: npm run test
@@ -55,10 +47,15 @@ jobs: # a collection of steps
       - image: cypress/base:8
     steps: #*csteps
       - checkout # special step to check out source code to working directory
-      - *restore_cache
-      - run
-        <<: *install
-      - *save_cache
+      - restore_cache: 
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: install-npm-authors-haven-dependencies
+          command: npm install
+      - save_cache: # special step to save the dependency cache
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
       - run:
           name: cypress test
           command: $(npm bin)/cypress run --spec cypress/integration/sample_spec.js --reporter junit --reporter-options "mochaFile=results/junit/e2e-test-output.xml"
