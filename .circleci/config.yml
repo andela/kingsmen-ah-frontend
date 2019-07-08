@@ -47,8 +47,13 @@ jobs: # a collection of steps
       - checkout
       - restore_cache:
           key: dependency-cache-{{ checksum "package.json" }}
-      - attach_workspace:
-          at: ~/
+      - run:
+          name: install-npm-authors-haven-dependencies
+          command: npm install
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
       - run:
           name: cypress test
           command: $(npm bin)/cypress run --spec cypress/integration/sample_spec.js --reporter junit --reporter-options "mochaFile=results/junit/e2e-test-output.xml"
