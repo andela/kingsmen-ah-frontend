@@ -6,7 +6,12 @@ module.exports = {
     node: true
   },
   parser: 'babel-eslint',
-  extends: 'airbnb',
+  extends: [
+    "eslint:recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "airbnb"
+  ],
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
