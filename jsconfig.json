@@ -5,30 +5,15 @@
     "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
     "paths": {
-      "@actions": [
-        "src/actions"
-      ],
-      "@components": [
-        "src/components"
-      ],
-      "@config": [
-        "src/config"
-      ],
-      "@helpers": [
-        "src/helpers"
-      ],
-      "@reducers": [
-        "src/reducers"
-      ],
-      "@utils": [
-        "src/utils"
-      ],
-      "@validations": [
-        "src/validations"
-      ],
+      "@actions": ["src/actions"],
+      "@components": ["src/components"],
+      "@config": ["src/config"],
+      "@helpers": ["src/helpers"],
+      "@reducers": ["src/reducers"],
+      "@utils": ["src/utils"],
+      "@validations": ["src/validations"],
+      "@base": ["/public"]
     }
   },
-  "exclude": [
-    "node_modules"
-  ],
+  "exclude": ["node_modules"]
 }

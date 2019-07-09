@@ -1,7 +1,40 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`App should render the App component correctly 1`] = `
-<div>
-  Hello World
+<div
+  className="bg-gray-100 font-sans w-full min-h-screen m-0"
+>
+  <Header />
+  <Button
+    color="blue"
+    stretch={false}
+    text="Submit"
+    type="outlined"
+  />
+  <Button
+    color="red"
+    stretch={false}
+    text="Delete"
+    type="solid"
+  />
+  <Button
+    color="green"
+    stretch={true}
+    text="Login"
+    type="outlined"
+  />
+  <Button
+    color="blue"
+    stretch={true}
+    text="Post"
+    type="solid"
+  />
+  <Button
+    color="green"
+    stretch={false}
+    text="Regular"
+    type="regular"
+  />
+  <Footer />
 </div>
 `;

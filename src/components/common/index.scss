@@ -1,0 +1,21 @@
+$base-color: #335BCF;
+
+.text-blue-700 {
+  color: $base-color;
+}
+
+.border-blue-700 {
+  border-color: $base-color;
+}
+
+.hover\:bg-blue-700:hover {
+  background: $base-color;
+}
+
+.bg-blue-700 {
+  background: $base-color;
+}
+
+.hover\:bg-blue-800:hover {
+  background: rgb(50, 82, 177);
+}
