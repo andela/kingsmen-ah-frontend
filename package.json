@@ -12,8 +12,7 @@
     "cypress:all": "cypress run",
     "test": "jest --coverage",
     "test:watch": "jest --watch",
-    "jest:coverage": "jest --ci --runInBand --reporters=default --reporters=jest-junit",
-    "lint": "eslint ./cypress --fix"
+    "jest:coverage": "jest --ci --runInBand --reporters=default --reporters=jest-junit"
   },
   "repository": {
     "type": "git",
