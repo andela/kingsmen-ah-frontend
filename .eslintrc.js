@@ -3,10 +3,21 @@ module.exports = {
     browser: true,
     es6: true,
     jest: true,
-    node: true
+    node: true,
+    cypress: true
   },
+  plugins: [
+    'react',
+    'cypress',
+    'chai-friendly'
+  ],
   parser: 'babel-eslint',
-  extends: 'airbnb',
+  extends: [
+    'airbnb',
+    'eslint:recommended',
+    'plugin:react/recommended',
+    'plugin:cypress/recommended'
+  ],
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
@@ -26,6 +37,8 @@ module.exports = {
     "consistent-return": 0,
     "no-param-reassign": 0,
     "comma-dangle": 0,
+    'no-unused-expressions': 0,
+    'chai-friendly/no-unused-expressions': 2,
     "curly": [
       "error",
       "multi-line"
