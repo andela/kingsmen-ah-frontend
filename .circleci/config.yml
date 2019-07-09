@@ -26,10 +26,9 @@ jobs: # a collection of steps
           command: npm run jest:coverage
           environment:
             JEST_JUNIT_OUTPUT: "reports/junit/js-test-results.xml"
-      - store_artifacts: # special step to save test results as as artifact
+      - store_artifacts: # special step to save test results as artifact
           # Upload test summary for display in Artifacts: https://circleci.com/docs/2.0/artifacts/
           path: reports/junit
-          prefix: tests
       - store_test_results: # for display in Test Summary: https://circleci.com/docs/2.0/collect-test-data/
           path: reports/junit
         # See https://circleci.com/docs/2.0/deployment-integrations/ for deploy examples
