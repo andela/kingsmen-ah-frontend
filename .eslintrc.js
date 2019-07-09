@@ -4,7 +4,7 @@ module.exports = {
     es6: true,
     jest: true,
     node: true,
-    cypress: true
+    'cypress/globals': true
   },
   plugins: [
     'react',
