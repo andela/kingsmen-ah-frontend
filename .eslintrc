@@ -5,7 +5,9 @@
     "jest": true,
     "node": true
   },
-  "plugins": ["react"],
+  "plugins": [
+    "react"
+  ],
   "parser": "babel-eslint",
   "extends": [
     "airbnb",
