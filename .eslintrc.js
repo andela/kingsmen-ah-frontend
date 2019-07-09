@@ -3,11 +3,10 @@ module.exports = {
     browser: true,
     es6: true,
     jest: true,
-    node: true,
-    'cypress/globals': true
+    node: true
   },
   parser: 'babel-eslint',
-  extends: ['airbnb', 'plugin:cypress/recommended'],
+  extends: 'airbnb',
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
@@ -38,14 +37,8 @@ module.exports = {
       "extensions": [".js", ".jsx"]
     }],
     "import/no-named-as-default": 0,
-    "no-unused-expressions": 0,
-    "chai-friendly/no-unused-expressions": 2
   },
   settings: {
     "import/resolver": {webpack: {config: 'webpack.base.js'}}
-  },
-  plugins: [
-    'cypress',
-    'chai-friendly'
-  ],
+  }
 };
