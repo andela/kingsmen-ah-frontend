@@ -5,12 +5,12 @@
     "jest": true,
     "node": true
   },
+  "plugins": ["react"],
   "parser": "babel-eslint",
   "extends": [
+    "airbnb",
     "eslint:recommended",
-    "plugin:import/errors",
-    "plugin:import/warnings",
-    "airbnb"
+    "plugin:react/recommended"
   ],
   "globals": {
     "Atomics": "readonly",
@@ -31,22 +31,19 @@
     "consistent-return": 0,
     "no-param-reassign": 0,
     "comma-dangle": 0,
-    "curly": ["error", "multi-line"],
-    "import/no-unresolved": [
-      2,
-      {
-        "commonjs": true
-      }
+    "curly": [
+      "error",
+      "multi-line"
     ],
-    "react/jsx-filename-extension": [
-      1,
-      {
-        "extensions": [".js", ".jsx"]
-      }
-    ],
+    "import/no-unresolved": [2, {
+      "commonjs": true
+    }],
+    "react/jsx-filename-extension": [1, {
+      "extensions": [".js", ".jsx"]
+    }],
     "import/no-named-as-default": 0
   },
   "settings": {
-    "import/resolver": { "webpack": { "config": "webpack.base.js" } }
+    "import/resolver": {"webpack": {"config": "webpack.base.js"}}
   }
 }
