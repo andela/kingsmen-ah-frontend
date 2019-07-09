@@ -1,0 +1,13 @@
+label {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  transition: all .3s ease-in-out;
+}
+
+.has-value {
+  top: -7px;
+  font-size: .8em;
+  color: rgb(145, 145, 145);
+}
