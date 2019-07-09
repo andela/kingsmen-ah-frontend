@@ -8,8 +8,7 @@
   },
   "plugins": [
     "react",
-    "cypress",
-    "chai-friendly"
+    "cypress"
   ],
   "parser": "babel-eslint",
   "extends": [
@@ -38,20 +37,32 @@
     "no-param-reassign": 0,
     "comma-dangle": 0,
     "no-unused-expressions": 0,
-    "chai-friendly/no-unused-expressions": 2,
     "curly": [
       "error",
       "multi-line"
     ],
-    "import/no-unresolved": [2, {
-      "commonjs": true
-    }],
-    "react/jsx-filename-extension": [1, {
-      "extensions": [".js", ".jsx"]
-    }],
+    "import/no-unresolved": [
+      2,
+      {
+        "commonjs": true
+      }
+    ],
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [
+          ".js",
+          ".jsx"
+        ]
+      }
+    ],
     "import/no-named-as-default": 0
   },
   "settings": {
-    "import/resolver": {"webpack": {"config": "webpack.base.js"}}
+    "import/resolver": {
+      "webpack": {
+        "config": "webpack.base.js"
+      }
+    }
   }
 }
