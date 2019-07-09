@@ -11,13 +11,13 @@ module.exports = {
   resolve: {
     extensions: ['.jsx', '.js'],
     alias: {
-      '@actions': path.resolve(__dirname, './src/actions/*'),
-      '@components': path.resolve(__dirname, './src/components/*'),
-      '@config': path.resolve(__dirname, './src/config/*'),
-      '@helpers': path.resolve(__dirname, './src/helpers/*'),
-      '@reducers': path.resolve(__dirname, './src/reducers/*'),
-      '@utils': path.resolve(__dirname, './src/utils/*'),
-      '@validations': path.resolve(__dirname, './src/validations/*'),
+      '@actions': path.resolve(__dirname, 'src/actions/'),
+      '@components': path.resolve(__dirname, 'src/components/'),
+      '@config': path.resolve(__dirname, 'src/config/'),
+      '@helpers': path.resolve(__dirname, 'src/helpers/'),
+      '@reducers': path.resolve(__dirname, 'src/reducers/'),
+      '@utils': path.resolve(__dirname, 'src/utils/'),
+      '@validations': path.resolve(__dirname, 'src/validations/'),
     },
   },
   module: {
