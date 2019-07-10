@@ -1,5 +1,6 @@
 
 module.exports = {
+  setupFiles: ["<rootDir>/__test__/setup.js"],
   reporters: ['default', 'jest-junit'],
   collectCoverageFrom: [
     '<rootDir>/src/**/*.{js,jsx}',
@@ -18,6 +19,7 @@ module.exports = {
   coveragePathIgnorePatterns: [
     '<rootDir>/node_modules',
     '<rootDir>/src/index.jsx',
+    '<rootDir>/src/store/configureStore.js',
   ],
   testPathIgnorePatterns: [
     '<rootDir>/node_modules/'
