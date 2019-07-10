@@ -14,14 +14,14 @@ class Modal extends Component {
 
   render() {
     const {
-      children, title, toggle
+      children, title, toggle, exitModal
     } = this.props;
     return (
       <div className={classNames('modal flex', { 'is-visible': toggle })}>
         <div className="modal-container text-center relative justify-center items-center">
-          <div className="absolute modal-exit bg-white rounded-full py-1 px-3 shadow-lg cursor-pointer flex">
-            <span className="">X</span>
-          </div>
+          <button type="button" className="absolute modal-exit bg-white rounded-full py-1 px-3 shadow-lg cursor-pointer flex hover:bg-gray-300" onClick={e => exitModal(e)}>
+            <span className="icon ion-md-cancel">x</span>
+          </button>
           <div className="modal_title">
             <h2 className="text-normal font-bold text-xl">{title}</h2>
           </div>
@@ -38,6 +38,7 @@ Modal.propTypes = {
   toggle: PropTypes.bool.isRequired,
   title: PropTypes.string.isRequired,
   children: PropTypes.element.isRequired,
+  exitModal: PropTypes.func.isRequired
 };
 
 Modal.defaultProp = {

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Modal from './commons/Modal';
 import RenderInput from './commons/FormComponents/RenderInput';
 import Preloader from './commons/Preloader';
+import NavBar from './commons/NavBar';
 
 export default class Test extends Component {
   constructor(props) {
@@ -20,7 +21,7 @@ export default class Test extends Component {
     });
   }
 
-  toggleModal() {
+  toggleModal = () => {
     const { toggle } = this.state;
     this.setState({
       toggle: !toggle
@@ -32,15 +33,15 @@ export default class Test extends Component {
     return (
       <div>
 
-        <button type="button" onClick={this.toggleModal.bind(this)}>Trigger</button>
+        <button type="button" onClick={this.toggleModal}>Trigger</button>
         <Preloader
           type="button"
           styles="Plane"
           height={50}
           width={50}
-          color="blue"
+          color="indigo"
         />
-        <Modal toggle={toggle} title="Testing">
+        <Modal toggle={toggle} title="Edit Modal" exitModal={this.toggleModal}>
           <div className="mt-4 p-4">
             <RenderInput 
               id="title"
@@ -62,6 +63,7 @@ export default class Test extends Component {
             />
           </div>
         </Modal>
+        <NavBar />
       </div>
     )
   }
