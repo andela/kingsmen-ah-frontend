@@ -3,18 +3,28 @@
     "browser": true,
     "es6": true,
     "jest": true,
-    "node": true
+    "node": true,
+    "cypress/globals": true
   },
-  "plugins": ["react"],
+  "plugins": [
+    "react",
+    "cypress"
+  ],
   "parser": "babel-eslint",
   "extends": [
     "airbnb",
     "eslint:recommended",
-    "plugin:react/recommended"
+    "plugin:react/recommended",
+    "plugin:cypress/recommended"
   ],
   "globals": {
     "Atomics": "readonly",
-    "SharedArrayBuffer": "readonly"
+    "SharedArrayBuffer": "readonly",
+    "shallow": true,
+    "mount": true,
+    "expect": true,
+    "render": true,
+    "toJson": true
   },
   "parserOptions": {
     "ecmaFeatures": {
@@ -31,19 +41,33 @@
     "consistent-return": 0,
     "no-param-reassign": 0,
     "comma-dangle": 0,
+    "no-unused-expressions": 0,
     "curly": [
       "error",
       "multi-line"
     ],
-    "import/no-unresolved": [2, {
-      "commonjs": true
-    }],
-    "react/jsx-filename-extension": [1, {
-      "extensions": [".js", ".jsx"]
-    }],
+    "import/no-unresolved": [
+      2,
+      {
+        "commonjs": true
+      }
+    ],
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [
+          ".js",
+          ".jsx"
+        ]
+      }
+    ],
     "import/no-named-as-default": 0
   },
   "settings": {
-    "import/resolver": {"webpack": {"config": "webpack.base.js"}}
+    "import/resolver": {
+      "webpack": {
+        "config": "webpack.base.js"
+      }
+    }
   }
 }
