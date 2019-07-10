@@ -8,6 +8,8 @@
     "start:dev": "NODE_ENV=development webpack-dev-server --config webpack.dev.js --open",
     "build": "NODE_ENV=production npm run clean && webpack --config webpack.prod.js",
     "clean": "rm -rf dist",
+    "cypress:open": "cypress open",
+    "cypress:all": "cypress run",
     "test": "jest --coverage",
     "test:watch": "jest --watch",
     "jest:coverage": "jest --ci --runInBand --reporters=default --reporters=jest-junit"
@@ -28,6 +30,7 @@
   },
   "homepage": "https://github.com/andela/kingsmen-ah-frontend#readme",
   "devDependencies": {
+    "cypress": "^3.3.2",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
     "enzyme-to-json": "^3.3.5",
@@ -35,6 +38,8 @@
     "eslint-config-airbnb": "^17.1.1",
     "eslint-import-resolver-webpack": "^0.11.1",
     "eslint-loader": "^2.1.2",
+    "eslint-plugin-chai-friendly": "^0.4.1",
+    "eslint-plugin-cypress": "^2.2.1",
     "eslint-plugin-import": "^2.18.0",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.14.2",

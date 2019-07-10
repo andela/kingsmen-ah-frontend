@@ -12,10 +12,42 @@ $base-color: #335BCF;
   background: $base-color;
 }
 
+.hover\:text-blue-700:hover {
+  color: $base-color;
+}
+
 .bg-blue-700 {
   background: $base-color;
 }
 
 .hover\:bg-blue-800:hover {
   background: rgb(50, 82, 177);
+}
+
+button {
+  outline: none !important;
+}
+
+.thin {
+  font-weight: lighter !important;
+}
+
+.tooltip {
+  position: absolute;
+  top: -10px;
+  right: 10%;
+  width: 20px;
+  height: 20px;
+  background: rgb(20, 20, 20);
+  animation: flip 1000ms linear normal infinite;
+}
+
+@keyframes flip {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }

@@ -1,15 +1,22 @@
 version: 2 # use CircleCI 2.0
+
+defaults: &defaults
+  working_directory: ~/authors-haven
+  environment:
+    CC_TEST_REPORTER_ID: ${TEST_REPORTER_ID}
+    TERM: xterm
+  
+orbs:
+  cypress: cypress-io/cypress@1
+
 jobs: # a collection of steps
   build: # runs not using Workflows must have a `build` job as entry point
-    environment:
-      CC_TEST_REPORTER_ID: ${TEST_REPORTER_ID}
-    working_directory: ~/authors-haven # directory where steps will run
+    <<: *defaults
     docker:
       - image: circleci/node:10.3.0
-    steps: # a collection of executable commands
+    steps: #*csteps
       - checkout # special step to check out source code to working directory
-      - restore_cache: # special step to restore the dependency cache
-          # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
+      - restore_cache: 
           key: dependency-cache-{{ checksum "package.json" }}
       - run:
           name: install-npm-authors-haven-dependencies
@@ -26,10 +33,43 @@ jobs: # a collection of steps
           command: npm run jest:coverage
           environment:
             JEST_JUNIT_OUTPUT: "reports/junit/js-test-results.xml"
-      - store_artifacts: # special step to save test results as as artifact
+      - store_artifacts: # special step to save test results as artifact
           # Upload test summary for display in Artifacts: https://circleci.com/docs/2.0/artifacts/
           path: reports/junit
-          prefix: tests
       - store_test_results: # for display in Test Summary: https://circleci.com/docs/2.0/collect-test-data/
           path: reports/junit
         # See https://circleci.com/docs/2.0/deployment-integrations/ for deploy examples
+
+  E2E-testing:
+    <<: *defaults
+    docker:
+      - image: cypress/base:8
+    steps: #*csteps
+      - checkout # special step to check out source code to working directory
+      - restore_cache: 
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: install-npm-authors-haven-dependencies
+          command: npm install
+      - save_cache: # special step to save the dependency cache
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
+      - run:
+          name: cypress test
+          command: $(npm bin)/cypress run --spec cypress/integration/sample_spec.js --reporter junit --reporter-options "mochaFile=results/junit/e2e-test-output.xml"
+      - store_test_results:
+          path: reports/junit
+      - store_artifacts:
+          path: cypress/videos
+      - store_artifacts:
+          path: cypress/screenshots
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+      - E2E-testing:
+          requires:
+            - build
