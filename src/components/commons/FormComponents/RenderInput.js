@@ -45,7 +45,7 @@ class RenderInput extends Component {
 
     return (
       <Fragment>
-        <div className="my-4 relative">
+        <div className="my-4 relative mb-8">
           <label htmlFor={id} className={classNames({ 'has-value': changed })}>{label}</label>
 
           <input
