@@ -11,18 +11,18 @@ const props = {
 const mockClick = jest.fn(props.toggle = false);
 
 describe('<Modal />', () => {
+    const modalRoot = global.document.createElement('div');
+    modalRoot.setAttribute('id', 'app');
+    const body = global.document.querySelector('body');
+    body.appendChild(modalRoot);
+
+
     it('should render a modal correctly', () => {
-        const shallowWrapper = shallow(<Modal {...props}><h1>Hello World</h1></Modal>);
+        const shallowWrapper = mount(<Modal {...props}><h1>Hello World</h1></Modal>);
 
         expect(toJson(shallowWrapper)).toMatchSnapshot();
         expect(shallowWrapper.find('Modal')).toBeTruthy();
-    });
-
-    it('should render a when toggle is true', () => {
-      const shallowWrapper = shallow(<Modal {...props} toggle><h1>Hello World</h1></Modal>);
-
-      expect(shallowWrapper.find('.modal-container')).toBeTruthy();
-      expect(shallowWrapper.find('h2').text()).toEqual('New Modal');
+        shallowWrapper.unmount();
     });
 
     it('should exit the toggle when exit is clicked', () => {

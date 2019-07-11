@@ -36,6 +36,15 @@ class RenderInput extends Component {
     });
   }
 
+  onFocusOut = () => {
+    const { value } = this.props;
+    if (value === '') {
+      this.setState({
+        changed: false
+      });
+    }
+  }
+
   render() {
     const {
       id, type, name, className,
@@ -54,8 +63,9 @@ class RenderInput extends Component {
             name={name}
             className={`${className} w-full py-2 border-gray-600 border-b-2 outline-none`}
             value={value}
-            onChange={e => handleChange(e)}
+            onChange={handleChange}
             onFocus={this.onFocus}
+            onBlur={this.onFocusOut}
             error={error}
           />
           {error && <div className="text-red-600 text-xs text-left mt-1">{error}</div>}

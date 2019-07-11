@@ -63,6 +63,7 @@
     ],
     "import/no-named-as-default": 0,
     "selector-class-pattern": null,
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
     "jsx-a11y/anchor-is-valid": [ "error", {
       "components": [ "Link" ],
       "specialLink": [ "to" ]
