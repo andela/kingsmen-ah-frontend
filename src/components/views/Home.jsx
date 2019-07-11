@@ -1,9 +1,5 @@
 import React from 'react';
 
 export default function Home() {
-  return (
-    <div>
-      <h1>This is the Home page</h1>
-    </div>
-  );
+  return <div className='bg-gray-100 font-sans w-full min-h-screen m-0' />;
 }

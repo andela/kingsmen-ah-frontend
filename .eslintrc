@@ -62,7 +62,11 @@
       }
     ],
     "import/no-named-as-default": 0,
-    "selector-class-pattern": null
+    "selector-class-pattern": null,
+    "jsx-a11y/anchor-is-valid": [ "error", {
+      "components": [ "Link" ],
+      "specialLink": [ "to" ]
+    }]
   },
   "settings": {
     "import/resolver": {

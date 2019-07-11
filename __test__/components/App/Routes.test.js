@@ -33,7 +33,7 @@ describe('Routes', () => {
         expect(wrapper.find('Home')).toBeTruthy();
     });
 
-    it('should render login page', () => {
+    it('should render not found page', () => {
         const comp = (
           <Provider store={store}>
             <BrowserRouter>

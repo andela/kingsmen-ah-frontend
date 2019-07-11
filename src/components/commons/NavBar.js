@@ -5,7 +5,7 @@ import './index.scss';
 
 function NavBar() {
   return (
-    <div className="bg-blue">
+    <div className="bg-blue-700">
       <div className="container mx-auto max-w-6xl overflow-y-scroll">
         <div className="flex items-center justify-center text-white h-full">
           <ul className="mx-4">
