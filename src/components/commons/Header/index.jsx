@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import classname from 'classnames';
 import logo from '@base/img/logo.png';
+import { faSearch } from '@fortawesome/fontawesome-free-solid';
 import Button from '../utilities/Button';
-import '../index.scss';
+import FontAwesome from '../utilities/FontAwesome';
 
 export default class Header extends Component {
   constructor(props) {
@@ -17,32 +18,26 @@ export default class Header extends Component {
   }
 
   authHeaderButtons = avatar => {
-    const { showSearchBar } = this.state;
     return (
       <Fragment>
-        {showSearchBar ? (
-          <input type='text' className='mr-8' placeholder='Search...' />
-        ) : (
-          <button
-            type='button'
-            className='text-blue-600 cursor-pointer'
-            onClick={this.showSearchBar.bind(this)}
-          >
-            <i className='fa fa-search fa-lg text-gray-600 mr-4 thin' />
-          </button>
-        )}
-
-        <button
-          type='button'
-          className='text-blue-600 cursor-pointer'
-          onClick={this.showProfileDropDown.bind(this)}
-        >
-          <img
-            src={avatar}
-            alt='ProfileImage'
-            className='rounded-full w-10 h-10'
+        <div className='flex items-center'>
+          <FontAwesome
+            type={faSearch}
+            styleClass='m-2 text-gray-500 mr-4 cursor-pointer text-2xl'
+            role='presentation'
+            onKeyDown={this.showSearchBar}
+            onClick={this.showSearchBar}
           />
-        </button>
+        </div>
+
+        <img
+          src={avatar}
+          alt='ProfileImage'
+          className='rounded-full w-10 h-10 text-blue-600 cursor-pointer block'
+          role='presentation'
+          onKeyDown={this.showProfileDropDown}
+          onClick={this.showProfileDropDown}
+        />
       </Fragment>
     );
   };
@@ -59,27 +54,32 @@ export default class Header extends Component {
     </Fragment>
   );
 
-  showSearchBar() {
+  showSearchBar = () => {
     const { showSearchBar } = this.state;
-    this.setState({ showSearchBar: !showSearchBar });
-  }
 
-  toggleHeader() {
+    this.setState({
+      showSearchBar: !showSearchBar,
+      authHidden: showSearchBar ? true : false
+    });
+  };
+
+  toggleHeader = () => {
     const { hidden } = this.state;
     this.setState({
       hidden: !hidden
     });
-  }
+  };
 
-  showProfileDropDown() {
-    const { authHidden } = this.state;
+  showProfileDropDown = () => {
+    const { authHidden, showSearchBar } = this.state;
     this.setState({
-      authHidden: !authHidden
+      authHidden: showSearchBar ? false : !authHidden,
+      showSearchBar: false
     });
-  }
+  };
 
   render() {
-    const { hidden, authHidden } = this.state;
+    const { hidden, authHidden, showSearchBar } = this.state;
     const { user, profile } = this.props;
     const { avatar, firstname, lastname } = profile;
     const { username, isAuthenticated } = user;
@@ -108,13 +108,13 @@ export default class Header extends Component {
                   : this.authHeaderButtons(avatar)}
               </div>
 
-              <div className='sm:hidden cursor-pointer'>
+              <div className='flex sm:hidden cursor-pointer'>
                 {!isAuthenticated ? (
                   <svg
                     xmlns='http://www.w3.org/2000/svg'
                     viewBox='0 0 512 512'
                     className='w-6 h-6 text-blue-600 cursor-pointer'
-                    onClick={this.toggleHeader.bind(this)}
+                    onClick={this.toggleHeader}
                   >
                     <path d='M64 384h384v-42.666H64V384zm0-106.666h384v-42.667H64v42.667zM64 128v42.665h384V128H64z' />
                   </svg>
@@ -145,7 +145,7 @@ export default class Header extends Component {
         >
           <div className='tooltip container' />
           <div className='flex justify-between items-center pt-2 font-sans text-sm'>
-            {isAuthenticated ? (
+            {isAuthenticated && !showSearchBar ? (
               <div className='p-2 px-2 sm:px-6  w-full'>
                 <Link to={`/profile/${username}`}>
                   <div className='border-b pb-4 md:flex lg:flex flex-wrap'>
@@ -177,6 +177,17 @@ export default class Header extends Component {
                   Sign out
                 </Link>
               </div>
+            ) : (
+              ''
+            )}
+
+            {isAuthenticated && showSearchBar ? (
+              <input
+                type='text'
+                className='mr-4 resize-x w-full ml-4 mb-2'
+                placeholder='Search...'
+                autoFocus
+              />
             ) : (
               ''
             )}

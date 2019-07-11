@@ -13,19 +13,16 @@ $modal-bg: rgba(52, 54, 66, 0.9);
   visibility: hidden;
   width: 100%;
   z-index: 21;
-}
 
-.modal.modal.is-visible {
-  opacity: 1;
-  transition: opacity 0.3s 0, visibility 0 0;
-  visibility: visible;
-  -webkit-transition: opacity 0.3s 0, visibility 0 0;
-  -moz-transition: opacity 0.3s 0,
-  visibility 0 0;
-}
+  &.is-visible {
+    opacity: 1;
+    transition: opacity 0.3s 0, visibility 0 0;
+    visibility: visible;
+  }
 
-.modal.is-visible .modal-container {
-  transform: translateY(0);
+  &.modal-container {
+    transform: translateY(0);
+  }
 }
 
 .modal-container {

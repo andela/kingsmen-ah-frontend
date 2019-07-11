@@ -24,6 +24,11 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader'
+      },
+      {
         enforce: 'pre',
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
@@ -37,12 +42,7 @@ module.exports = {
         ]
       },
       {
-        test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
-        loader: 'babel-loader'
-      },
-      {
-        test: /\.(css|scss|sass)$/i,
+        test: /\.(css|scss|sass)/i,
         use: [
           MiniCssExtractPlugin.loader,
           // { loader: 'style-loader' },
