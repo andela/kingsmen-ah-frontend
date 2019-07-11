@@ -10,15 +10,15 @@ function NavBar() {
         <div className="flex items-center justify-center text-white h-full">
           <ul className="mx-4">
             <li className="flex items-center text-gray-400 h-12 text-sm uppercase capitalize">
-              <Link to="/" className="active mx-3 text-white">Home</Link>
-              <Link to="/" className="mx-3">Family</Link>
-              <Link to="/" className="mx-3">Family</Link>
-              <Link to="/" className="mx-3">Family</Link>
-              <Link to="/" className="mx-3">Family</Link>
-              <Link to="/" className="mx-3">Family</Link>
-              <Link to="/" className="mx-3">Family</Link>
-              <Link to="/" className="mx-3">Family</Link>
-              <Link to="/" className="mx-3">Family</Link>
+              <Link to="/tags" className="active mx-3 text-white">Home</Link>
+              <Link to="/tags" className="mx-3">Family</Link>
+              <Link to="/tags" className="mx-3">Family</Link>
+              <Link to="/tags" className="mx-3">Family</Link>
+              <Link to="/tags" className="mx-3">Family</Link>
+              <Link to="/tags" className="mx-3">Family</Link>
+              <Link to="/tags" className="mx-3">Family</Link>
+              <Link to="/tags" className="mx-3">Family</Link>
+              <Link to="/tags" className="mx-3">Family</Link>
             </li>
           </ul>
         </div>
