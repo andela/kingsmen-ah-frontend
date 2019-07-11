@@ -19,13 +19,13 @@ export default function ProfileCard({ time, name, averageRating, src }) {
                 alt="profile"
               />
               <div className="flex content-center flex-wrap px-2 p-4 ">
-                <p className="text-black text-sm bold font-sans w-full">
+                <div className="text-black text-sm bold font-sans w-full">
                   {name}
-                </p>
+                </div>
                 <ReadTime time={time} />
-                <p className="text-black text-sm bold font-sans w-full">
+                <div className="text-black text-sm bold font-sans w-full">
                   <DisplayStar averageRating={averageRating} />
-                </p>
+                </div>
               </div>
             </div>
           </div>

@@ -1,63 +1,63 @@
-import React, { Fragment } from "react";
+import React, { div } from "react";
 import PropTypes from "prop-types";
 
 export default function DisplayStar({ averageRating }) {
   const starRating = Math.floor(parseInt(averageRating, 10));
   if (starRating === 4) {
     return (
-      <Fragment>
+      <div>
         <i className="fa fa-star" />
         <i className="fa fa-star" />
         <i className="fa fa-star" />
         <i className="fa fa-star" />
         <i className="fa fa-star-o" />
-      </Fragment>
+      </div>
     );
   }
   if (starRating === 3) {
     return (
-      <Fragment>
+      <div>
         <i className="fa fa-star" />
         <i className="fa fa-star" />
         <i className="fa fa-star" />
         <i className="fa fa-star-o" />
         <i className="fa fa-star-o" />
-      </Fragment>
+      </div>
     );
   }
   if (starRating === 2) {
     return (
-      <Fragment>
+      <div>
         <i className="fa fa-star" />
         <i className="fa fa-star" />
         <i className="fa fa-star-o" />
         <i className="fa fa-star-o" />
         <i className="fa fa-star-o" />
-      </Fragment>
+      </div>
     );
   }
   if (starRating === 1) {
     return (
-      <Fragment>
+      <div>
         <i className="fa fa-star" />
         <i className="fa fa-star-o" />
         <i className="fa fa-star-o" />
         <i className="fa fa-star-o" />
         <i className="fa fa-star-o" />
-      </Fragment>
+      </div>
     );
   }
   if (starRating === 0) {
-    return <Fragment />;
+    return <div />;
   }
   return (
-    <Fragment>
+    <div>
       <i className="fa fa-star" />
       <i className="fa fa-star" />
       <i className="fa fa-star" />
       <i className="fa fa-star" />
       <i className="fa fa-star" />
-    </Fragment>
+    </div>
   );
 }
 
