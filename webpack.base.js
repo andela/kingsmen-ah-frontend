@@ -1,12 +1,11 @@
 const path = require('path');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   entry: './src/index.jsx',
   output: {
     filename: 'index_bundle.js',
     path: path.join(__dirname, './dist'),
-    publicPath: '/',
+    publicPath: '/'
   },
   resolve: {
     extensions: ['.jsx', '.js'],
@@ -26,12 +25,14 @@ module.exports = {
         enforce: 'pre',
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: [{
-          options: {
-            eslintPath: require.resolve('eslint'),
-          },
-          loader: 'eslint-loader'
-        }]
+        use: [
+          {
+            options: {
+              eslintPath: require.resolve('eslint')
+            },
+            loader: 'eslint-loader'
+          }
+        ]
       },
       {
         test: /\.(js|jsx)$/,
@@ -49,12 +50,12 @@ module.exports = {
       {
         test: /\.(png|svg|jpg|gif|woff|woff2|eot|ttf|otf)$/,
         exclude: /node_modules/,
-        use: ['file-loader'],
+        use: ['file-loader']
       },
       {
         test: /\.svg$/,
-        loader: 'raw-loader',
+        loader: 'raw-loader'
       }
     ]
-  },
+  }
 };

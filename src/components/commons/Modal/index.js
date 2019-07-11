@@ -19,7 +19,7 @@ class Modal extends Component {
     return (
       <div className={classNames('modal flex', { 'is-visible': toggle })}>
         <div className="modal-container text-center relative justify-center items-center">
-          <button type="button" className="absolute modal-exit bg-white rounded-full py-1 px-3 shadow-lg cursor-pointer flex hover:bg-gray-300" onClick={e => exitModal(e)}>
+          <button type="button" className="absolute modal-exit bg-white rounded-full py-1 px-3 shadow-lg cursor-pointer flex hover:bg-gray-300" onClick={exitModal}>
             <span className="icon ion-md-cancel">x</span>
           </button>
           <div className="modal_title">
