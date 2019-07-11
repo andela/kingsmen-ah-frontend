@@ -3,3 +3,21 @@ $background_color_1 :rgba(196, 196, 196, 0.4);
 .bg-gray {
   background: $background_color_1;
 }
+
+.center-item{
+  width: 75%;
+  margin: 0 auto;
+}
+.small-font-size {
+  font-size: 0.9rem;
+  padding: 0 5px;
+}
+.hover-b:hover{
+  border-bottom: 2px solid $background_color_1;
+  transition: 0.8s;
+}
+.active {
+  color: black;
+  border-bottom: 2px solid black;
+  font-weight: bold;
+}

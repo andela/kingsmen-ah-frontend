@@ -6,3 +6,4 @@ export default function Profile() {
     <ProfileCard time='3 mins' name='John Doe' averageRating={4} src='https://i.imgur.com/RXZayES.jpg' />
   );
 }
+ 
