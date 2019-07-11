@@ -1,49 +1,47 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 export function Search({
   title, body, name, searchClass, createdAt
 }) {
   return (
-    <Fragment>
-      <div className="max-w-lg mx-auto mt-16 mb-16 rounded overflow-hidden border border-4 border-gray-600">
-        <div className={searchClass}>
-          <p className="text-xl font-bold mb-2">
-            {title}
-          </p>
-          <p className="text-gray-700 text-base mb-2">{body}</p>
-          <p className="text-gray-600 text-xs">
-            {name}
-            {' '}
-            {createdAt}
-          </p>
-        </div>
-
-        <div className={searchClass}>
-          <p className="text-xl font-bold mb-2">
-            {title}
-          </p>
-          <p className="text-gray-700 text-base mb-2">{body}</p>
-          <p className="text-gray-600 text-xs">
-            {name}
-            {' '}
-            {createdAt}
-          </p>
-        </div>
-
-        <div className={searchClass}>
-          <p className="text-xl font-bold mb-2">
-            {title}
-          </p>
-          <p className="text-gray-700 text-base mb-2">{body}</p>
-          <p className="text-gray-600 text-xs">
-            {name}
-            {' '}
-            {createdAt}
-          </p>
-        </div>
+    <div className="max-w-lg mx-auto mt-16 mb-16 rounded overflow-hidden border border-4 border-gray-600">
+      <div className={searchClass}>
+        <p className="text-xl font-bold mb-2">
+          {title}
+        </p>
+        <p className="text-gray-700 text-base mb-2">{body}</p>
+        <p className="text-gray-600 text-xs">
+          {name}
+          {' '}
+          {createdAt}
+        </p>
       </div>
-    </Fragment>
+
+      <div className={searchClass}>
+        <p className="text-xl font-bold mb-2">
+          {title}
+        </p>
+        <p className="text-gray-700 text-base mb-2">{body}</p>
+        <p className="text-gray-600 text-xs">
+          {name}
+          {' '}
+          {createdAt}
+        </p>
+      </div>
+
+      <div className={searchClass}>
+        <p className="text-xl font-bold mb-2">
+          {title}
+        </p>
+        <p className="text-gray-700 text-base mb-2">{body}</p>
+        <p className="text-gray-600 text-xs">
+          {name}
+          {' '}
+          {createdAt}
+        </p>
+      </div>
+    </div>
   );
 }
 
