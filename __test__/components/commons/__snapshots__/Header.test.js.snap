@@ -36,48 +36,44 @@ exports[`<Header /> should render the Header component correctly 1`] = `
         <div
           className="hidden sm:flex sm:items-center"
         >
-          <button
-            className="text-blue-600 cursor-pointer"
-            onClick={[Function]}
-            type="button"
+          <div
+            className="flex items-center"
           >
             <i
-              className="fa fa-search fa-lg text-gray-600 mr-4 thin"
+              className="fa fa-search fa-lg text-gray-600 mr-4 cursor-pointer"
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              role="presentation"
             />
-          </button>
-          <button
-            className="text-blue-600 cursor-pointer"
+          </div>
+          <img
+            alt="ProfileImage"
+            className="rounded-full w-10 h-10 text-blue-600 cursor-pointer block"
             onClick={[Function]}
-            type="button"
-          >
-            <img
-              alt="ProfileImage"
-              className="rounded-full w-10 h-10"
-            />
-          </button>
+            onKeyDown={[Function]}
+            role="presentation"
+          />
         </div>
         <div
-          className="sm:hidden cursor-pointer"
+          className="flex sm:hidden cursor-pointer"
         >
-          <button
-            className="text-blue-600 cursor-pointer"
-            onClick={[Function]}
-            type="button"
+          <div
+            className="flex items-center"
           >
             <i
-              className="fa fa-search fa-lg text-gray-600 mr-4 thin"
+              className="fa fa-search fa-lg text-gray-600 mr-4 cursor-pointer"
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              role="presentation"
             />
-          </button>
-          <button
-            className="text-blue-600 cursor-pointer"
+          </div>
+          <img
+            alt="ProfileImage"
+            className="rounded-full w-10 h-10 text-blue-600 cursor-pointer block"
             onClick={[Function]}
-            type="button"
-          >
-            <img
-              alt="ProfileImage"
-              className="rounded-full w-10 h-10"
-            />
-          </button>
+            onKeyDown={[Function]}
+            role="presentation"
+          />
         </div>
       </div>
       <div
