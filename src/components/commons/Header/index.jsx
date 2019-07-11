@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import classname from 'classnames';
 import logo from '@base/img/logo.png';
 import Button from '../utilities/Button';
+import FontAwesome from '../utilities/FontAwesome';
 import '../index.scss';
 
 export default class Header extends Component {
@@ -20,8 +21,9 @@ export default class Header extends Component {
     return (
       <Fragment>
         <div className='flex items-center'>
-          <i
-            className='fa fa-search fa-lg text-gray-600 mr-4 cursor-pointer'
+          <FontAwesome
+            type='faSearch'
+            className='fa-lg text-gray-600 mr-4 cursor-pointer'
             role='presentation'
             onKeyDown={this.showSearchBar}
             onClick={this.showSearchBar}

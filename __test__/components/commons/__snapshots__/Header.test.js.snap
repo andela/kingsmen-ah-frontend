@@ -39,11 +39,13 @@ exports[`<Header /> should render the Header component correctly 1`] = `
           <div
             className="flex items-center"
           >
-            <i
-              className="fa fa-search fa-lg text-gray-600 mr-4 cursor-pointer"
+            <FontAwesome
+              className="fa-lg text-gray-600 mr-4 cursor-pointer"
               onClick={[Function]}
               onKeyDown={[Function]}
               role="presentation"
+              styleClass="fa fa-edit mr-2 text-gray-700"
+              type="faSearch"
             />
           </div>
           <img
@@ -60,11 +62,13 @@ exports[`<Header /> should render the Header component correctly 1`] = `
           <div
             className="flex items-center"
           >
-            <i
-              className="fa fa-search fa-lg text-gray-600 mr-4 cursor-pointer"
+            <FontAwesome
+              className="fa-lg text-gray-600 mr-4 cursor-pointer"
               onClick={[Function]}
               onKeyDown={[Function]}
               role="presentation"
+              styleClass="fa fa-edit mr-2 text-gray-700"
+              type="faSearch"
             />
           </div>
           <img
