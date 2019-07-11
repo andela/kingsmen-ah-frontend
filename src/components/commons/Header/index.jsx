@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import classname from 'classnames';
 import logo from '@base/img/logo.png';
-// import { faSearch } from '@fortawesome/fontawesome-free-regular';
 import { faSearch } from '@fortawesome/fontawesome-free-solid';
 import Button from '../utilities/Button';
 import FontAwesome from '../utilities/FontAwesome';

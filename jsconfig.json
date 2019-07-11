@@ -26,6 +26,9 @@
       "@validations/*": [
         "./src/validations/*"
       ],
+      "@base/*": [
+        "./public/*"
+      ],
     }
   },
   "exclude": ["node_modules"]
