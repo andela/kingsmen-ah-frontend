@@ -4,7 +4,7 @@ import Home from '@components/views/Home';
 import Login from '@components/views/Login';
 import NotFound from '@components/views/NotFound';
 import Profile from '@components/common/profile';
-import Suggested from '@components/common/Suggested';
+import Suggested from '@components/common/CreateCommentCard';
 
 const Routes = () => (
   <Router>

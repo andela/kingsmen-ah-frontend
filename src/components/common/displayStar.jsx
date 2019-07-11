@@ -37,7 +37,7 @@ export default function DisplayStar({ averageRating }) {
     );
   }
   if (starRating === 0) {
-    return <Fragment />;
+    return <div />;
   }
   return (
     <Fragment>
