@@ -5,26 +5,26 @@
     "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
     "paths": {
-      "@actions": [
-        "src/actions"
+      "@actions/*": [
+        "./src/actions/*"
       ],
-      "@components": [
-        "src/components"
+      "@components/*": [
+        "./src/components/*"
       ],
-      "@config": [
-        "src/config"
+      "@config/*": [
+        "./src/config/*"
       ],
-      "@helpers": [
-        "src/helpers"
+      "@helpers/*": [
+        "./src/helpers/*"
       ],
-      "@reducers": [
-        "src/reducers"
+      "@reducers/*": [
+        "./src/reducers/*"
       ],
-      "@utils": [
-        "src/utils"
+      "@utils/*": [
+        "./src/utils/*"
       ],
-      "@validations": [
-        "src/validations"
+      "@validations/*": [
+        "./src/validations/*"
       ],
     }
   },
