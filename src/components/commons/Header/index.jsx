@@ -93,7 +93,7 @@ export default class Header extends Component {
                 <Link to='/'>
                   <img
                     src={logo}
-                    alt="Author's Haven Icon"
+                    alt="Authors' Haven Icon"
                     className='w-10 h-9 mr-2'
                   />
                 </Link>
