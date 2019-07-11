@@ -18,55 +18,55 @@ exports[`<NavBar /> should render the NavBar component correctly 1`] = `
         >
           <Link
             className="active mx-3 text-white"
-            to="/"
+            to="/tags"
           >
             Home
           </Link>
           <Link
             className="mx-3"
-            to="/"
+            to="/tags"
           >
             Family
           </Link>
           <Link
             className="mx-3"
-            to="/"
+            to="/tags"
           >
             Family
           </Link>
           <Link
             className="mx-3"
-            to="/"
+            to="/tags"
           >
             Family
           </Link>
           <Link
             className="mx-3"
-            to="/"
+            to="/tags"
           >
             Family
           </Link>
           <Link
             className="mx-3"
-            to="/"
+            to="/tags"
           >
             Family
           </Link>
           <Link
             className="mx-3"
-            to="/"
+            to="/tags"
           >
             Family
           </Link>
           <Link
             className="mx-3"
-            to="/"
+            to="/tags"
           >
             Family
           </Link>
           <Link
             className="mx-3"
-            to="/"
+            to="/tags"
           >
             Family
           </Link>

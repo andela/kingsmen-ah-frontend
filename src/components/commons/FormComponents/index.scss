@@ -1,13 +1,15 @@
+$value: rgb(145, 145, 145);
+
 label {
+  left: 0;
   position: absolute;
   top: 50%;
-  left: 0;
   transform: translateY(-50%);
   transition: all .3s ease-in-out;
 }
 
 .has-value {
-  top: -7px;
+  color: $value;
   font-size: .8em;
-  color: rgb(145, 145, 145);
+  top: -7px;
 }
