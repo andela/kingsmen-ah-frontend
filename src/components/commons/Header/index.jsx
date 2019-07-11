@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import classname from 'classnames';
 import logo from '@base/img/logo.png';
 // import { faSearch } from '@fortawesome/fontawesome-free-regular';
+import { faSearch } from '@fortawesome/fontawesome-free-solid';
 import Button from '../utilities/Button';
 import FontAwesome from '../utilities/FontAwesome';
 import '../index.scss';
@@ -23,7 +24,7 @@ export default class Header extends Component {
       <Fragment>
         <div className='flex items-center'>
           <FontAwesome
-            type='faSearch'
+            type={faSearch}
             styleClass='m-2 text-gray-500 mr-4 cursor-pointer text-2xl'
             role='presentation'
             onKeyDown={this.showSearchBar}
