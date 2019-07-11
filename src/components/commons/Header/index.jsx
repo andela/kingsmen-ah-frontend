@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import classname from 'classnames';
 import logo from '@base/img/logo.png';
+// import { faSearch } from '@fortawesome/fontawesome-free-regular';
 import Button from '../utilities/Button';
 import FontAwesome from '../utilities/FontAwesome';
 import '../index.scss';
@@ -23,7 +24,7 @@ export default class Header extends Component {
         <div className='flex items-center'>
           <FontAwesome
             type='faSearch'
-            className='fa-lg text-gray-600 mr-4 cursor-pointer'
+            styleClass='m-2 text-gray-500 mr-4 cursor-pointer text-2xl'
             role='presentation'
             onKeyDown={this.showSearchBar}
             onClick={this.showSearchBar}
