@@ -28,18 +28,18 @@ $tool-tip-color: rgb(20, 20, 20);
 
 button,
 input {
-  outline: none !important;
+  outline: none;
 }
 
 .thin {
-  font-weight: lighter !important;
+  font-weight: lighter;
 }
 
 .tooltip {
   position: absolute;
   top: -10px;
   right: 10%;
-  width: 20px !important;
+  width: 20px;
   height: 20px;
   background: $tool-tip-color;
   animation: flip 1000ms linear normal infinite;
