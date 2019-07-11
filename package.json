@@ -30,6 +30,7 @@
   },
   "homepage": "https://github.com/andela/kingsmen-ah-frontend#readme",
   "devDependencies": {
+    "@editorjs/editorjs": "^2.15.0",
     "cypress": "^3.3.2",
     "eslint": "^5.16.0",
     "eslint-config-airbnb": "^17.1.1",
