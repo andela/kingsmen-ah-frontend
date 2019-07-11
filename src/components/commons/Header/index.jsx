@@ -7,7 +7,6 @@ import logo from '@base/img/logo.png';
 import { faSearch } from '@fortawesome/fontawesome-free-solid';
 import Button from '../utilities/Button';
 import FontAwesome from '../utilities/FontAwesome';
-import '../index.scss';
 
 export default class Header extends Component {
   constructor(props) {
