@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from '@components/views/Home';
 import Login from '@components/views/Login';
-import NotFound from '@components/views/NotFound';
+import ErrorPage from '@components/views/ErrorPage';
 import Profile from '@components/common/profile';
 import Suggested from '@components/common/CreateCommentCard';
 
@@ -13,7 +13,7 @@ const Routes = () => (
       <Route exact path="/comment" component={Suggested} />
       <Route exact path="/login" component={Login} />
       <Route exact path="/profile" component={Profile} />
-      <Route path="/" component={NotFound} />
+      <Route path="/" component={ErrorPage} />
     </Switch>
   </Router>
 );

@@ -1,3 +1,13 @@
 {
-  "root": "dist/"
+  "root": "dist/",
+  "routes": {
+    "/*.html": "index.html"
+  },
+  "headers": {
+    "/**": {
+      "Access-Control-Allow-Origin": "*"
+    }
+  },
+  "clean_urls": true,
+   "error_page": "/"
 }
