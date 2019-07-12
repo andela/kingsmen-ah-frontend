@@ -1,6 +1,6 @@
 $base-color: #335bcf;
 $base-hover-color: rgb(50, 82, 177);
-$tool-tip-color: rgb(20, 20, 20); 
+$tool-tip-color: rgb(20, 20, 20);
 
 .rounded {
   &.text-blue-700 {
@@ -46,7 +46,8 @@ input {
   }
 }
 
-.bg-transparent, .text-blue-700 {
+.bg-transparent,
+.text-blue-700 {
   color: $base-color;
 }
 
