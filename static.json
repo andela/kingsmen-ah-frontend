@@ -1,15 +1,7 @@
 {
   "root": "dist/",
   "routes": {
-    "/*.html": "index.html",
-    "/*.js": "/",
-    "/*.css": "/"
+    "/*.html": "index.html"
   },
-  "headers": {
-    "/**": {
-      "Access-Control-Allow-Origin": "*"
-    }
-  },
-  "clean_urls": true,
-   "error_page": "/"
+  "clean_urls": false,
 }

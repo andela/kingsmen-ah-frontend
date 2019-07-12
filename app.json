@@ -7,7 +7,7 @@
   "env": {
     "HEROKU_APP_NAME": {
       "required": true
-    },
+    }
   },
   "buildpacks": [
     {
