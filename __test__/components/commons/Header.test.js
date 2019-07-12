@@ -16,7 +16,6 @@ const props = {
 
 const setup = () => {
   const wrapper = shallow(<Header {...props} />);
-  console.log(wrapper);
   return wrapper;
 };
 
