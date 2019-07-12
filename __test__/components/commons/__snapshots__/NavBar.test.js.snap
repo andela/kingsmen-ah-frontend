@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<NavBar /> should render the NavBar component correctly 1`] = `
+<div
+  className="bg-blue-700"
+>
+  <div
+    className="container mx-auto max-w-6xl overflow-y-scroll"
+  >
+    <div
+      className="flex items-center justify-center text-white h-full"
+    >
+      <ul
+        className="mx-4"
+      >
+        <li
+          className="flex items-center text-gray-400 h-12 text-sm uppercase capitalize"
+        >
+          <Link
+            className="active mx-3 text-white"
+            to="/tags"
+          >
+            Home
+          </Link>
+          <Link
+            className="mx-3"
+            to="/tags"
+          >
+            Family
+          </Link>
+          <Link
+            className="mx-3"
+            to="/tags"
+          >
+            Family
+          </Link>
+          <Link
+            className="mx-3"
+            to="/tags"
+          >
+            Family
+          </Link>
+          <Link
+            className="mx-3"
+            to="/tags"
+          >
+            Family
+          </Link>
+          <Link
+            className="mx-3"
+            to="/tags"
+          >
+            Family
+          </Link>
+          <Link
+            className="mx-3"
+            to="/tags"
+          >
+            Family
+          </Link>
+          <Link
+            className="mx-3"
+            to="/tags"
+          >
+            Family
+          </Link>
+          <Link
+            className="mx-3"
+            to="/tags"
+          >
+            Family
+          </Link>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;

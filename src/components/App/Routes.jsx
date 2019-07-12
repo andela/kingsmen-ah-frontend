@@ -5,6 +5,7 @@ import Login from '@components/views/Login';
 import NotFound from '@components/views/NotFound';
 import Profile from '@components/common/profile';
 import Suggested from '@components/common/CreateCommentCard';
+import Signup from '@components/views/Signup';
 
 const Routes = () => (
   <Router>
@@ -12,6 +13,7 @@ const Routes = () => (
       <Route exact path="/" component={Home} />
       <Route exact path="/comment" component={Suggested} />
       <Route exact path="/login" component={Login} />
+      <Route exact path="/register" component={Signup} />
       <Route exact path="/profile" component={Profile} />
       <Route path="/" component={NotFound} />
     </Switch>
