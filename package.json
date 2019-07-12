@@ -101,7 +101,7 @@
     "webpack-cli": "^3.3.5",
     "webpack-merge": "^4.2.1"
   },
-"engines": {
+  "engines": {
     "node": "10.15.3",
     "npm": "6.10.0"
   },
