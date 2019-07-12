@@ -1,7 +1,9 @@
 {
   "root": "dist/",
   "routes": {
-    "/*.html": "index.html"
+    "/*.html": "index.html",
+    "/*.js": "/",
+    "/*.css": "/"
   },
   "headers": {
     "/**": {
