@@ -8,7 +8,7 @@ function Button({ type, text, color, stretch, onClick }) {
     <button
       type='submit'
       className={classnames(
-        'bg-transparent hover:text-white py-2 px-4 border  rounded mr-2 text-sm',
+        'bg-transparent hover:text-white py-2 px-4 border rounded mr-2 text-sm',
         {
           [`hover:bg-${color}-700 text-${color}-700 border-${color}-700 hover:border-transparent ${
             stretch ? 'block w-full' : ''

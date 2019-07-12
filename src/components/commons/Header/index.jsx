@@ -1,22 +1,37 @@
 import React, { Component, Fragment } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import classname from 'classnames';
 import logo from '@base/img/logo.png';
-// import { faSearch } from '@fortawesome/fontawesome-free-regular';
 import { faSearch } from '@fortawesome/fontawesome-free-solid';
+import Modal from '@components/commons/Modal';
+import LoginPage from '@components/views/Login';
 import Button from '../utilities/Button';
 import FontAwesome from '../utilities/FontAwesome';
 
-export default class Header extends Component {
+class Header extends Component {
   constructor(props) {
     super(props);
     this.state = {
       hidden: true,
       authHidden: true,
-      showSearchBar: false
+      showSearchBar: false,
+      showSignInModal: false
     };
   }
+
+  componentWillReceiveProps(nextProps) {
+    const { errors, isAuthenticated } = nextProps;
+    if (!errors.global && isAuthenticated) {
+      this.setState({ showSignInModal: false });
+    }
+  }
+
+  toggleSignInDialog = () => {
+    const { showSignInModal } = this.state;
+    this.setState({ showSignInModal: !showSignInModal });
+  };
 
   authHeaderButtons = avatar => {
     return (
@@ -45,7 +60,12 @@ export default class Header extends Component {
 
   guestHeaderButtons = () => (
     <Fragment>
-      <Button text='Sign In' type='regular' color='blue' onClick={() => {}} />
+      <Button
+        text='Sign In'
+        type='regular'
+        color='blue'
+        onClick={this.toggleSignInDialog}
+      />
       <Button
         text='Get Started'
         type='outlined'
@@ -80,10 +100,10 @@ export default class Header extends Component {
   };
 
   render() {
-    const { hidden, authHidden, showSearchBar } = this.state;
-    const { user, profile } = this.props;
+    const { hidden, authHidden, showSearchBar, showSignInModal } = this.state;
+    const { user, isAuthenticated, profile } = this.props;
     const { avatar, firstname, lastname } = profile;
-    const { username, isAuthenticated } = user;
+    const { username } = user;
 
     return (
       <Fragment>
@@ -185,7 +205,7 @@ export default class Header extends Component {
             {isAuthenticated && showSearchBar ? (
               <input
                 type='text'
-                className='mr-4 resize-x w-full ml-4 mb-2'
+                className='mr-4 resize-x w-full ml-4 mb-2 input'
                 placeholder='Search...'
                 autoFocus
               />
@@ -194,6 +214,18 @@ export default class Header extends Component {
             )}
           </div>
         </div>
+
+        {showSignInModal ? (
+          <Modal
+            title='Welcome Back'
+            exitModal={this.toggleSignInDialog}
+            toggle
+          >
+            {<LoginPage />}
+          </Modal>
+        ) : (
+          ''
+        )}
       </Fragment>
     );
   }
@@ -201,12 +233,30 @@ export default class Header extends Component {
 
 Header.propTypes = {
   user: PropTypes.shape({
-    isAuthenticated: PropTypes.bool,
     username: PropTypes.string
   }).isRequired,
   profile: PropTypes.shape({
     firstname: PropTypes.string,
     lastname: PropTypes.string,
     avatar: PropTypes.string
-  }).isRequired
+  }).isRequired,
+  isAuthenticated: PropTypes.bool.isRequired,
+  errors: PropTypes.shape({
+    global: PropTypes.string,
+    email: PropTypes.string,
+    password: PropTypes.string
+  }).isRequired,
+  history: PropTypes.shape({}).isRequired
 };
+
+const mapStateToProps = state => ({
+  user: state.auth.user,
+  profile: state.auth.profile,
+  isAuthenticated: state.auth.isAuthenticated,
+  errors: state.auth.errors
+});
+
+export default connect(
+  mapStateToProps,
+  {}
+)(withRouter(Header));
