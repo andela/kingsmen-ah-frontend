@@ -1,3 +1,5 @@
-const initiatState = {};
+const initialState = {
 
-export default (state = initiatState) => state;
+};
+
+export default (state = initialState) => state;
