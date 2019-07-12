@@ -4,7 +4,7 @@ import { logo } from '@base/img/logo.png';
 
 const props = {
   user: {
-    isAuthenticated: true,
+    isAuthenticated: false,
     username: 'kingsmen'
   },
   profile: {
@@ -16,6 +16,7 @@ const props = {
 
 const setup = () => {
   const wrapper = shallow(<Header {...props} />);
+  console.log(wrapper);
   return wrapper;
 };
 
