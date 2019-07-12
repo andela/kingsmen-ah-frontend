@@ -1,0 +1,25 @@
+$dark: rgba(0,0,0,0.5);
+
+.ce-block__content {
+  margin: 0 !important;
+}
+
+.article-container {
+  width: 70%;
+}
+
+.textarea {
+  border-left: 1px solid $dark;
+  font-family: Georgia;
+  font-size: 2em;
+  letter-spacing: 2px;
+  outline: none;
+  padding: 10px;
+  width: 100%;
+}
+
+.tagClass {
+  background: $dark;
+  border-radius: 5px;
+  padding: 10px 15px;
+}

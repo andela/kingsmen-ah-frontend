@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
-import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
+import Portal from '@components/commons/utilities/Portal';
 import './index.scss';
 
 class Modal extends Component {
@@ -18,7 +18,7 @@ class Modal extends Component {
       children, title, toggle, exitModal
     } = this.props;
     return (
-      createPortal(
+      <Portal>
         <div className={classNames('modal flex', { 'is-visible': toggle })}>
           <div className="modal-container text-center relative justify-center items-center">
             <div role="presentation" className="absolute modal-exit bg-white rounded-full py-1 px-3 shadow-lg cursor-pointer flex hover:bg-gray-300" onClick={exitModal}>
@@ -31,9 +31,8 @@ class Modal extends Component {
               {children}
             </div>
           </div>
-        </div>,
-        document.getElementById('app')
-      )
+        </div>
+      </Portal>
     );
   }
 }

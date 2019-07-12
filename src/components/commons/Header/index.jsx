@@ -146,7 +146,7 @@ export default class Header extends Component {
           <div className='tooltip container' />
           <div className='flex justify-between items-center pt-2 font-sans text-sm'>
             {isAuthenticated && !showSearchBar ? (
-              <div className='p-2 px-2 sm:px-6  w-full'>
+              <div className='p-2 px-2 sm:px-6 w-full z-20'>
                 <Link to={`/profile/${username}`}>
                   <div className='border-b pb-4 md:flex lg:flex flex-wrap'>
                     <img
@@ -184,7 +184,7 @@ export default class Header extends Component {
             {isAuthenticated && showSearchBar ? (
               <input
                 type='text'
-                className='mr-4 resize-x w-full ml-4 mb-2'
+                className='mr-4 resize-x w-full ml-4 mb-2 z-20'
                 placeholder='Search...'
                 autoFocus
               />
