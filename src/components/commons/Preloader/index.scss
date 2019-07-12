@@ -1,6 +1,12 @@
 $loader-bg: rgb(233, 228, 228);
 
 .main-preloader {
+  div {
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
   background: $loader-bg;
   bottom: 0;
   height: 100vh;
