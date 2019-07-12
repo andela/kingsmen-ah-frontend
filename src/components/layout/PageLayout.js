@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import PropTyes from 'prop-types';
+import PropTypes from 'prop-types';
 import Header from '@components/commons/Header';
 
 const user = {
@@ -25,7 +25,10 @@ function PageLayout(props) {
 }
 
 PageLayout.propTypes = {
-  children: PropTyes.element.isRequired
-};
+  children: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.arrayOf
+  ]).isRequired
+}
 
 export default PageLayout;
