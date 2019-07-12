@@ -1,9 +1,402 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Login /> should render the Login component correctly 1`] = `
-<div>
-  <h1>
-    This is the login page
-  </h1>
-</div>
+<Provider
+  store={
+    Object {
+      "dispatch": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+      Symbol(observable): [Function],
+    }
+  }
+>
+  <BrowserRouter>
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "createHref": [Function],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <Switch>
+        <Routes
+          computedMatch={
+            Object {
+              "isExact": true,
+              "params": Object {},
+              "path": "/",
+              "url": "/",
+            }
+          }
+          dispatch={[MockFunction]}
+          location={
+            Object {
+              "hash": "",
+              "pathname": "/",
+              "search": "",
+              "state": undefined,
+            }
+          }
+        >
+          <BrowserRouter>
+            <Router
+              history={
+                Object {
+                  "action": "POP",
+                  "block": [Function],
+                  "createHref": [Function],
+                  "go": [Function],
+                  "goBack": [Function],
+                  "goForward": [Function],
+                  "length": 1,
+                  "listen": [Function],
+                  "location": Object {
+                    "hash": "",
+                    "pathname": "/",
+                    "search": "",
+                    "state": undefined,
+                  },
+                  "push": [Function],
+                  "replace": [Function],
+                }
+              }
+            >
+              <Switch>
+                <Route
+                  component={
+                    Object {
+                      "$$typeof": Symbol(react.memo),
+                      "WrappedComponent": [Function],
+                      "compare": null,
+                      "displayName": "Connect(Home)",
+                      "type": [Function],
+                    }
+                  }
+                  computedMatch={
+                    Object {
+                      "isExact": true,
+                      "params": Object {},
+                      "path": "/",
+                      "url": "/",
+                    }
+                  }
+                  exact={true}
+                  location={
+                    Object {
+                      "hash": "",
+                      "pathname": "/",
+                      "search": "",
+                      "state": undefined,
+                    }
+                  }
+                  path="/"
+                >
+                  <Connect(Home)
+                    history={
+                      Object {
+                        "action": "POP",
+                        "block": [Function],
+                        "createHref": [Function],
+                        "go": [Function],
+                        "goBack": [Function],
+                        "goForward": [Function],
+                        "length": 1,
+                        "listen": [Function],
+                        "location": Object {
+                          "hash": "",
+                          "pathname": "/",
+                          "search": "",
+                          "state": undefined,
+                        },
+                        "push": [Function],
+                        "replace": [Function],
+                      }
+                    }
+                    location={
+                      Object {
+                        "hash": "",
+                        "pathname": "/",
+                        "search": "",
+                        "state": undefined,
+                      }
+                    }
+                    match={
+                      Object {
+                        "isExact": true,
+                        "params": Object {},
+                        "path": "/",
+                        "url": "/",
+                      }
+                    }
+                  >
+                    <Home
+                      errors={Object {}}
+                      history={
+                        Object {
+                          "action": "POP",
+                          "block": [Function],
+                          "createHref": [Function],
+                          "go": [Function],
+                          "goBack": [Function],
+                          "goForward": [Function],
+                          "length": 1,
+                          "listen": [Function],
+                          "location": Object {
+                            "hash": "",
+                            "pathname": "/",
+                            "search": "",
+                            "state": undefined,
+                          },
+                          "push": [Function],
+                          "replace": [Function],
+                        }
+                      }
+                      isAuthenticated={false}
+                      location={
+                        Object {
+                          "hash": "",
+                          "pathname": "/",
+                          "search": "",
+                          "state": undefined,
+                        }
+                      }
+                      match={
+                        Object {
+                          "isExact": true,
+                          "params": Object {},
+                          "path": "/",
+                          "url": "/",
+                        }
+                      }
+                      profile={Object {}}
+                      user={Object {}}
+                    >
+                      <div
+                        className="bg-gray-100 font-sans w-full min-h-screen m-0"
+                      >
+                        <Connect(withRouter(Header))
+                          profile={Object {}}
+                          user={
+                            Object {
+                              "user": Object {
+                                "isAuthenticated": false,
+                              },
+                            }
+                          }
+                        >
+                          <withRouter(Header)
+                            errors={Object {}}
+                            isAuthenticated={false}
+                            profile={Object {}}
+                            user={Object {}}
+                          >
+                            <Header
+                              errors={Object {}}
+                              history={
+                                Object {
+                                  "action": "POP",
+                                  "block": [Function],
+                                  "createHref": [Function],
+                                  "go": [Function],
+                                  "goBack": [Function],
+                                  "goForward": [Function],
+                                  "length": 1,
+                                  "listen": [Function],
+                                  "location": Object {
+                                    "hash": "",
+                                    "pathname": "/",
+                                    "search": "",
+                                    "state": undefined,
+                                  },
+                                  "push": [Function],
+                                  "replace": [Function],
+                                }
+                              }
+                              isAuthenticated={false}
+                              location={
+                                Object {
+                                  "hash": "",
+                                  "pathname": "/",
+                                  "search": "",
+                                  "state": undefined,
+                                }
+                              }
+                              match={
+                                Object {
+                                  "isExact": true,
+                                  "params": Object {},
+                                  "path": "/",
+                                  "url": "/",
+                                }
+                              }
+                              profile={Object {}}
+                              user={Object {}}
+                            >
+                              <div
+                                className="bg-white shadow relative"
+                              >
+                                <div
+                                  className="container mx-auto px-4"
+                                >
+                                  <div
+                                    className="flex items-center justify-between py-4"
+                                  >
+                                    <div
+                                      className="flex"
+                                    >
+                                      <Link
+                                        to="/"
+                                      >
+                                        <a
+                                          href="/"
+                                          onClick={[Function]}
+                                        >
+                                          <img
+                                            alt="Authors' Haven Icon"
+                                            className="w-10 h-9 mr-2"
+                                            src={
+                                              Object {
+                                                "process": [Function],
+                                              }
+                                            }
+                                          />
+                                        </a>
+                                      </Link>
+                                      <h1
+                                        className="font-bold text-xl sm-text-base"
+                                      >
+                                        Author‘s Haven
+                                      </h1>
+                                    </div>
+                                    <div
+                                      className="hidden sm:flex sm:items-center"
+                                    >
+                                      <Button
+                                        color="blue"
+                                        onClick={[Function]}
+                                        stretch={false}
+                                        text="Sign In"
+                                        type="regular"
+                                      >
+                                        <button
+                                          className="bg-transparent hover:text-white py-2 px-4 border rounded mr-2 text-sm text-blue-700 hover:text-blue-800 border-transparent"
+                                          onClick={[Function]}
+                                          type="submit"
+                                        >
+                                          Sign In
+                                        </button>
+                                      </Button>
+                                      <Button
+                                        color="blue"
+                                        onClick={[Function]}
+                                        stretch={false}
+                                        text="Get Started"
+                                        type="outlined"
+                                      >
+                                        <button
+                                          className="bg-transparent hover:text-white py-2 px-4 border rounded mr-2 text-sm hover:bg-blue-700 text-blue-700 border-blue-700 hover:border-transparent "
+                                          onClick={[Function]}
+                                          type="submit"
+                                        >
+                                          Get Started
+                                        </button>
+                                      </Button>
+                                    </div>
+                                    <div
+                                      className="flex sm:hidden cursor-pointer"
+                                    >
+                                      <svg
+                                        className="w-6 h-6 text-blue-600 cursor-pointer"
+                                        onClick={[Function]}
+                                        viewBox="0 0 512 512"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                      >
+                                        <path
+                                          d="M64 384h384v-42.666H64V384zm0-106.666h384v-42.667H64v42.667zM64 128v42.665h384V128H64z"
+                                        />
+                                      </svg>
+                                    </div>
+                                  </div>
+                                  <div
+                                    className="block sm:hidden bg-white border-t-2 py-2 hidden"
+                                  >
+                                    <div
+                                      className="flex justify-between items-center pt-2"
+                                    >
+                                      <Button
+                                        color="blue"
+                                        onClick={[Function]}
+                                        stretch={false}
+                                        text="Sign In"
+                                        type="regular"
+                                      >
+                                        <button
+                                          className="bg-transparent hover:text-white py-2 px-4 border rounded mr-2 text-sm text-blue-700 hover:text-blue-800 border-transparent"
+                                          onClick={[Function]}
+                                          type="submit"
+                                        >
+                                          Sign In
+                                        </button>
+                                      </Button>
+                                      <Button
+                                        color="blue"
+                                        onClick={[Function]}
+                                        stretch={false}
+                                        text="Get Started"
+                                        type="outlined"
+                                      >
+                                        <button
+                                          className="bg-transparent hover:text-white py-2 px-4 border rounded mr-2 text-sm hover:bg-blue-700 text-blue-700 border-blue-700 hover:border-transparent "
+                                          onClick={[Function]}
+                                          type="submit"
+                                        >
+                                          Get Started
+                                        </button>
+                                      </Button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div
+                                className="block bg-white border-t-2 py-2 w-2/5 max-w-xs shadow-lg absolute right-0 hidden"
+                              >
+                                <div
+                                  className="tooltip container"
+                                />
+                                <div
+                                  className="flex justify-between items-center pt-2 font-sans text-sm"
+                                />
+                              </div>
+                            </Header>
+                          </withRouter(Header)>
+                        </Connect(withRouter(Header))>
+                      </div>
+                    </Home>
+                  </Connect(Home)>
+                </Route>
+              </Switch>
+            </Router>
+          </BrowserRouter>
+        </Routes>
+      </Switch>
+    </Router>
+  </BrowserRouter>
+</Provider>
 `;
