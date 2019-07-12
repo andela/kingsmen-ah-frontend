@@ -2,7 +2,40 @@ $base-color: #335bcf;
 $base-hover-color: rgb(50, 82, 177);
 $tool-tip-color: rgb(20, 20, 20);
 
-.text-blue-700 {
+.rounded.text-blue-700 {
+  color: $base-color;
+}
+
+.rounded.border-blue-700 {
+  border-color: $base-color;
+}
+
+.rounded.hover\:bg-blue-700:hover {
+  background: $base-color;
+}
+
+.rounded.hover\:text-blue-700:hover {
+  color: $base-color;
+}
+
+.rounded.bg-blue-700 {
+  background: $base-color;
+}
+
+.rounded.hover\:bg-blue-800:hover {
+  background: $base-hover-color;
+}
+
+.rounded.mr-2,
+input.input {
+  outline: none;
+}
+
+.thin.rounded {
+  font-weight: lighter;
+}
+
+.bg-transparent .text-blue-700 {
   color: $base-color;
 }
 
@@ -35,14 +68,14 @@ input {
   font-weight: lighter;
 }
 
-.tooltip {
-  position: absolute;
-  top: -10px;
-  right: 10%;
-  width: 20px !important;
-  height: 20px;
-  background: $tool-tip-color;
+.tooltip.container {
   animation: flip 1000ms linear normal infinite;
+  background: $tool-tip-color;
+  height: 20px;
+  position: absolute;
+  right: 10%;
+  top: -10px;
+  width: 20px;
 }
 
 @keyframes flip {

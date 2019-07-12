@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
-import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 import Portal from '@components/commons/utilities/Portal';
 import './index.scss';
