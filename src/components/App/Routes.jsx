@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from '@components/views/Home';
 import Login from '@components/views/Login';
 import NotFound from '@components/views/NotFound';
-import Profile from '@components/common/profile';
+import Profile from '@components/commons/profile';
 import Suggested from '@components/commons/CreateCommentCard';
 import Signup from '@components/views/Signup';
 
