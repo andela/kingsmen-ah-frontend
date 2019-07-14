@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import './Common.scss';
+import './css/Common.scss';
 
 function Tags(props) {
   const { tags } = props;

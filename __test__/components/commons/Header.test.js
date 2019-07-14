@@ -1,5 +1,8 @@
 import React from 'react';
+import configureStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
 import Header from '@components/commons/Header/index';
+import { Provider } from 'react-redux';
 import { logo } from '@base/img/logo.png';
 
 const props = {
@@ -14,8 +17,24 @@ const props = {
   }
 };
 
+
+const mockStore = configureStore([thunk]);
+
+const store = mockStore({
+  auth: {
+    profile: {},
+    user: {},
+    isAuthenticated: false,
+    errors: []
+  },
+});
+
 const setup = () => {
-  const wrapper = shallow(<Header {...props} />);
+  const wrapper = shallow(
+    <Provider store={store}>
+      <Header {...props} />
+    </Provider>
+  );
   return wrapper;
 };
 
