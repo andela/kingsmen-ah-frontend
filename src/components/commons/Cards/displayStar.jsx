@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import PropTypes from "prop-types";
-import FontAwesome from './FontAwesome';
+import FontAwesome from '../utilities/FontAwesome';
 
 export default function DisplayStar({ averageRating }) {
   const starRating = Math.floor(parseInt(averageRating, 10));

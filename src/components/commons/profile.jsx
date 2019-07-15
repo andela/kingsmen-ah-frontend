@@ -1,5 +1,5 @@
 import React from 'react';
-import ProfileCard from '@components/common/profileCard';
+import ProfileCard from '@components/commons/Cards/profileCard';
 
 export default function Profile() {
   return (

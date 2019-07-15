@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { faEdit, faTrash } from '@fortawesome/fontawesome-free-solid';
-import FontAwesome from './FontAwesome';
+import FontAwesome from '../utilities/FontAwesome';
 
 export function CommentCard({
   name, avatar, alt, body, createdAt

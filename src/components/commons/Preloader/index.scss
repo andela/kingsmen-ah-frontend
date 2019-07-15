@@ -1,0 +1,29 @@
+$loader-bg: rgb(233, 228, 228);
+
+.main-preloader {
+  div {
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  background: $loader-bg;
+  bottom: 0;
+  height: 100vh;
+  left: 0;
+  opacity: 0.5;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+svg {
+  margin: 0 auto;
+}
+
+.main-preloader div {
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
