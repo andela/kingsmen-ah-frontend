@@ -112,7 +112,7 @@ exports[`<Header /> should render the Header component correctly 1`] = `
     </div>
   </div>
   <div
-    className="block bg-white border-t-2 py-2 w-2/5 max-w-xs shadow-lg absolute right-0 hidden"
+    className="block bg-white border-t-2 py-2 w-2/5 max-w-xs shadow-lg absolute right-0 z-10 hidden"
   >
     <div
       className="tooltip container"
@@ -121,7 +121,7 @@ exports[`<Header /> should render the Header component correctly 1`] = `
       className="flex justify-between items-center pt-2 font-sans text-sm"
     >
       <div
-        className="p-2 px-2 sm:px-6  w-full"
+        className="p-2 px-2 sm:px-6 w-full z-20"
       >
         <Link
           to="/profile/kingsmen"
@@ -157,7 +157,7 @@ exports[`<Header /> should render the Header component correctly 1`] = `
         </Link>
         <Link
           className="block border-b pb-2 pt-2 hover:text-blue-700"
-          to="/articles"
+          to="/new-article"
         >
           New Article
         </Link>

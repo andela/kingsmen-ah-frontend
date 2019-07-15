@@ -5,6 +5,7 @@ const props = {
   type: 'solid',
   text: 'Login',
   color: 'blue',
+  stretch: true,
   onClick: jest.fn()
 };
 

@@ -39,6 +39,13 @@ describe('Render Input', () => {
       expect(mockChange).toHaveBeenCalled();
     });
 
+    it('should call onFocusOut prop', () => {
+      const wrapper = mount(<RenderInput {...props} onBlur={mockChange} />);
+
+      wrapper.find("input").simulate("blur");
+      expect(mockChange).toHaveBeenCalled();
+    });
+
     it('should show validation error', () => {
       const wrapper = mount(<RenderInput {...props} error="Required" handleChange={mockChange} />);
 

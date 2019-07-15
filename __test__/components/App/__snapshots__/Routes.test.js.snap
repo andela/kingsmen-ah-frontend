@@ -15,7 +15,18 @@ exports[`Routes should render the Routes component correctly 1`] = `
     />
     <Route
       component={[Function]}
-      path="/"
+      exact={true}
+      path="/new-article"
+    />
+    <Route
+      component={[Function]}
+      exact={true}
+      path="/article/:articleId"
+    />
+    <Route
+      component={[Function]}
+      exact={true}
+      path="/*"
     />
   </Switch>
 </BrowserRouter>

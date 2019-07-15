@@ -9,6 +9,10 @@ $dark: rgba(209, 202, 202, 0.5);
   max-width: 100%;
 }
 
+.ce-toolbar__content {
+  max-width: 100%;
+}
+
 .article-container {
   width: 70%;
 }
@@ -33,11 +37,28 @@ $dark: rgba(209, 202, 202, 0.5);
 .tagClass {
   background: $dark;
   border-radius: 5px;
-  padding: 10px 15px;
+  padding: 8px 12px;
+  font-size: .8em;
   margin-right: 10px;
 }
 
+.tagsClass {
+  margin: 20px auto !important;
+}
+
+.tagInputClass {
+  width: 100%;
+  max-width: 300px;text-align: center;
+
+}
+
 .selectedClass {
-  margin-bottom: 20px;
-  display: inline-block;
+  margin: 0 auto !important;
+}
+
+.tag-input-field-class {
+  background: inherit;
+  border: none;
+  margin-top: 8px;
+  width: 100%;
 }

@@ -4,10 +4,10 @@
   "description": "Authors Haven - A Social platform for the creative at heart.",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --config webpack.dev.js --open",
     "start:dev": "NODE_ENV=development webpack-dev-server --config webpack.dev.js --open",
     "build": "NODE_ENV=production npm run clean && webpack --config webpack.prod.js",
     "clean": "rm -rf dist",
+    "heroku-postbuild": "npm run build",
     "cypress:open": "cypress open",
     "cypress:all": "cypress run",
     "test": "jest --coverage",
@@ -121,5 +121,9 @@
     "webpack": "^4.35.2",
     "webpack-cli": "^3.3.5",
     "webpack-merge": "^4.2.1"
+  },
+  "engines": {
+    "node": "10.15.3",
+    "npm": "6.10.0"
   }
 }

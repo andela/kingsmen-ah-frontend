@@ -1,9 +1,12 @@
+import axios from 'axios';
 import {
   IS_LOADING,
   ADD_ARTICLE_SUCCESS,
   ADD_ARTICLE_FAILURE,
   EDIT_ARTICLE_SUCCESS,
-  EDIT_ARTICLE_FAILURE
+  EDIT_ARTICLE_FAILURE,
+  GET_ARTICLES_SUCCESS,
+  GET_ARTICLES_FAILURE
 } from './types';
 import instance from '../config/axios';
 
@@ -18,6 +21,16 @@ export const addArticleSuccess = article => ({
 
 export const addArticleFailure = error => ({
   type: ADD_ARTICLE_FAILURE,
+  payload: error
+});
+
+export const fetchArticlesSuccess = articles => ({
+  type: GET_ARTICLES_SUCCESS,
+  payload: articles
+});
+
+export const fetchArticlesFailure = error => ({
+  type: GET_ARTICLES_FAILURE,
   payload: error
 });
 
@@ -54,5 +67,13 @@ export const editArticle = (id, data) => async (dispatch) => {
 }
 
 export const getAllArticles = () => async (dispatch) => {
-  try
+  try {
+    dispatch(isLoading);
+
+    const response = await axios.get('http:localhost:3000/articles');
+
+    dispatch(fetchArticlesSuccess(response.data.data));
+  } catch (error) {
+    dispatch(fetchArticlesFailure(error.response.data));
+  }
 }

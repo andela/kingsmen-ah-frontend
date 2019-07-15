@@ -14,7 +14,7 @@ function Routes() {
         <Route exact path='/login' component={Login} />
         <Route exact path="/new-article" component={NewArticle} />
         <Route exact path="/article/:articleId" component={SingleArticle} />
-        <Route path='/' component={NotFound} />
+        <Route exact path="/*" component={NotFound} />
       </Switch>
     </Router>
   );

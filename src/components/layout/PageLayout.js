@@ -27,7 +27,7 @@ function PageLayout(props) {
 PageLayout.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.element,
-    PropTypes.arrayOf
+    PropTypes.array
   ]).isRequired
 }
 

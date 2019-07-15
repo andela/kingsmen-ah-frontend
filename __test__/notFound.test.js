@@ -13,8 +13,8 @@ describe('<NotFound />', () => {
   });
 
   it('should display this page is not found', () => {
-    const text = wrapper.find('h1').text();
-    expect(text).toEqual('This page is not found');
+    const text = wrapper.find('p').text();
+    expect(text).toEqual('Sorry, the page you are looking for could not be found.');
   });
 
   it('should render the NotFound component correctly', () => {

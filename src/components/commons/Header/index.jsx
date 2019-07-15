@@ -139,7 +139,7 @@ export default class Header extends Component {
 
         <div
           className={classname({
-            'block bg-white border-t-2 py-2 w-2/5 max-w-xs shadow-lg absolute right-0': true,
+            'block bg-white border-t-2 py-2 w-2/5 max-w-xs shadow-lg absolute right-0 z-10': true,
             hidden: authHidden
           })}
         >

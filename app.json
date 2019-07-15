@@ -1,0 +1,21 @@
+{
+  "name": "kingsmen-ah-frontend",
+  "description": "A community of like minded authors that fosters inspiration and innovation by leveraging the modern web.",
+  "scripts": {
+    "postdeploy": "npm run build"
+  },
+  "env": {
+    "HEROKU_APP_NAME": {
+      "required": true
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    },
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-static"
+    }
+  ],
+  "stack": "heroku-18"
+}

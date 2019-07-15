@@ -6,83 +6,85 @@ exports[`<Modal /> should render a modal correctly 1`] = `
   title="New Modal"
   toggle={false}
 >
-  <Portal
-    containerInfo={
-      <div
-        id="app"
-      >
+  <Portal>
+    <Portal
+      containerInfo={
         <div
-          class="modal flex"
+          id="app"
         >
           <div
-            class="modal-container text-center relative justify-center items-center"
+            class="modal flex"
           >
             <div
-              class="absolute modal-exit bg-white rounded-full py-1 px-3 shadow-lg cursor-pointer flex hover:bg-gray-300"
-              role="presentation"
+              class="modal-container text-center relative justify-center items-center"
             >
-              <span
-                class="icon ion-md-cancel"
+              <div
+                class="absolute modal-exit bg-white rounded-full py-1 px-3 shadow-lg cursor-pointer flex hover:bg-gray-300"
+                role="presentation"
               >
-                x
-              </span>
-            </div>
-            <div
-              class="modal_title"
-            >
-              <h2
-                class="text-normal font-bold text-xl"
+                <span
+                  class="icon ion-md-cancel"
+                >
+                  x
+                </span>
+              </div>
+              <div
+                class="modal_title"
               >
-                New Modal
-              </h2>
-            </div>
-            <div
-              class="modal_body"
-            >
-              <h1>
-                Hello World
-              </h1>
+                <h2
+                  class="text-normal font-bold text-xl"
+                >
+                  New Modal
+                </h2>
+              </div>
+              <div
+                class="modal_body"
+              >
+                <h1>
+                  Hello World
+                </h1>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    }
-  >
-    <div
-      className="modal flex"
+      }
     >
       <div
-        className="modal-container text-center relative justify-center items-center"
+        className="modal flex"
       >
         <div
-          className="absolute modal-exit bg-white rounded-full py-1 px-3 shadow-lg cursor-pointer flex hover:bg-gray-300"
-          onClick={[MockFunction]}
-          role="presentation"
+          className="modal-container text-center relative justify-center items-center"
         >
-          <span
-            className="icon ion-md-cancel"
+          <div
+            className="absolute modal-exit bg-white rounded-full py-1 px-3 shadow-lg cursor-pointer flex hover:bg-gray-300"
+            onClick={[MockFunction]}
+            role="presentation"
           >
-            x
-          </span>
-        </div>
-        <div
-          className="modal_title"
-        >
-          <h2
-            className="text-normal font-bold text-xl"
+            <span
+              className="icon ion-md-cancel"
+            >
+              x
+            </span>
+          </div>
+          <div
+            className="modal_title"
           >
-            New Modal
-          </h2>
-        </div>
-        <div
-          className="modal_body"
-        >
-          <h1>
-            Hello World
-          </h1>
+            <h2
+              className="text-normal font-bold text-xl"
+            >
+              New Modal
+            </h2>
+          </div>
+          <div
+            className="modal_body"
+          >
+            <h1>
+              Hello World
+            </h1>
+          </div>
         </div>
       </div>
-    </div>
+    </Portal>
   </Portal>
 </Modal>
 `;

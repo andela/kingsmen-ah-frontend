@@ -3,9 +3,10 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import '../index.scss';
 
-function Button({ type, text, color, stretch, onClick }) {
+function Button({ type, text, color, stretch, onClick, ...rest }) {
   return (
     <button
+      {...rest}
       type='submit'
       className={classnames(
         'bg-transparent hover:text-white py-2 px-4 border  rounded mr-2 text-sm',
