@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import FontAwesome from './FontAwesome';
+import FontAwesome from '../utilities/FontAwesome';
 
 export function Suggested({
   imageUrl, imageAlt, title, body, name, createdAt

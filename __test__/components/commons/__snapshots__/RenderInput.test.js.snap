@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Render Input should render the RenderInput component when used 1`] = `
+<Fragment>
+  <div
+    className="my-4 relative mb-8"
+  >
+    <label
+      className=""
+      htmlFor="name"
+    >
+      Name
+    </label>
+    <input
+      className=" w-full py-2 border-gray-600 border-b-2 outline-none"
+      error=""
+      id="name"
+      name="name"
+      onBlur={[Function]}
+      onChange={[MockFunction]}
+      onFocus={[Function]}
+      type="text"
+      value=""
+    />
+  </div>
+</Fragment>
+`;

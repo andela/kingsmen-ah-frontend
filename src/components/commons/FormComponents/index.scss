@@ -1,0 +1,15 @@
+$value: rgb(145, 145, 145);
+
+label {
+  left: 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: all 0.3s ease-in-out;
+}
+
+.has-value {
+  color: $value;
+  font-size: .8em;
+  top: -7px;
+}

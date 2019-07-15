@@ -1,0 +1,42 @@
+$modal-bg: rgba(52, 54, 66, 0.9);
+
+.modal {
+  background: $modal-bg;
+  cursor: pointer;
+  position: fixed;
+  height: 100%;
+  top: 0;
+  left: 0;
+  overflow-y: auto;
+  opacity: 0;
+  transition: opacity 0.3s 0, visibility 0 0.3s;
+  visibility: hidden;
+  width: 100%;
+  z-index: 21;
+
+  &.is-visible {
+    opacity: 1;
+    transition: opacity 0.3s 0, visibility 0 0;
+    visibility: visible;
+  }
+
+  &.modal-container {
+    transform: translateY(0);
+  }
+}
+
+.modal-container {
+  background: #fff;
+  border-radius: 0.25em;
+  cursor: auto;
+  margin: 3em auto 4em;
+  position: relative;
+  padding: 30px;
+  width: 70%;
+  z-index: 1000;
+}
+
+.modal-exit {
+  right: -10px;
+  top: -10px;
+}
