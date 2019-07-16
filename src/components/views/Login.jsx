@@ -6,6 +6,7 @@ import { toast } from 'react-toastify';
 import FormInput from '@components/commons/FormComponents/RenderInput';
 import Button from '@components/commons/utilities/Button';
 import { loginUser } from '@actions/auth';
+import Preloader from '@components/commons/Preloader';
 
 class Login extends Component {
   constructor(props) {
@@ -31,6 +32,7 @@ class Login extends Component {
     const { errors } = nextProps;
     if (errors.global) {
       toast.error(errors.global);
+      this.setState({ input: { email: '', password: '' } });
     }
   }
 
@@ -74,8 +76,14 @@ class Login extends Component {
     return error ? error.details[0].message : null;
   };
 
+  showSignupModal = () => {
+    const { showSignup } = this.props;
+    showSignup();
+  };
+
   loginPage = () => {
     const { input, errors } = this.state;
+    const { loading } = this.props;
     const { email, password } = input;
 
     return (
@@ -105,28 +113,39 @@ class Login extends Component {
         />
         <Button
           type='solid'
-          text='Sign In'
           onClick={this.loginBtnClicked}
           color='blue'
           stretch
-        />
+          disabled={loading}
+        >
+          {loading === true ? (
+            <Preloader
+              type='button'
+              styles='TailSpin'
+              height={15}
+              width={15}
+              color='white'
+            />
+          ) : (
+            'Sign In'
+          )}
+        </Button>
         <div className='text-xs md:text-base my-4'>
           <span>No Account?</span>
           <Button
             type='regular'
             text='Create One'
-            onClick={() => {}}
+            onClick={this.showSignupModal}
             color='blue'
-          />
+          >
+            Create One
+          </Button>
         </div>
         <div className='text-xs md:text-base my-4'>
           <span>Can&lsquo;t remember password?</span>
-          <Button
-            type='regular'
-            text='Reset password'
-            onClick={() => {}}
-            color='blue'
-          />
+          <Button type='regular' onClick={() => {}} color='blue'>
+            Reset password
+          </Button>
         </div>
         <span className='text-xs md:text-base lg:text-base text-gray-700'>
           To make Author’s Haven work, we log user data and share it with
@@ -143,20 +162,19 @@ class Login extends Component {
 }
 
 Login.propTypes = {
-  user: PropTypes.shape({
-    username: PropTypes.string
-  }).isRequired,
   errors: PropTypes.shape({
     global: PropTypes.string,
     email: PropTypes.string,
     password: PropTypes.string
   }).isRequired,
-  loginUser: PropTypes.func.isRequired
+  loginUser: PropTypes.func.isRequired,
+  loading: PropTypes.bool.isRequired,
+  showSignup: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
-  user: state.auth.user,
-  errors: state.auth.errors
+  errors: state.auth.errors,
+  loading: state.auth.loading
 });
 
 export default connect(

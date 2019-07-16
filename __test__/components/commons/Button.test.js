@@ -3,13 +3,12 @@ import Button from '@components/commons/utilities/Button';
 
 const props = {
   type: 'solid',
-  text: 'Login',
   color: 'blue',
   onClick: jest.fn()
 };
 
 const setup = () => {
-  const wrapper = shallow(<Button {...props} />);
+  const wrapper = shallow(<Button {...props}>Login</Button>);
   return wrapper;
 };
 

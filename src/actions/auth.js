@@ -1,7 +1,13 @@
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import setAuthToken from '../utilities/setAuthToken';
-import { GET_ERRORS, SET_CURRENT_USER } from './types';
+import {
+  GET_ERRORS,
+  SET_CURRENT_USER,
+  IS_LOADING,
+  SET_PROFILE,
+  LOGOUT_USER
+} from './types';
 
 export const setCurrentUser = user => {
   return {
@@ -10,33 +16,81 @@ export const setCurrentUser = user => {
   };
 };
 
-export const loginUser = userData => dispatch => {
-  axios
-    .post('auth/login', userData)
-    .then(res => {
-      const response = res.data.payload;
+export const isLoading = value => ({
+  type: IS_LOADING,
+  payload: value
+});
 
-      const { token } = response;
-      localStorage.setItem('jwtToken', token);
+export const setUserProfile = payload => ({
+  type: SET_PROFILE,
+  payload
+});
 
-      setAuthToken(token);
-
-      const { id, email, username } = response;
-      const user = {
-        id,
-        email,
-        username
-      };
-
-      // localStorage.setItem('user', JSON.stringify(user));
-
-      dispatch(setCurrentUser(user));
-      toast.success('Login successful');
-    })
-    .catch(err => {
-      dispatch({
+export const getProfile = username => async dispatch => {
+  try {
+    const res = await axios.get(`/profiles/${username}`);
+    dispatch(setUserProfile(res.data.payload));
+  } catch (error) {
+    if (error.response) {
+      return dispatch({
         type: GET_ERRORS,
-        payload: err.response.data.errors
+        payload: error.response.data.errors
       });
-    });
+    }
+    toast.error('Please check your network connection and try again');
+  }
+};
+
+export const logoutUser = history => async dispatch => {
+  try {
+    dispatch(isLoading(true));
+    await axios.post('/auth/logout');
+    localStorage.removeItem('jwtToken');
+    setAuthToken(false);
+    dispatch({ type: LOGOUT_USER });
+    history.push('/');
+  } catch (error) {
+    if (error.response) {
+      return dispatch({
+        type: GET_ERRORS,
+        payload: error.response.data.errors
+      });
+    }
+    dispatch(isLoading(false));
+    toast.error('Please check your network connection and try again');
+  }
+};
+
+export const loginUser = userData => async dispatch => {
+  try {
+    dispatch(isLoading(true));
+
+    const res = await axios.post('/auth/login', userData);
+    const response = res.data.payload;
+
+    const { token } = response;
+    localStorage.setItem('jwtToken', token);
+
+    setAuthToken(token);
+
+    const { id, email, username } = response;
+    const user = {
+      id,
+      email,
+      username
+    };
+
+    dispatch(setCurrentUser(user));
+    toast.success('Login successful');
+    dispatch(getProfile(username));
+  } catch (error) {
+    if (error.response) {
+      return dispatch({
+        type: GET_ERRORS,
+        payload: error.response.data.errors
+      });
+    }
+    dispatch(isLoading(false));
+    toast.error('Please check your network connection and try again');
+  }
 };

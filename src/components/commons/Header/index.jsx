@@ -7,6 +7,7 @@ import logo from '@base/img/logo.png';
 import { faSearch } from '@fortawesome/fontawesome-free-solid';
 import Modal from '@components/commons/Modal';
 import LoginPage from '@components/views/Login';
+import { getProfile, logoutUser } from '@actions/auth';
 import Button from '../utilities/Button';
 import FontAwesome from '../utilities/FontAwesome';
 
@@ -17,8 +18,20 @@ class Header extends Component {
       hidden: true,
       authHidden: true,
       showSearchBar: false,
-      showSignInModal: false
+      showSignInModal: false,
+      showSignUpModal: false
     };
+
+    this.defaultAvatar =
+      'https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/user_male2-512.png';
+  }
+
+  componentWillMount() {
+    const { getProfile, user } = this.props;
+    const { username } = user;
+    if (username) {
+      getProfile(username);
+    }
   }
 
   componentWillReceiveProps(nextProps) {
@@ -28,9 +41,27 @@ class Header extends Component {
     }
   }
 
+  exitModal = () => {
+    this.setState({ showSignUpModal: false, showSignInModal: false });
+  };
+
+  logoutBtnClicked = () => {
+    this.setState({ authHidden: true });
+
+    const { logoutUser, history } = this.props;
+    logoutUser(history);
+  };
+
   toggleSignInDialog = () => {
     const { showSignInModal } = this.state;
-    this.setState({ showSignInModal: !showSignInModal });
+    this.setState({
+      showSignInModal: !showSignInModal,
+      showSignUpModal: false
+    });
+  };
+
+  showSignupDialog = () => {
+    this.setState({ showSignUpModal: true, showSignInModal: false });
   };
 
   authHeaderButtons = avatar => {
@@ -47,7 +78,7 @@ class Header extends Component {
         </div>
 
         <img
-          src={avatar}
+          src={avatar || this.defaultAvatar}
           alt='ProfileImage'
           className='rounded-full w-10 h-10 text-blue-600 cursor-pointer block'
           role='presentation'
@@ -60,18 +91,12 @@ class Header extends Component {
 
   guestHeaderButtons = () => (
     <Fragment>
-      <Button
-        text='Sign In'
-        type='regular'
-        color='blue'
-        onClick={this.toggleSignInDialog}
-      />
-      <Button
-        text='Get Started'
-        type='outlined'
-        color='blue'
-        onClick={() => {}}
-      />
+      <Button type='regular' color='blue' onClick={this.toggleSignInDialog}>
+        Sign In
+      </Button>
+      <Button type='outlined' color='blue' onClick={() => {}}>
+        Get Started
+      </Button>
     </Fragment>
   );
 
@@ -100,7 +125,13 @@ class Header extends Component {
   };
 
   render() {
-    const { hidden, authHidden, showSearchBar, showSignInModal } = this.state;
+    const {
+      hidden,
+      authHidden,
+      showSearchBar,
+      showSignInModal,
+      showSignUpModal
+    } = this.state;
     const { user, isAuthenticated, profile } = this.props;
     const { avatar, firstname, lastname } = profile;
     const { username } = user;
@@ -160,8 +191,9 @@ class Header extends Component {
 
         <div
           className={classname({
-            'block bg-white border-t-2 py-2 w-2/5 max-w-xs shadow-lg absolute right-0': true,
-            hidden: authHidden
+            'block bg-white border-t-2 py-2 shadow-lg absolute right-0 w-full md:w-2/5 lg:w-2/5': true,
+            hidden: authHidden,
+            'lg:max-w-xs': !showSearchBar
           })}
         >
           <div className='tooltip container' />
@@ -171,12 +203,14 @@ class Header extends Component {
                 <Link to={`/profile/${username}`}>
                   <div className='border-b pb-4 md:flex lg:flex flex-wrap'>
                     <img
-                      src={avatar}
+                      src={avatar || this.defaultAvatar}
                       alt='My profile'
                       className='rounded-full w-10 h-10 mx-auto md:mx-0 lg:mx-0'
                     />
                     <div className='ml-0 md:ml-4 lg:ml-4 md:text-left lg:text-left text-center hover:text-blue-700'>
-                      <div className='font-bold text-base'>{`${firstname} ${lastname}`}</div>
+                      <div className='font-bold text-base'>
+                        {`${firstname || ''} ${lastname || ''}`}
+                      </div>
                       <div className='text-gray-500'>{`@ ${username}`}</div>
                     </div>
                   </div>
@@ -194,9 +228,15 @@ class Header extends Component {
                 >
                   New Article
                 </Link>
-                <Link to='/' className='block pt-2 hover:text-blue-700'>
+                <Button
+                  type='regular'
+                  color='red'
+                  onClick={this.logoutBtnClicked}
+                  className='w-full text-left py-2 text-red-700 hover:text-red-800 rounded mr-2'
+                  stretch
+                >
                   Sign out
-                </Link>
+                </Button>
               </div>
             ) : (
               ''
@@ -216,12 +256,16 @@ class Header extends Component {
         </div>
 
         {showSignInModal ? (
-          <Modal
-            title='Welcome Back'
-            exitModal={this.toggleSignInDialog}
-            toggle
-          >
-            {<LoginPage />}
+          <Modal title='Welcome Back' exitModal={this.exitModal} toggle>
+            {<LoginPage showSignup={this.showSignupDialog} />}
+          </Modal>
+        ) : (
+          ''
+        )}
+
+        {showSignUpModal ? (
+          <Modal title='Join Us' exitModal={this.exitModal} toggle>
+            <h1>Register with Author&lquos;s Haven</h1>
           </Modal>
         ) : (
           ''
@@ -246,7 +290,9 @@ Header.propTypes = {
     email: PropTypes.string,
     password: PropTypes.string
   }).isRequired,
-  history: PropTypes.shape({}).isRequired
+  history: PropTypes.shape({}).isRequired,
+  getProfile: PropTypes.func.isRequired,
+  logoutUser: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
@@ -258,5 +304,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  {}
+  { getProfile, logoutUser }
 )(withRouter(Header));
