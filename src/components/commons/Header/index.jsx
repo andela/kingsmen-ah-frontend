@@ -7,7 +7,7 @@ import logo from '@base/img/logo.png';
 import { faSearch } from '@fortawesome/fontawesome-free-solid';
 import Modal from '@components/commons/Modal';
 import LoginPage from '@components/views/Login';
-import { getProfile, logoutUser } from '@actions/auth';
+import { logoutUser } from '@actions/auth';
 import Button from '../utilities/Button';
 import FontAwesome from '../utilities/FontAwesome';
 
@@ -24,21 +24,6 @@ class Header extends Component {
 
     this.defaultAvatar =
       'https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/user_male2-512.png';
-  }
-
-  componentWillMount() {
-    const { getProfile, user } = this.props;
-    const { username } = user;
-    if (username) {
-      getProfile(username);
-    }
-  }
-
-  componentWillReceiveProps(nextProps) {
-    const { errors, isAuthenticated } = nextProps;
-    if (!errors.global && isAuthenticated) {
-      this.setState({ showSignInModal: false });
-    }
   }
 
   exitModal = () => {
@@ -255,7 +240,7 @@ class Header extends Component {
           </div>
         </div>
 
-        {showSignInModal ? (
+        {showSignInModal && !isAuthenticated ? (
           <Modal title='Welcome Back' exitModal={this.exitModal} toggle>
             {<LoginPage showSignup={this.showSignupDialog} />}
           </Modal>
@@ -263,7 +248,7 @@ class Header extends Component {
           ''
         )}
 
-        {showSignUpModal ? (
+        {showSignUpModal && !isAuthenticated ? (
           <Modal title='Join Us' exitModal={this.exitModal} toggle>
             <h1>Register with Author&lquos;s Haven</h1>
           </Modal>
@@ -291,7 +276,6 @@ Header.propTypes = {
     password: PropTypes.string
   }).isRequired,
   history: PropTypes.shape({}).isRequired,
-  getProfile: PropTypes.func.isRequired,
   logoutUser: PropTypes.func.isRequired
 };
 
@@ -304,5 +288,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getProfile, logoutUser }
+  { logoutUser }
 )(withRouter(Header));

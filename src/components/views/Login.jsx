@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import Joi from 'joi-browser';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import FormInput from '@components/commons/FormComponents/RenderInput';

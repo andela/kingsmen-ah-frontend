@@ -203,7 +203,6 @@ exports[`<Login /> should render the Login component correctly 1`] = `
                         >
                           <withRouter(Header)
                             errors={Object {}}
-                            getProfile={[Function]}
                             isAuthenticated={false}
                             logoutUser={[Function]}
                             profile={Object {}}
@@ -211,7 +210,6 @@ exports[`<Login /> should render the Login component correctly 1`] = `
                           >
                             <Header
                               errors={Object {}}
-                              getProfile={[Function]}
                               history={
                                 Object {
                                   "action": "POP",
