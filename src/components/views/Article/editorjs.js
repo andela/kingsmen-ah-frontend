@@ -3,10 +3,10 @@ import Header from '@editorjs/header';
 import List from '@editorjs/list';
 import Embed from '@editorjs/embed';
 import SimpleImage from '@editorjs/simple-image';
-import Quote from '@editorjs/quote';
 import Paragraph from '@editorjs/paragraph';
-import Table from '@editorjs/table';
 import Delimiter from '@editorjs/delimiter';
+import InlineCode from '@editorjs/inline-code';
+import RawTool from '@editorjs/raw';
 
 const editor = new EditorJS({
   holder: 'editorjs',
@@ -35,22 +35,15 @@ const editor = new EditorJS({
         placeholder: 'Paste image URL'
       }
     },
-    quote: {
-      class: Quote,
-      inlineToolbar: true,
-      shortcut: 'CMD+SHIFT+O',
-      config: {
-        quotePlaceholder: 'Enter a quote',
-        captionPlaceholder: 'Quote\'s author',
-      },
-    },
     paragraph: {
       class: Paragraph,
       inlineToolbar: true,
     },
-    table: {
-      class: Table,
+    inlineCode: {
+      class: InlineCode,
+      shortcut: 'CMD+SHIFT+M',
     },
+    raw: RawTool,
     delimiter: Delimiter,
   }
 });

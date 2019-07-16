@@ -122,7 +122,7 @@ class NewArticle extends Component {
 
         <Portal>
           <div className={classNames('relative', { 'hidden': !draft })}>
-            <div className="absolute top-0 left-0 right-0 bottom bg-transparent-0 z-20">
+            <div className="absolute top-0 left-0 right-0 bottom bg-transparent-0 z-20 overflow-y-hidden">
               <div className="flex items-center justify-center h-screen bg-gray-100">
                 <div className="container mx-auto text-center text-black opacty-100 z-30">
                   <div className="float-right block">
@@ -147,7 +147,7 @@ class NewArticle extends Component {
                         tags: 'tagsClass',
                         tagInput: 'tagInputClass',
                         tagInputField: 'tag-input-field-class',
-                        selected: 'selectedClass flex',
+                        selected: 'selectedClass flex justify-center',
                         tag: 'tagClass',
                         remove: 'removeClass',
                         suggestions: 'suggestionsClass',
