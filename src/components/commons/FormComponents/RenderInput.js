@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import './index.scss';
 
-
 class RenderInput extends Component {
   static propTypes = {
     id: PropTypes.string.isRequired,

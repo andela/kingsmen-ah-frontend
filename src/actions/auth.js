@@ -1,6 +1,5 @@
-import axios from 'axios';
+import axios from '@config/axios';
 import { toast } from 'react-toastify';
-import setAuthToken from '../utilities/setAuthToken';
 import {
   GET_ERRORS,
   SET_CURRENT_USER,
@@ -46,7 +45,6 @@ export const logoutUser = history => async dispatch => {
     dispatch(isLoading(true));
     await axios.post('/auth/logout');
     localStorage.removeItem('jwtToken');
-    setAuthToken(false);
     dispatch({ type: LOGOUT_USER });
     history.push('/');
   } catch (error) {
@@ -70,8 +68,6 @@ export const loginUser = userData => async dispatch => {
 
     const { token } = response;
     localStorage.setItem('jwtToken', token);
-
-    setAuthToken(token);
 
     const { id, email, username } = response;
     const user = {
