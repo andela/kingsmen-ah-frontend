@@ -10,8 +10,6 @@ const refreshPage = store => {
     if (exp < Math.floor(Date.now() / 1000)) {
       localStorage.removeItem('jwtToken');
       store.dispatch(logoutUser());
-    } else {
-      return;
     }
   }
 };

@@ -1,9 +1,11 @@
 import {
   SET_CURRENT_USER,
-  GET_ERRORS,
+  SIGNIN_SUCCESS,
+  SIGNIN_FAILURE,
   IS_LOADING,
   SET_PROFILE,
-  LOGOUT_USER
+  LOGOUT_USER,
+  GET_PROFILE_ERROR
 } from '../actions/types';
 
 const initialState = {
@@ -30,10 +32,16 @@ const authReducer = (state = initialState, action) => {
         errors: {},
         loading: false
       };
-    case GET_ERRORS:
+    case SIGNIN_FAILURE:
       return {
         ...state,
         errors: action.payload,
+        loading: false
+      };
+    case SIGNIN_SUCCESS:
+      return {
+        ...state,
+        errors: {},
         loading: false
       };
     case SET_PROFILE:
@@ -48,6 +56,11 @@ const authReducer = (state = initialState, action) => {
         user: {},
         profile: {},
         loading: false
+      };
+    case GET_PROFILE_ERROR:
+      return {
+        ...state,
+        errors: action.payload
       };
     default:
       return state;

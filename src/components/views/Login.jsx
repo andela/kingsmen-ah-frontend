@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import Joi from 'joi-browser';
+// import Joi from 'joi-browser';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { toast } from 'react-toastify';
 import FormInput from '@components/commons/FormComponents/RenderInput';
 import Button from '@components/commons/utilities/Button';
 import { loginUser } from '@actions/auth';
@@ -12,68 +11,21 @@ class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      input: { email: '', password: '' },
-      errors: {}
+      input: { email: '', password: '' }
     };
-
-    this.schema = {
-      email: Joi.string()
-        .required()
-        .email()
-        .label('Email'),
-      password: Joi.string()
-        .required()
-        .min(5)
-        .label('Password')
-    };
-  }
-
-  componentWillReceiveProps(nextProps) {
-    const { errors } = nextProps;
-    if (errors.global) {
-      toast.error(errors.global);
-      this.setState({ input: { email: '', password: '' } });
-    }
   }
 
   handleChange = e => {
-    const { input, errors } = this.state;
+    const { input } = this.state;
     const { name, value } = e.target;
-
-    const error = this.validateProperty({ name, value });
-    if (error) errors[name] = error;
-    else errors[name] = '';
-
-    this.setState({ input: { ...input, [name]: value }, errors });
+    this.setState({ input: { ...input, [name]: value } });
   };
 
   loginBtnClicked = () => {
     const { input } = this.state;
     const { loginUser: login } = this.props;
 
-    const errors = this.validate();
-    this.setState({ errors: errors || {} });
-    if (errors) return;
-
     login(input, history);
-  };
-
-  validate = () => {
-    const { input: data } = this.state;
-    const options = { abortEarly: false };
-    const { error } = Joi.validate(data, this.schema, options);
-    if (!error) return null;
-
-    const errors = {};
-    for (let item of error.details) errors[item.path[0]] = item.message;
-    return errors;
-  };
-
-  validateProperty = ({ name, value }) => {
-    const obj = { [name]: value };
-    const schema = { [name]: this.schema[name] };
-    const { error } = Joi.validate(obj, schema);
-    return error ? error.details[0].message : null;
   };
 
   showSignupModal = () => {
@@ -82,9 +34,16 @@ class Login extends Component {
   };
 
   loginPage = () => {
-    const { input, errors } = this.state;
-    const { loading } = this.props;
+    const { input } = this.state;
+    const { loading, errors } = this.props;
     const { email, password } = input;
+    let valid = false;
+
+    if (email === '' || password === '') {
+      valid = false;
+    } else {
+      valid = true;
+    }
 
     return (
       <div className='w-full md:w-2/3 lg:w-2/3 m-auto md:my-4 lg:my-6'>
@@ -116,7 +75,8 @@ class Login extends Component {
           onClick={this.loginBtnClicked}
           color='blue'
           stretch
-          disabled={loading}
+          disabled={loading || !valid}
+          title={!valid ? 'Please fill both fields' : null}
         >
           {loading === true ? (
             <Preloader

@@ -1,7 +1,9 @@
 import axios from '@config/axios';
 import { toast } from 'react-toastify';
 import {
-  GET_ERRORS,
+  SIGNIN_FAILURE,
+  SIGNIN_SUCCESS,
+  GET_PROFILE_ERROR,
   SET_CURRENT_USER,
   IS_LOADING,
   SET_PROFILE,
@@ -32,7 +34,7 @@ export const getProfile = username => async dispatch => {
   } catch (error) {
     if (error.response) {
       return dispatch({
-        type: GET_ERRORS,
+        type: GET_PROFILE_ERROR,
         payload: error.response.data.errors
       });
     }
@@ -40,23 +42,12 @@ export const getProfile = username => async dispatch => {
   }
 };
 
-export const logoutUser = history => async dispatch => {
-  try {
-    dispatch(isLoading(true));
-    await axios.post('/auth/logout');
-    localStorage.removeItem('jwtToken');
-    dispatch({ type: LOGOUT_USER });
-    history.push('/');
-  } catch (error) {
-    if (error.response) {
-      return dispatch({
-        type: GET_ERRORS,
-        payload: error.response.data.errors
-      });
-    }
-    dispatch(isLoading(false));
-    toast.error('Please check your network connection and try again');
-  }
+export const logoutUser = history => dispatch => {
+  dispatch(isLoading(true));
+  axios.post('/auth/logout');
+  localStorage.removeItem('jwtToken');
+  dispatch({ type: LOGOUT_USER });
+  history.push('/');
 };
 
 export const loginUser = userData => async dispatch => {
@@ -79,11 +70,14 @@ export const loginUser = userData => async dispatch => {
     dispatch(setCurrentUser(user));
     toast.success('Login successful');
     dispatch(getProfile(username));
+    dispatch({ type: SIGNIN_SUCCESS });
   } catch (error) {
     if (error.response) {
+      const errors = error.response.data.errors;
+      if (errors.global) toast.error(errors.global);
       return dispatch({
-        type: GET_ERRORS,
-        payload: error.response.data.errors
+        type: SIGNIN_FAILURE,
+        payload: errors
       });
     }
     dispatch(isLoading(false));

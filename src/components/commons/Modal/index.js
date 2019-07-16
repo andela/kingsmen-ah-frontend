@@ -25,7 +25,9 @@ class Modal extends Component {
               <span className='icon ion-md-cancel'>x</span>
             </div>
             <div className='modal_title'>
-              <h2 className='text-normal font-bold text-xl'>{title}</h2>
+              <h2 className='text-normal font-bold text-base sm:text-2xl md:text-4xl'>
+                {title}
+              </h2>
             </div>
             <div className='modal_body'>{children}</div>
           </div>
