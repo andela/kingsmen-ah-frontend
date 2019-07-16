@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import ProfileCard from "@components/common/profileCard";
+import ProfileCard from "@components/commons/Cards/profileCard";
 import ProfileResult from "./Profile-Result";
-import '../../common/Common.scss';
+import '../../commons/Cards/Common.scss';
 
 
 class Profile extends Component {

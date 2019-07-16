@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Button /> should render the Button component correctly 1`] = `
+<button
+  className="bg-transparent hover:text-white py-2 px-4 border  rounded mr-2 text-sm text-white bg-blue-700 hover:bg-blue-800 "
+  onClick={[MockFunction]}
+  type="submit"
+>
+  Login
+</button>
+`;

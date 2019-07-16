@@ -2,3 +2,6 @@
 
 # Authors Haven Frontend
 Authors Haven - A Social platform for the creative at heart.
+
+<br/><b> Hosting: Heroku Staging </b> https://kingsmen-ah-frontend-staging.herokuapp.com/
+<br/><b> Hosting: Heroku Production </b> https://kingsmen-ah-frontend-production.herokuapp.com/
