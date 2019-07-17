@@ -1,4 +1,4 @@
-import axios from '@config/axios';
+import axios from 'axios';
 import { toast } from 'react-toastify';
 import {
   SIGNIN_FAILURE,
@@ -10,6 +10,16 @@ import {
   LOGOUT_USER
 } from './types';
 
+axios.defaults.baseURL =
+  'https://kingsmen-ah-backend-staging.herokuapp.com/api/v1';
+
+export const setAuthToken = token => {
+  if (token) {
+    axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+  } else {
+    delete axios.defaults.headers.common['Authorization'];
+  }
+};
 export const setCurrentUser = user => {
   return {
     type: SET_CURRENT_USER,
@@ -48,6 +58,7 @@ export const logoutUser = history => dispatch => {
   localStorage.removeItem('jwtToken');
   dispatch({ type: LOGOUT_USER });
   history.push('/');
+  setAuthToken();
 };
 
 export const loginUser = userData => async dispatch => {
@@ -60,13 +71,15 @@ export const loginUser = userData => async dispatch => {
     const { token } = response;
     localStorage.setItem('jwtToken', token);
 
-    const { id, email, username } = response;
+    const { id, email, username, exp } = response;
     const user = {
       id,
       email,
-      username
+      username,
+      exp
     };
 
+    setAuthToken(token);
     dispatch(setCurrentUser(user));
     toast.success('Login successful');
     dispatch(getProfile(username));
