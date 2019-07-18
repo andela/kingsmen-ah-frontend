@@ -6,7 +6,7 @@ import Button from '@components/commons/utilities/Button';
 import { loginUser } from '@actions/auth';
 import Preloader from '@components/commons/Preloader';
 
-class Login extends Component {
+export class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {

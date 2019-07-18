@@ -1,8 +1,5 @@
 import React from 'react';
-import configureStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
-import { Provider } from 'react-redux';
-import Header from '@components/commons/Header/index';
+import { Header } from '@components/commons/Header/index';
 import { logo } from '@base/img/logo.png';
 
 const props = {
@@ -14,26 +11,15 @@ const props = {
     firstname: 'Kings',
     lastname: 'men',
     avatar: logo
-  }
+  },
+  errors: {},
+  logoutUser: () => {},
+  isAuthenticated: false,
+  history: {}
 };
 
-const mockStore = configureStore([thunk]);
-
-const store = mockStore({
-  auth: {
-    profile: {},
-    user: {},
-    isAuthenticated: false,
-    errors: []
-  },
-});
-
 const setup = () => {
-  const wrapper = shallow(
-    <Provider store={store}>
-      <Header {...props} />
-    </Provider>
-  );
+  const wrapper = shallow(<Header {...props} />);
   return wrapper;
 };
 
@@ -43,8 +29,27 @@ describe('<Header />', () => {
     wrapper = setup();
   });
 
+  it("should show Author's Haven as title", () => {
+    const header = wrapper.find('h1');
+    expect(header.exists()).toBe(true);
+    expect(header.text()).toEqual('Author‘s Haven');
+  });
+
+  it('should have login button in header', () => {
+    const button = wrapper.find('Button').first();
+    expect(button.exists()).toBe(true);
+    expect(button.props().children).toEqual('Sign In');
+  });
+
+  it('should have logout button in header', () => {
+    const button = wrapper.find('Button').at(1);
+    expect(button.exists()).toBe(true);
+    expect(button.props().children).toEqual('Get Started');
+  });
+
   it('should render the Header component correctly', () => {
     expect(toJson(wrapper)).toMatchSnapshot();
     expect(wrapper.find('Header')).toBeTruthy();
+    wrapper.find('button').first;
   });
 });

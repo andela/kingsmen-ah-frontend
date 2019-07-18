@@ -11,7 +11,7 @@ import { logoutUser } from '@actions/auth';
 import Button from '../utilities/Button';
 import FontAwesome from '../utilities/FontAwesome';
 
-class Header extends Component {
+export class Header extends Component {
   constructor(props) {
     super(props);
     this.state = {
