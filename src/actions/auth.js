@@ -13,7 +13,9 @@ import {
 } from "./types";
 
 axios.defaults.baseURL =
-  "https://kingsmen-ah-backend-staging.herokuapp.com/api/v1";
+  "http://localhost:3000/api/v1";
+// axios.defaults.baseURL =
+//   "https://kingsmen-ah-backend-staging.herokuapp.com/api/v1";
 
 export const setAuthToken = token => {
   if (token) {
