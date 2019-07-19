@@ -1,5 +1,5 @@
-import axios from 'axios';
-import { toast } from 'react-toastify';
+import axios from "axios";
+import { toast } from "react-toastify";
 import {
   SIGNIN_FAILURE,
   SIGNIN_SUCCESS,
@@ -7,17 +7,19 @@ import {
   SET_CURRENT_USER,
   IS_LOADING,
   SET_PROFILE,
-  LOGOUT_USER
-} from './types';
+  LOGOUT_USER,
+  REGISTER_SUCCESS,
+  REGISTER_FAILURE
+} from "./types";
 
 axios.defaults.baseURL =
-  'https://kingsmen-ah-backend-staging.herokuapp.com/api/v1';
+  "https://kingsmen-ah-backend-staging.herokuapp.com/api/v1";
 
 export const setAuthToken = token => {
   if (token) {
-    axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+    axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
   } else {
-    delete axios.defaults.headers.common['Authorization'];
+    delete axios.defaults.headers.common["Authorization"];
   }
 };
 export const setCurrentUser = user => {
@@ -48,16 +50,16 @@ export const getProfile = username => async dispatch => {
         payload: error.response.data.errors
       });
     }
-    toast.error('Please check your network connection and try again');
+    toast.error("Please check your network connection and try again");
   }
 };
 
 export const logoutUser = history => dispatch => {
   dispatch(isLoading(true));
-  axios.post('/auth/logout');
-  localStorage.removeItem('jwtToken');
+  axios.post("/auth/logout");
+  localStorage.removeItem("jwtToken");
   dispatch({ type: LOGOUT_USER });
-  history.push('/');
+  history.push("/");
   setAuthToken();
 };
 
@@ -65,11 +67,11 @@ export const loginUser = userData => async dispatch => {
   try {
     dispatch(isLoading(true));
 
-    const res = await axios.post('/auth/login', userData);
+    const res = await axios.post("/auth/login", userData);
     const response = res.data.payload;
 
     const { token } = response;
-    localStorage.setItem('jwtToken', token);
+    localStorage.setItem("jwtToken", token);
 
     const { id, email, username, exp } = response;
     const user = {
@@ -81,7 +83,7 @@ export const loginUser = userData => async dispatch => {
 
     setAuthToken(token);
     dispatch(setCurrentUser(user));
-    toast.success('Login successful');
+    toast.success("Login successful");
     dispatch(getProfile(username));
     dispatch({ type: SIGNIN_SUCCESS });
   } catch (error) {
@@ -94,6 +96,33 @@ export const loginUser = userData => async dispatch => {
       });
     }
     dispatch(isLoading(false));
-    toast.error('Please check your network connection and try again');
+    toast.error("Please check your network connection and try again");
   }
+};
+
+export const register = userData => dispatch => {
+  axios
+    .post("/users", userData)
+    .then(response => {
+      if (response.status === 201) {
+        localStorage.setItem("token", response.data.payload.token);
+        setAuthToken(response.data.token);
+        dispatch({ type: REGISTER_SUCCESS, payload: response.data });
+        toast.success("Registration successful");
+        return response;
+      }
+    })
+    .catch(err => {
+      dispatch({ type: REGISTER_FAILURE, payload: err.response.data });
+      if (err) {
+        const { errors } = err.response.data;
+        const { username, email } = errors;
+        if (username) {
+          toast.error(username);
+        }
+        if (email) {
+          toast.error(email);
+        }
+      }
+    });
 };

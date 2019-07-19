@@ -1,15 +1,16 @@
-import React, { Component, Fragment } from 'react';
-import { Link, withRouter } from 'react-router-dom';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import classname from 'classnames';
-import logo from '@base/img/logo.png';
-import { faSearch } from '@fortawesome/fontawesome-free-solid';
-import Modal from '@components/commons/Modal';
-import LoginPage from '@components/views/Login';
-import { logoutUser } from '@actions/auth';
-import Button from '../utilities/Button';
-import FontAwesome from '../utilities/FontAwesome';
+import React, { Component, Fragment } from "react";
+import { Link, withRouter } from "react-router-dom";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import classname from "classnames";
+import logo from "@base/img/logo.png";
+import { faSearch } from "@fortawesome/fontawesome-free-solid";
+import Modal from "@components/commons/Modal";
+import LoginPage from "@components/views/Login";
+import SignupPage from "@components/views/Signup";
+import { logoutUser } from "@actions/auth";
+import Button from "../utilities/Button";
+import FontAwesome from "../utilities/FontAwesome";
 
 export class Header extends Component {
   constructor(props) {
@@ -23,7 +24,7 @@ export class Header extends Component {
     };
 
     this.defaultAvatar =
-      'https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/user_male2-512.png';
+      "https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/user_male2-512.png";
   }
 
   exitModal = () => {
@@ -45,18 +46,30 @@ export class Header extends Component {
     });
   };
 
+  toggleSignUpDialog = () => {
+    const { showSignUpModal } = this.state;
+    this.setState({
+      showSignUpModal: !showSignUpModal,
+      showSignInModal: false
+    });
+  };
+
   showSignupDialog = () => {
     this.setState({ showSignUpModal: true, showSignInModal: false });
+  };
+
+  showSigninDialog = () => {
+    this.setState({ showSignUpModal: false, showSignInModal: true });
   };
 
   authHeaderButtons = avatar => {
     return (
       <Fragment>
-        <div className='flex items-center'>
+        <div className="flex items-center">
           <FontAwesome
             type={faSearch}
-            styleClass='m-2 text-gray-500 mr-4 cursor-pointer text-2xl'
-            role='presentation'
+            styleClass="m-2 text-gray-500 mr-4 cursor-pointer text-2xl"
+            role="presentation"
             onKeyDown={this.showSearchBar}
             onClick={this.showSearchBar}
           />
@@ -64,9 +77,9 @@ export class Header extends Component {
 
         <img
           src={avatar || this.defaultAvatar}
-          alt='ProfileImage'
-          className='rounded-full w-10 h-10 text-blue-600 cursor-pointer block'
-          role='presentation'
+          alt="ProfileImage"
+          className="rounded-full w-10 h-10 text-blue-600 cursor-pointer block"
+          role="presentation"
           onKeyDown={this.showProfileDropDown}
           onClick={this.showProfileDropDown}
         />
@@ -76,10 +89,10 @@ export class Header extends Component {
 
   guestHeaderButtons = () => (
     <Fragment>
-      <Button type='regular' color='blue' onClick={this.toggleSignInDialog}>
+      <Button type="regular" color="blue" onClick={this.toggleSignInDialog}>
         Sign In
       </Button>
-      <Button type='outlined' color='blue' onClick={() => {}}>
+      <Button type="outlined" color="blue" onClick={this.toggleSignUpDialog}>
         Get Started
       </Button>
     </Fragment>
@@ -123,37 +136,37 @@ export class Header extends Component {
 
     return (
       <Fragment>
-        <div className='bg-white shadow relative'>
-          <div className='container mx-auto px-4'>
-            <div className='flex items-center justify-between py-4'>
-              <div className='flex'>
-                <Link to='/'>
+        <div className="bg-white shadow relative">
+          <div className="container mx-auto px-4">
+            <div className="flex items-center justify-between py-4">
+              <div className="flex">
+                <Link to="/">
                   <img
                     src={logo}
                     alt="Authors' Haven Icon"
-                    className='w-10 h-9 mr-2'
+                    className="w-10 h-9 mr-2"
                   />
                 </Link>
-                <h1 className='font-bold text-xl sm-text-base'>
+                <h1 className="font-bold text-xl sm-text-base">
                   Author&lsquo;s Haven
                 </h1>
               </div>
 
-              <div className='hidden sm:flex sm:items-center'>
+              <div className="hidden sm:flex sm:items-center">
                 {!isAuthenticated
                   ? this.guestHeaderButtons()
                   : this.authHeaderButtons(avatar)}
               </div>
 
-              <div className='flex sm:hidden cursor-pointer'>
+              <div className="flex sm:hidden cursor-pointer">
                 {!isAuthenticated ? (
                   <svg
-                    xmlns='http://www.w3.org/2000/svg'
-                    viewBox='0 0 512 512'
-                    className='w-6 h-6 text-blue-600 cursor-pointer'
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 512 512"
+                    className="w-6 h-6 text-blue-600 cursor-pointer"
                     onClick={this.toggleHeader}
                   >
-                    <path d='M64 384h384v-42.666H64V384zm0-106.666h384v-42.667H64v42.667zM64 128v42.665h384V128H64z' />
+                    <path d="M64 384h384v-42.666H64V384zm0-106.666h384v-42.667H64v42.667zM64 128v42.665h384V128H64z" />
                   </svg>
                 ) : (
                   this.authHeaderButtons(avatar)
@@ -163,12 +176,12 @@ export class Header extends Component {
 
             <div
               className={classname({
-                'block sm:hidden bg-white border-t-2 py-2': true,
+                "block sm:hidden bg-white border-t-2 py-2": true,
                 hidden
               })}
             >
-              <div className='flex justify-between items-center pt-2'>
-                {!isAuthenticated ? this.guestHeaderButtons(avatar) : ''}
+              <div className="flex justify-between items-center pt-2">
+                {!isAuthenticated ? this.guestHeaderButtons(avatar) : ""}
               </div>
             </div>
           </div>
@@ -176,84 +189,84 @@ export class Header extends Component {
 
         <div
           className={classname({
-            'block bg-white border-t-2 py-2 shadow-lg absolute right-0 w-full md:w-2/5 lg:w-2/5': true,
+            "block bg-white border-t-2 py-2 shadow-lg absolute right-0 w-full md:w-2/5 lg:w-2/5": true,
             hidden: authHidden,
-            'lg:max-w-xs': !showSearchBar
+            "lg:max-w-xs": !showSearchBar
           })}
         >
-          <div className='tooltip container' />
-          <div className='flex justify-between items-center pt-2 font-sans text-sm'>
+          <div className="tooltip container" />
+          <div className="flex justify-between items-center pt-2 font-sans text-sm">
             {isAuthenticated && !showSearchBar ? (
-              <div className='p-2 px-2 sm:px-6  w-full'>
+              <div className="p-2 px-2 sm:px-6  w-full">
                 <Link to={`/profile/${username}`}>
-                  <div className='border-b pb-4 md:flex lg:flex flex-wrap'>
+                  <div className="border-b pb-4 md:flex lg:flex flex-wrap">
                     <img
                       src={avatar || this.defaultAvatar}
-                      alt='My profile'
-                      className='rounded-full w-10 h-10 mx-auto md:mx-0 lg:mx-0'
+                      alt="My profile"
+                      className="rounded-full w-10 h-10 mx-auto md:mx-0 lg:mx-0"
                     />
-                    <div className='ml-0 md:ml-4 lg:ml-4 md:text-left lg:text-left text-center hover:text-blue-700'>
-                      <div className='font-bold text-base'>
-                        {`${firstname || ''} ${lastname || ''}`}
+                    <div className="ml-0 md:ml-4 lg:ml-4 md:text-left lg:text-left text-center hover:text-blue-700">
+                      <div className="font-bold text-base">
+                        {`${firstname || ""} ${lastname || ""}`}
                       </div>
-                      <div className='text-gray-500'>{`@ ${username}`}</div>
+                      <div className="text-gray-500">{`@ ${username}`}</div>
                     </div>
                   </div>
                 </Link>
 
                 <Link
                   to={`/profile/${username}`}
-                  className='block border-b pb-2 hover:text-blue-700 pt-2'
+                  className="block border-b pb-2 hover:text-blue-700 pt-2"
                 >
                   Profile
                 </Link>
                 <Link
-                  to='/articles'
-                  className='block border-b pb-2 pt-2 hover:text-blue-700'
+                  to="/articles"
+                  className="block border-b pb-2 pt-2 hover:text-blue-700"
                 >
                   New Article
                 </Link>
                 <Button
-                  type='regular'
-                  color='red'
+                  type="regular"
+                  color="red"
                   onClick={this.logoutBtnClicked}
-                  className='w-full text-left py-2 text-red-700 hover:text-red-800 rounded mr-2'
+                  className="w-full text-left py-2 text-red-700 hover:text-red-800 rounded mr-2"
                   stretch
                 >
                   Sign out
                 </Button>
               </div>
             ) : (
-              ''
+              ""
             )}
 
             {isAuthenticated && showSearchBar ? (
               <input
-                type='text'
-                className='mr-4 resize-x w-full ml-4 mb-2 input'
-                placeholder='Search...'
+                type="text"
+                className="mr-4 resize-x w-full ml-4 mb-2 input"
+                placeholder="Search..."
                 autoFocus
               />
             ) : (
-              ''
+              ""
             )}
           </div>
         </div>
 
         {showSignInModal && !isAuthenticated ? (
-          <Modal title='Welcome Back' exitModal={this.exitModal} toggle>
+          <Modal title="Welcome Back" exitModal={this.exitModal} toggle>
             {<LoginPage showSignup={this.showSignupDialog} />}
           </Modal>
         ) : (
-          ''
+          ""
         )}
 
         {showSignUpModal && !isAuthenticated ? (
-          <Modal title='Join Us' exitModal={this.exitModal} toggle>
-            <h1>Register with Author&lquos;s Haven</h1>
+          <Modal title="Join Author's Haven" exitModal={this.exitModal} toggle>
+            {<SignupPage showSignin={this.showSigninDialog} />}
           </Modal>
         ) : (
-          ''
+          ""
         )}
       </Fragment>
     );
