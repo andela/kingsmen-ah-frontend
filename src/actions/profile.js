@@ -11,7 +11,11 @@ export const getUserProfile = (username) => dispatch => {
 }
 
 export const updateProfile = updateData => async dispatch => {
-  const update = await axios.put('http://localhost:3000/api/v1/profiles/users', updateData);
+  const headers = {
+    'Content-Type': 'application/x-www-form-urlencoded',
+    'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjFjOTQ2ZDhkLWZiYzktNGEzMC1hMzM3LTA1NzMzMTUwZDU2MiIsImVtYWlsIjoiYWRleDAwMUBnbWFpbC5jb20iLCJpYXQiOjE1NjM1MzM0NTcsImV4cCI6MTU2NDIyNDY1N30.08focfpiekqhUG9QjiRu4E6829VuEsxvWH2ohceKwDg'
+}
+  const update = await axios.put('http://localhost:3000/api/v1/users', updateData, headers);
   dispatch({
     type: UPDATE_PROFILE,
     payload: update.data.payload

@@ -23,7 +23,7 @@ class Profile extends Component {
         location: null,
 
       },
-      tabs: [ 'Profile', 'Articles', 'Bookmarks' ],
+      tabs: [ 'Followers', 'Articles', 'Bookmarks' ],
       clickedTab: 'Articles',
     }
   }

@@ -13,12 +13,12 @@ export default function ProfileResult(props) {
   }
 
   switch(tab) {
-    case 'Profile': 
-    return displayTab('profile');
+    case 'Followers': 
+    return displayTab('Followers');
     case 'Articles': 
-    return displayTab('articles');
+    return displayTab('No article yet');
     case 'Bookmarks': 
-    return displayTab('bookmarks');
+    return displayTab('no bookmarks');
     default:
       return displayTab('articles')
   }

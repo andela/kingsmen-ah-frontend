@@ -91,6 +91,10 @@ class EditProfile extends Component {
       });
   }
   updateProfile = () => {
+    const { profile, user } = this.state;
+    const { updateProfile, history } = this.props;
+    updateProfile(profile);
+    history.push(`/profile/${user.username}`);
     
   }
 
@@ -147,11 +151,11 @@ class EditProfile extends Component {
             </span>
             <span className="flex mb-5 lg:pl-5">
               <label className="label text-gray-700" htmlFor="bio">Bio</label>
-              <input type="text" className="flex-2 shadow appearance-none border rounded py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline bg-gray-400 " placeholder="something interesting about you" name="bio" value={bio} onChange={this.handleChange} />
+              <input type="text" className="flex-2 shadow appearance-none border rounded py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline bg-gray-400 " placeholder="something interesting about you" name="bio" value={bio || ''} onChange={this.handleChange} />
             </span>
             <span className="flex mb-5 lg:pl-5">
               <label className="label text-gray-700" htmlFor="phone">Phone</label>
-              <input type="phone" placeholder="enter phone number" name="phone" value={phone} onChange={this.handleChange} className="flex-2 shadow appearance-none border rounded py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline bg-gray-400" />
+              <input type="phone" placeholder="enter phone number" name="phone" value={phone || ''} onChange={this.handleChange} className="flex-2 shadow appearance-none border rounded py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline bg-gray-400" />
             </span>
             <div className="flex justify-center">
               <Button type="outlined" color="green" onClick={this.updateProfile} onKeyDown={()=>{}}> Save </Button>
@@ -178,6 +182,7 @@ EditProfile.propTypes = {
     
   })).isRequired,
   getUserProfile: PropTypes.func.isRequired,
+  updateProfile: PropTypes.func.isRequired
   // history: PropTypes.objectOf(PropTypes.string).isRequired
 };
 
@@ -185,4 +190,4 @@ const mapStateToProps = (state) => ({
   profile: state.profile.profile,
 });
 
-export default connect(mapStateToProps, { getUserProfile })(withRouter(EditProfile));
+export default connect(mapStateToProps, { getUserProfile, updateProfile })(withRouter(EditProfile));
