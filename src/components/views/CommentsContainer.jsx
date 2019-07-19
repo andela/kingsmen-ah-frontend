@@ -1,10 +1,12 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import CommentCard from '../common/CommentCard';
-import CreateCommentCard from '../common/CreateCommentCard';
+import Footer from '@components/commons/utilities/Footer';
+import CommentCard from '../commons/Cards/CommentCard';
+import CreateCommentCard from '../commons/Cards/CreateCommentCard';
 import { getComments, postComment, delComment } from '../../actions/comments';
+import formatDate from '../commons/utilities/helpers'
 
 /**
  *
@@ -18,12 +20,36 @@ export class CommentsContainer extends Component {
     super(props);
     this.state = {
       comment: '',
+      errors: {}
     }
   }
 
   componentDidMount() {
+    const slug = 'new-article-b7a1a384';
     const { getComments: loadComments } = this.props;
-    loadComments();
+    loadComments(slug);
+  }
+  
+  /**
+   *
+   * Validate comment input field
+   * @memberof CommentsContainer
+   */
+  validate = () => {
+    let isError = false
+    let { comment, errors } = this.state;
+
+    if (comment.length < 5 || comment.length > 500) {
+      isError = true;
+      errors.commentError = 'Comment must be between 5 - 500 characters'
+    }
+
+    this.setState((prevState) => ({
+      ...prevState,
+      ...errors
+    }))
+
+    return isError;
   }
 
   /**
@@ -33,12 +59,15 @@ export class CommentsContainer extends Component {
    */
   onSubmit = (e) => {
     e.preventDefault();
-    const { comment } = this.state;
-    const { postComment } = this.props;
-    const newComment = { comment };
-
-    postComment(newComment);
-    this.clearComment();
+    const slug = 'new-article-b7a1a384';
+    const err = this.validate();
+    if (!err) {
+      const { comment } = this.state;
+      const { postComment } = this.props;
+      const newComment = { comment }
+      postComment(newComment, slug);
+      this.clearComment();
+    }
   }
 
   /**
@@ -52,29 +81,23 @@ export class CommentsContainer extends Component {
 
   /**
    *
-   * Delete a comment
-   * @memberof CommentsContainer
-   */
-  deleteComment = (id) => {
-    const { delComment } = this.props;
-    delComment(id);
-  }
-
-  /**
-   *
    * Creates a comment listing
    * @memberof CommentsContainer
    */
   createCommentListings = (comments) => {
-    const data = comments && comments.map(comment => {
+    const data = comments.map(comment => {
+      const date = formatDate(comment.createdAt);
       return (
         <CommentCard
           key={comment.id}
           name={comment.author.username}
           alt={comment.author.username}
           body={comment.body}
-          createdAt={comment.createdAt}
-          delComment={this.deleteComment(comment.id)}
+          createdAt={date.long}
+          likeCount={comment.likeCount}
+          like={() => this.likeComment(comment.id)}
+          unlike={() => this.unlikeComment(comment.id)}
+          del={() => this.deleteComment(comment.id)}
         />
       );
     });
@@ -89,64 +112,56 @@ export class CommentsContainer extends Component {
    */
   clearComment = () => {
     this.setState({
-      comment: ''
+      comment: '',
+      errors: {}
     });
   }
 
+  /**
+   *
+   * Delete a comment
+   * @memberof CommentsContainer
+   */
+  deleteComment(id) {
+    const slug = 'new-article-b7a1a384';
+    const { delComment } = this.props;
+    delComment(id, slug);
+  }
+
   render() {
-    let results;
     const { comments } = this.props;
-    const { comment } = this.state;
+    const { comment, errors } = this.state;
 
-    if (comments) {
-      results = comments.payload
-    }
-
-    const data = this.createCommentListings(results);
+    const data = this.createCommentListings(comments);
 
     return (
-      <Fragment>
+      <div className="lg:ml-64 lg:mr-64">
         <CreateCommentCard
           name='Test Name'
           onChange={this.onChange}
-          onSubmit={this.onSubmit}
+          submit={this.onSubmit}
+          reset={this.clearComment}
           value={comment}
+          commentError={errors.commentError}
         />
         {data}
-        <CommentCard />
-      </Fragment>
+        <Footer />
+      </div>
     );
   }
 }
 
 CommentsContainer.propTypes = {
-  comments: PropTypes.shape({
-    status: PropTypes.number,
-    message: PropTypes.string,
-    payload: PropTypes.arrayOf(PropTypes.shape([{
-      id: PropTypes.number,
-      createdAt: PropTypes.string,
-      updatedAt: PropTypes.string,
-      body: PropTypes.string,
-      likeCount: PropTypes.string,
-      author: PropTypes.shape({
-        username: PropTypes.string,
-        profile: PropTypes.shape({
-          bio: PropTypes.string,
-          avatar: PropTypes.string
-        })
-      }),
-    }])),
-    map: PropTypes.func
-  }).isRequired,
+  comments: PropTypes.arrayOf(PropTypes.shape({
+
+  })).isRequired,
   getComments: PropTypes.func.isRequired,
   postComment: PropTypes.func.isRequired,
   delComment: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
-  comments: state.comments.comments,
-  errors: state.errors
+  comments: state.comments.comments
 });
 
 export default connect(mapStateToProps, { getComments, postComment, delComment })(withRouter(CommentsContainer));

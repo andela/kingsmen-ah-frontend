@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { faEdit, faTrash } from '@fortawesome/fontawesome-free-solid';
+import { faTrashAlt } from '@fortawesome/fontawesome-free-regular';
 import FontAwesome from '../utilities/FontAwesome';
 
 export function CommentCard({
-  name, avatar, alt, body, createdAt
+  name, avatar, alt, body, createdAt, del
 }) {
   return (
     <div className="px-auto m-12 p-1 bg-gray-200">
@@ -14,15 +14,15 @@ export function CommentCard({
             <img className="w-10 h-10 rounded-full mr-4" src={avatar} alt={alt} />
             <div className="text-sm">
               <p className="text-gray-900 leading-none">{name}</p>
-              <p className="text-gray-600">{createdAt}</p>
+              <p className="text-gray-600 mt-1">{createdAt}</p>
             </div>
-            <div className="text-bg flex ml-auto">
-              <FontAwesome type={faEdit} />
-              <FontAwesome type={faTrash} />
-            </div>
+            <div className="text-bg ml-auto" />
           </div>
           <div className="mb-4 ml-8">
             <p className="text-gray-700 text-base">{body}</p>
+          </div>
+          <div className="text-bg ml-auto">
+            <FontAwesome type={faTrashAlt} onClick={del} />
           </div>
         </div>
       </div>
@@ -31,19 +31,21 @@ export function CommentCard({
 }
 
 CommentCard.propTypes = {
-  name: PropTypes.string,
-  body: PropTypes.string,
+  name: PropTypes.string.isRequired,
+  body: PropTypes.string.isRequired,
+  // like: PropTypes.func.isRequired,
+  // unlike: PropTypes.func.isRequired,
+  // likeCount: PropTypes.string.isRequired,
   avatar: PropTypes.string,
   alt: PropTypes.string,
-  createdAt: PropTypes.string,
+  createdAt: PropTypes.string.isRequired,
+  del: PropTypes.func
 };
 
 CommentCard.defaultProps = {
-  name: 'Gerrard Ezeugwa',
-  body: 'Lorem is ipsum, ipsum I say. Lorem is ipsum, ipsum I say. Lorem is ipsum, ipsum I say.',
   avatar: 'https://tailwindcss.com/img/card-left.jpg',
   alt: 'avatar',
-  createdAt: '1st Jan 2019'
+  del: () => { }
 };
 
 export default CommentCard;

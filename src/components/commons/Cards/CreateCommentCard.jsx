@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Button from '../utilities/Button';
+import Alert from './Alert';
 
 export function CreateCommentCard({
-  name, avatar, alt
+  name, avatar, alt, value, onSubmit, onChange, commentError, submit, reset
 }) {
   return (
     <div className="px-auto m-12 p-1 bg-gray-200">
@@ -14,17 +16,14 @@ export function CreateCommentCard({
               <p className="text-gray-900 leading-none">{name}</p>
             </div>
           </div>
-          <form className="rounded pb-2">
+          {commentError && (<Alert alertBody={commentError} />)}
+          <form className="rounded" onSubmit={onSubmit}>
             <div className="mb-2">
-              <textarea className="resize appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" rows="6" type="text" placeholder="What's on your mind?" />
+              <textarea className="resize appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="comment" rows="6" type="text" placeholder="What's on your mind?" value={value} onChange={onChange} />
             </div>
             <div className="flex justify-end">
-              <button type="submit" className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white px-4 mr-2 border border-blue-500 hover:border-transparent rounded">
-                Comment
-              </button>
-              <button type="submit" className="ml-2 bg-transparent hover:bg-red-500 text-red-700 font-semibold hover:text-white py-2 px-4 border border-red-500 hover:border-transparent rounded">
-                Cancel
-              </button>
+              <Button type='outlined' color='blue' onClick={submit}>Comment</Button>
+              <Button type='outlined' color='red' onClick={reset}>Cancel</Button>
             </div>
           </form>
         </div>
@@ -36,13 +35,20 @@ export function CreateCommentCard({
 CreateCommentCard.propTypes = {
   name: PropTypes.string,
   avatar: PropTypes.string,
-  alt: PropTypes.string
+  alt: PropTypes.string,
+  value: PropTypes.string.isRequired,
+  onSubmit: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired,
+  submit: PropTypes.func.isRequired,
+  reset: PropTypes.func.isRequired,
+  commentError: PropTypes.string
 };
 
 CreateCommentCard.defaultProps = {
   name: 'Gerrard Ezeugwa',
   avatar: 'https://tailwindcss.com/img/card-left.jpg',
-  alt: 'avatar'
+  alt: 'avatar',
+  commentError: ''
 };
 
 export default CreateCommentCard;

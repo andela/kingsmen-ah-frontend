@@ -97,3 +97,17 @@ input {
     transform: rotate(360deg);
   }
 }
+
+svg.svg-inline--fa.fa-heart.fa-w-16.fa.fa-edit.mr-2.text-gray-700 {
+  color: red !important
+}
+
+svg.svg-inline--fa:hover {
+  color: red;
+  cursor: pointer;
+  font-size: 20px
+}
+
+.clear{
+  display: none;
+}

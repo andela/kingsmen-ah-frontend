@@ -16,13 +16,15 @@ export default function FontAwesome({ type, styleClass, onClick, onKeyDown }) {
 }
 
 FontAwesome.propTypes = {
-  onClick: PropTypes.func.isRequired,
-  onKeyDown: PropTypes.func.isRequired,
+  onClick: PropTypes.func,
+  onKeyDown: PropTypes.func,
   type: PropTypes.shape({}),
   styleClass: PropTypes.string
 };
 
 FontAwesome.defaultProps = {
+  onClick: () => {},
+  onKeyDown: () => {},
   type: faStar,
-  styleClass: 'fa fa-edit mr-2 text-gray-700'
+  styleClass: 'fa fa-edit mr-2 text-gray-700',
 };

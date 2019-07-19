@@ -6,7 +6,7 @@ import '../index.scss';
 function Button({ type, color, stretch, children, onClick }) {
   return (
     <button
-      type='submit'
+      type='button'
       className={classnames(
         'bg-transparent hover:text-white py-2 px-4 border  rounded mr-2 text-sm',
         {
@@ -39,11 +39,12 @@ Button.propTypes = {
   ]).isRequired,
   color: PropTypes.string.isRequired,
   stretch: PropTypes.bool,
-  onClick: PropTypes.func.isRequired
+  onClick: PropTypes.func
 };
 
 Button.defaultProps = {
-  stretch: false
+  stretch: false,
+  onClick: () => {}
 };
 
 export default Button;
