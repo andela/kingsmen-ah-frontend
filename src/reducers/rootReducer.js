@@ -1,9 +1,11 @@
 import { combineReducers } from 'redux';
 import auth from './auth';
+import article from './articles';
 
 
 const appReducer = combineReducers({
-  auth
+  auth,
+  article
 });
 
 export default appReducer;

@@ -1,6 +1,6 @@
 $bg-color: #c4c4c4;
-$background-color-1: rgba($background-color-1, 0.4);
+$background-color: rgba($bg-color, 0.4);
 
 .bg-gray {
-  background: $background-color-1;
+  background: $background-color;
 }

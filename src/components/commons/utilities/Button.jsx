@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import '../index.scss';
 
-function Button({ type, text, color, stretch, onClick, ...rest }) {
+function Button({ type, children, color, stretch, onClick, ...rest }) {
   return (
     <button
       {...rest}
@@ -27,14 +27,18 @@ function Button({ type, text, color, stretch, onClick, ...rest }) {
       )}
       onClick={onClick}
     >
-      {text}
+      {children}
     </button>
   );
 }
 
 Button.propTypes = {
   type: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.object,
+    PropTypes.string
+  ]).isRequired,
   color: PropTypes.string.isRequired,
   stretch: PropTypes.bool,
   onClick: PropTypes.func.isRequired

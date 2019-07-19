@@ -1,6 +1,13 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Routes from './Routes';
 
 export default function App() {
-  return <Routes />;
+  return (
+    <Fragment>
+      <ToastContainer />
+      <Routes />
+    </Fragment>
+  );
 }

@@ -1,5 +1,20 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Content:400,700&display=swap');
 $dark: rgba(209, 202, 202, 0.5);
 $base-color: #335bcf;
+
+.title {
+  font-family: 'Roboto Slab', serif;
+}
+
+.body {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: 400;
+  letter-spacing: 1px;
+  color: rgba(0, 0, 0, 0.84) !important;
+  word-break: break-word;
+  text-rendering: optimizeLegibility;
+}
 
 .ce-block__content {
   margin: 0 !important;
@@ -48,7 +63,24 @@ ul {
 }
 
 .article-container {
-  width: 70%;
+  width: 85%;
+}
+
+.content-area {
+  width: 60%;
+}
+
+@media only screen and (max-width: 600px) {
+  .article-container,
+  .content-area {
+    width: 90%;
+  }
+}
+
+@media only screen and (max-width: 768px) and (min-width: 600px) {
+  .content-area {
+    width: 70%;
+  }
 }
 
 .center {
@@ -57,6 +89,7 @@ ul {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
 
 .textarea {
   border-left: 1px solid $dark;
@@ -95,4 +128,12 @@ ul {
   margin-top: 8px;
   width: 50%;
   border-bottom: 1px solid $base-color;
+}
+
+.codex-editor__redactor {
+  padding: 0 !important;
+}
+
+button:disabled {
+  cursor: not-allowed !important;
 }
