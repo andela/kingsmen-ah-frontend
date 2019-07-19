@@ -16,7 +16,7 @@ module.exports = {
       '@config': path.resolve(__dirname, './src/config'),
       '@helpers': path.resolve(__dirname, './src/helpers'),
       '@reducers': path.resolve(__dirname, './src/reducers'),
-      '@utils': path.resolve(__dirname, './src/utils'),
+      '@utils': path.resolve(__dirname, './src/utilities'),
       '@validations': path.resolve(__dirname, './src/validations'),
       '@base': path.resolve(__dirname, './public')
     }

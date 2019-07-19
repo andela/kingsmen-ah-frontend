@@ -3,30 +3,24 @@ import PropTypes from 'prop-types';
 
 export default function ProfileResult(props) {
   const { tab } = props;
+  const displayTab = (tabname) => {
+    return(
+      <div className="center-item flex justify-center items-center nav-result">
+        {tabname}
+      </div>
+
+    )
+  }
 
   switch(tab) {
-    case 'profile': 
-    return (
-      <div>
-        PROFILE
-      </div>
-    )
-    case 'article': 
-    return (
-      <div>
-        ARTICLE
-      </div>
-    )
-    case 'bookmarks': 
-    return (
-      <div>
-        BOOKMARKS
-      </div>
-    )
+    case 'Profile': 
+    return displayTab('profile');
+    case 'Articles': 
+    return displayTab('articles');
+    case 'Bookmarks': 
+    return displayTab('bookmarks');
     default:
-      return (
-        <div>NOTHING INTERESTING HERE</div>
-      )
+      return displayTab('articles')
   }
 }
 

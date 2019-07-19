@@ -1,0 +1,45 @@
+.full-height{
+  min-height: 100vh;
+}
+
+.active {
+  color: black;
+  padding-bottom: 10px;
+  border-bottom: 2px solid black;
+  font-weight: bold;
+
+}
+.center-item{
+  width: 75%;
+  margin: 0 auto;
+}
+
+.nav-result{
+  min-height: 50vh;
+}
+
+.big-text{
+  font-size: 24px;
+  width: 150px;
+}
+.camera-avatar{
+  position: absolute;
+  top: 45px;
+  left: 65px;
+  transition: 0.5s ease-in-out;
+}
+.cursor-pointer:hover .avatar{
+  opacity: 0.1;
+}
+.cursor-pointer:hover .hide{
+  display: block;
+}
+.hide{
+  display: none;
+}
+.label{
+  width: 100px;
+}
+.file{
+  display: none;
+}
