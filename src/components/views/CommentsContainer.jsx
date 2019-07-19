@@ -29,28 +29,6 @@ export class CommentsContainer extends Component {
     const { getComments: loadComments } = this.props;
     loadComments(slug);
   }
-  
-  /**
-   *
-   * Validate comment input field
-   * @memberof CommentsContainer
-   */
-  validate = () => {
-    let isError = false
-    let { comment, errors } = this.state;
-
-    if (comment.length < 5 || comment.length > 500) {
-      isError = true;
-      errors.commentError = 'Comment must be between 5 - 500 characters'
-    }
-
-    this.setState((prevState) => ({
-      ...prevState,
-      ...errors
-    }))
-
-    return isError;
-  }
 
   /**
    *
@@ -77,6 +55,28 @@ export class CommentsContainer extends Component {
    */
   onChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
+  }
+
+  /**
+     *
+     * Validate comment input field
+     * @memberof CommentsContainer
+     */
+  validate = () => {
+    let isError = false
+    let { comment, errors } = this.state;
+
+    if (comment.length < 5 || comment.length > 500) {
+      isError = true;
+      errors.commentError = 'Comment must be between 5 - 500 characters'
+    }
+
+    this.setState((prevState) => ({
+      ...prevState,
+      ...errors
+    }))
+
+    return isError;
   }
 
   /**
