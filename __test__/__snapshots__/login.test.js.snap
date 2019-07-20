@@ -2,8 +2,80 @@
 
 exports[`<Login /> should render the Login component correctly 1`] = `
 <div>
-  <h1>
-    This is the login page
-  </h1>
+  <div
+    className="w-full md:w-2/3 lg:w-2/3 m-auto md:my-4 lg:my-6"
+  >
+    <span
+      className="text-xs md:text-base lg:text-lg text-gray-700"
+    >
+      Enter the email address and password associated with your account.
+    </span>
+    <RenderInput
+      className=""
+      error=""
+      handleChange={[Function]}
+      id="email"
+      label="Enter Email"
+      name="email"
+      type="email"
+      value=""
+    />
+    <RenderInput
+      className=""
+      error=""
+      handleChange={[Function]}
+      id="password"
+      label="Enter Password"
+      name="password"
+      type="password"
+      value=""
+    />
+    <Button
+      color="blue"
+      disabled={true}
+      onClick={[Function]}
+      stretch={true}
+      title="Please fill both fields"
+      type="solid"
+    >
+      Sign In
+    </Button>
+    <div
+      className="text-xs md:text-base my-4"
+    >
+      <span>
+        No Account?
+      </span>
+      <Button
+        color="blue"
+        onClick={[Function]}
+        stretch={false}
+        text="Create One"
+        type="regular"
+      >
+        Create One
+      </Button>
+    </div>
+    <div
+      className="text-xs md:text-base my-4"
+    >
+      <span>
+        Can‘t remember password?
+      </span>
+      <Button
+        color="blue"
+        onClick={[Function]}
+        stretch={false}
+        type="regular"
+      >
+        Reset password
+      </Button>
+    </div>
+    <span
+      className="text-xs md:text-base lg:text-base text-gray-700"
+    >
+      To make Author’s Haven work, we log user data and share it with service providers. Click “Sign in” above to accept Author’s Haven We hope you have a pleasant read/write
+    </span>
+  </div>
 </div>
 `;
