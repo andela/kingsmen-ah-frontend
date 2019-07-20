@@ -245,7 +245,7 @@ exports[`<Cards /> render the profile card component 1`] = `
             authur
           </p>
           <ReadTime
-            time={2019-07-14T08:43:37.850Z}
+            time={2019-07-19T14:09:08.390Z}
           />
           <p
             className="text-black text-sm bold font-sans w-full"
