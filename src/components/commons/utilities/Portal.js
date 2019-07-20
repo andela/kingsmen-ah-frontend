@@ -3,7 +3,6 @@ import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 
 
-
 function Portal(props) {
   const { children } = props;
   return (

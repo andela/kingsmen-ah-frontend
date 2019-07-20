@@ -27,6 +27,27 @@ exports[`App should render the App component correctly 1`] = `
     toastClassName={null}
     transition={[Function]}
   />
+<<<<<<< HEAD
   <Routes />
+=======
+  <PersistGate
+    loading={null}
+    persistor={
+      Object {
+        "dispatch": [Function],
+        "flush": [Function],
+        "getState": [Function],
+        "pause": [Function],
+        "persist": [Function],
+        "purge": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+        Symbol(observable): [Function],
+      }
+    }
+  >
+    <Routes />
+  </PersistGate>
+>>>>>>> develop
 </Fragment>
 `;

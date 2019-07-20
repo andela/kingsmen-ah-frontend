@@ -10,7 +10,11 @@ const props = {
 };
 
 const setup = () => {
+<<<<<<< HEAD
   const wrapper = shallow(<Button {...props} />);
+=======
+  const wrapper = shallow(<Button {...props}>Login</Button>);
+>>>>>>> develop
   return wrapper;
 };
 

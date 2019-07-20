@@ -117,6 +117,7 @@
     "redux-devtools-extension": "^2.13.8",
     "redux-logger": "^3.0.6",
     "redux-mock-store": "^1.5.3",
+    "redux-persist": "^5.10.0",
     "redux-thunk": "^2.3.0",
     "resolve-url-loader": "^2.3.0",
     "sass-loader": "^6.0.6",

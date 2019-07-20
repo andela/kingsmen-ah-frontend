@@ -70,7 +70,7 @@ exports[`<Modal /> should render a modal correctly 1`] = `
             className="modal_title"
           >
             <h2
-              className="text-normal font-bold text-xl"
+              className="text-normal font-bold text-base sm:text-2xl md:text-4xl"
             >
               New Modal
             </h2>

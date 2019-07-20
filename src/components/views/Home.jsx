@@ -1,49 +1,43 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import PageLayout from '@components/layout/PageLayout';
-import ArticleCard from '@components/commons/Cards/Article';
-import './Article/index.scss';
-
+import Header from '@components/commons/Header';
 
 class Home extends Component {
-  static propTypes = {
-    articles: PropTypes.arrayOf,
-    getAllArticles: PropTypes.func.isRequired
-  }
-
-  static defaultProps =  {
-    articles: null
-  }
-
   constructor(props) {
     super(props);
-
-    this.state = {
-
-    };
-  }
-
-  componentDidMount() {
-    const { getAllArticles } = this.props;
-    getAllArticles();
+    this.state = {};
   }
 
   render() {
-    const { articles } = this.props;
+    const { user, profile, isAuthenticated } = this.props;
+
     return (
-      <PageLayout>
-        <div className="article-container mx-auto mt-6">
-          <div className="flex flex-wrap">
-            {articles.map((article, index) => {
-              return (
-                <ArticleCard key={index.toString()} isSmall={index === 0 ? false : index % 9 === 0 ? false : true} article={article} />
-              );
-            })}
-          </div>
-        </div>
-      </PageLayout>
+      <div className='bg-gray-100 font-sans w-full min-h-screen m-0'>
+        <Header
+          user={{ user: { ...user, isAuthenticated } }}
+          profile={profile}
+        />
+      </div>
     );
   }
 }
 
-export default Home;
+Home.propTypes = {
+  user: PropTypes.shape({}).isRequired,
+  profile: PropTypes.shape({}).isRequired,
+  isAuthenticated: PropTypes.bool.isRequired,
+  errors: PropTypes.shape({}).isRequired
+};
+
+const mapStateToProps = state => ({
+  user: state.auth.user,
+  profile: state.auth.profile,
+  isAuthenticated: state.auth.isAuthenticated,
+  errors: state.auth.errors
+});
+
+export default connect(
+  mapStateToProps,
+  {}
+)(Home);
