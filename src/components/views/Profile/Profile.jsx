@@ -63,7 +63,8 @@ class Profile extends Component {
 
 Profile.propTypes = {
   user: PropTypes.shape({}).isRequired,
-  profile: PropTypes.shape({}).isRequired,
+  profile: PropTypes.shape({
+  }).isRequired,
   isAuthenticated: PropTypes.bool.isRequired,
   errors: PropTypes.shape({}).isRequired
 };

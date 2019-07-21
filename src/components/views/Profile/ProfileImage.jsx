@@ -30,8 +30,12 @@ export default function ProfileImage({ profile, user }) {
 }
 
 ProfileImage.propTypes = {
-  profile: PropTypes.objectOf(
-    PropTypes.shape()
-  ).isRequired,
-  user: PropTypes.string.isRequired
+  profile: PropTypes.shape({
+    firstname: PropTypes.string,
+    lastname: PropTypes.string,
+    avatar: PropTypes.string
+  }).isRequired,
+  user: PropTypes.shape({
+    username: PropTypes.string.isRequired
+  }).isRequired,
 }
