@@ -1,0 +1,50 @@
+.full-height{
+  min-height: 100vh;
+}
+
+.profile-container{
+  width: 75%;
+  margin: 0 auto
+}
+.active {
+  color: black;
+  padding-bottom: 10px;
+  border-bottom: 2px solid black;
+  font-weight: bold;
+}
+.nav-result{
+  min-height: 50vh;
+}
+.camera-avatar{
+  position: absolute;
+  top: 45px;
+  left: 65px;
+  transition: 0.5s ease-in-out;
+}
+.cursor-pointer:hover .avatar{
+  opacity: 0.1;
+}
+.cursor-pointer:hover .hide{
+  display: block;
+}
+.hide{
+  display: none;
+}
+.file{
+  display: none;
+}
+.profile-update-form{
+  display: flex;
+  flex-direction: column;
+}
+
+.label{
+  width: 100px;
+}
+.field {
+  margin-top: 5px;
+}
+.field span{
+  display: block;
+  flex: 1
+}
