@@ -6,6 +6,10 @@ const baseConfig = require('./webpack.base.js');
 module.exports = merge(baseConfig, {
   devtool: 'inline-source-map',
 
+  node: {
+    fs: "empty"
+  },
+
   devServer: {
     historyApiFallback: true,
     hot: true,

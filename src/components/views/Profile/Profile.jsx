@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { config } from 'dotenv';
 import PropTypes from 'prop-types';
 import Header from '@components/commons/Header';
 import Footer from '@components/commons/utilities/Footer';
@@ -7,6 +8,7 @@ import ProfileImage from './ProfileImage';
 import ProfileDisplay from './ProfileDisplay';
 import './Profile.scss';
 
+config();
 class Profile extends Component {
   constructor(props) {
     super(props);
