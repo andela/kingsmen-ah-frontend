@@ -9,8 +9,8 @@ import FontAwesome from '@components/commons/utilities/FontAwesome';
 import { faCamera } from '@fortawesome/fontawesome-free-solid';
 import './Profile.scss';
 
-const CLOUDINARY_URL = process.env.CLOUDINARY_URL;
-const CLOUDINARY_UPLOAD_PRESET = process.env.CLOUDINARY_UPLOAD_PRESET;
+const CLOUDINARY_URL = process.env.CLOUDINARY_URL || 'https://api.cloudinary.com/v1_1/adex001/image/upload';
+const CLOUDINARY_UPLOAD_PRESET = process.env.CLOUDINARY_UPLOAD_PRESET || 'hv1qo6wl';
 
 class EditProfile extends Component {
   constructor(props) {
@@ -72,10 +72,10 @@ class EditProfile extends Component {
   }
   render() {
     const { user, profile, isAuthenticated, history } = this.props;
-    const { avatar, firstname, lastname } = profile;
+    const { firstname, lastname } = profile;
     const { username } = user;
     const { profile: stateProfile } = this.state;
-    const { firstname: first_name, lastname: last_name, bio, phone } = stateProfile;
+    const { firstname: first_name, lastname: last_name, bio, phone, avatar } = stateProfile;
 
     const avatarDefault = 'https://visualpharm.com/assets/344/Male%20User-595b40b65ba036ed117d4d28.svg';
     return (
