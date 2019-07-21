@@ -7,7 +7,7 @@ export function CreateCommentCard({
   name, avatar, alt, value, onSubmit, onChange, commentError, submit, reset
 }) {
   return (
-    <div className="px-auto m-12 p-1 bg-gray-200">
+    <div className="px-auto my-4 p-1 bg-gray-200">
       <div className="w-full">
         <div className="border-r border-b border-l border-gray-400 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
           <div className="flex items-center mb-4">
@@ -37,7 +37,7 @@ CreateCommentCard.propTypes = {
   avatar: PropTypes.string,
   alt: PropTypes.string,
   value: PropTypes.string.isRequired,
-  onSubmit: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func,
   onChange: PropTypes.func.isRequired,
   submit: PropTypes.func.isRequired,
   reset: PropTypes.func.isRequired,
@@ -45,10 +45,11 @@ CreateCommentCard.propTypes = {
 };
 
 CreateCommentCard.defaultProps = {
-  name: 'Gerrard Ezeugwa',
-  avatar: 'https://tailwindcss.com/img/card-left.jpg',
+  name: 'Username',
+  avatar: 'https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/user_male2-512.png',
   alt: 'avatar',
-  commentError: ''
+  commentError: '',
+  onSubmit: () => {}
 };
 
 export default CreateCommentCard;

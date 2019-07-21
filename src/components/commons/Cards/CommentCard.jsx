@@ -22,7 +22,7 @@ export function CommentCard({
             <p className="text-gray-700 text-base">{body}</p>
           </div>
           <div className="text-bg ml-auto">
-            <FontAwesome type={faTrashAlt} onClick={del} />
+            <FontAwesome type={faTrashAlt} onClick={del} styleClass="cursor-pointer" />
           </div>
         </div>
       </div>
@@ -33,9 +33,6 @@ export function CommentCard({
 CommentCard.propTypes = {
   name: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
-  // like: PropTypes.func.isRequired,
-  // unlike: PropTypes.func.isRequired,
-  // likeCount: PropTypes.string.isRequired,
   avatar: PropTypes.string,
   alt: PropTypes.string,
   createdAt: PropTypes.string.isRequired,
@@ -43,9 +40,9 @@ CommentCard.propTypes = {
 };
 
 CommentCard.defaultProps = {
-  avatar: 'https://tailwindcss.com/img/card-left.jpg',
+  avatar: 'https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/user_male2-512.png',
   alt: 'avatar',
-  del: () => { }
+  del: () => {}
 };
 
 export default CommentCard;

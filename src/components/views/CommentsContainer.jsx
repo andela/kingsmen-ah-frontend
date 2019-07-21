@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -10,7 +10,7 @@ import formatDate from '../commons/utilities/helpers'
 
 /**
  *
- * Container component for the adding and viewing commments
+ * Container component for the adding, viewing and deleting commments
  * @export
  * @class CommentsContainer
  * @extends {Component}
@@ -25,7 +25,7 @@ export class CommentsContainer extends Component {
   }
 
   componentDidMount() {
-    const slug = 'new-article-b7a1a384';
+    const { slug } = this.props;
     const { getComments: loadComments } = this.props;
     loadComments(slug);
   }
@@ -37,7 +37,7 @@ export class CommentsContainer extends Component {
    */
   onSubmit = (e) => {
     e.preventDefault();
-    const slug = 'new-article-b7a1a384';
+    const { slug } = this.props;
     const err = this.validate();
     if (!err) {
       const { comment } = this.state;
@@ -58,10 +58,10 @@ export class CommentsContainer extends Component {
   }
 
   /**
-     *
-     * Validate comment input field
-     * @memberof CommentsContainer
-     */
+   *
+   * Valdate comment field
+   * @memberof CommentsContainer
+   */
   validate = () => {
     let isError = false
     let { comment, errors } = this.state;
@@ -94,9 +94,6 @@ export class CommentsContainer extends Component {
           alt={comment.author.username}
           body={comment.body}
           createdAt={date.long}
-          likeCount={comment.likeCount}
-          like={() => this.likeComment(comment.id)}
-          unlike={() => this.unlikeComment(comment.id)}
           del={() => this.deleteComment(comment.id)}
         />
       );
@@ -123,21 +120,22 @@ export class CommentsContainer extends Component {
    * @memberof CommentsContainer
    */
   deleteComment(id) {
-    const slug = 'new-article-b7a1a384';
+    const { slug } = this.props;
     const { delComment } = this.props;
     delComment(id, slug);
   }
 
   render() {
-    const { comments } = this.props;
+    const { comments, user, profile: { avatar } } = this.props;
     const { comment, errors } = this.state;
 
     const data = this.createCommentListings(comments);
 
     return (
-      <div className="lg:ml-64 lg:mr-64">
+      <Fragment>
         <CreateCommentCard
-          name='Test Name'
+          name={user.username}
+          avatar={avatar}
           onChange={this.onChange}
           submit={this.onSubmit}
           reset={this.clearComment}
@@ -146,7 +144,7 @@ export class CommentsContainer extends Component {
         />
         {data}
         <Footer />
-      </div>
+      </Fragment>
     );
   }
 }
@@ -155,13 +153,22 @@ CommentsContainer.propTypes = {
   comments: PropTypes.arrayOf(PropTypes.shape({
 
   })).isRequired,
+  user: PropTypes.shape({
+    username: PropTypes.string,
+  }).isRequired,
+  profile: PropTypes.shape({
+    avatar: PropTypes.string,
+  }).isRequired,
+  slug: PropTypes.string.isRequired,
   getComments: PropTypes.func.isRequired,
   postComment: PropTypes.func.isRequired,
-  delComment: PropTypes.func.isRequired,
+  delComment: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
-  comments: state.comments.comments
+  comments: state.comments.comments,
+  user: state.auth.user,
+  profile: state.auth.profile
 });
 
 export default connect(mapStateToProps, { getComments, postComment, delComment })(withRouter(CommentsContainer));
