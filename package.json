@@ -46,6 +46,7 @@
     "jest-junit": "^6.4.0",
     "jest-transform-stub": "^2.0.0",
     "postcss-loader": "^3.0.0",
+    "sinon": "^7.3.2",
     "webpack-dev-server": "^3.7.2"
   },
   "dependencies": {

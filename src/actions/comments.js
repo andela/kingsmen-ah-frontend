@@ -4,40 +4,49 @@ import {
 } from './types';
 
 // Get all comments
-export const getComments = (slug) => (dispatch) => {
-  axios.get(`/articles/${slug}/comments`)
-    .then(res => dispatch({
+export const getComments = (slug) => async (dispatch) => {
+  try {
+    const res = await axios.get(`/articles/${slug}/comments`)
+    dispatch({
       type: GET_COMMENTS,
       payload: res.data.payload
-    }))
-    .catch(err => dispatch({
+    })
+  } catch (err) {
+    dispatch({
       type: GET_COMMENTS_ERROR,
       payload: err.response.data
-    }));
+    })
+  }
 };
 
 // Post a comment
-export const postComment = (newComment, slug) => (dispatch) => {
-  axios.post(`/articles/${slug}/comments`, newComment)
-    .then(res => dispatch({
+export const postComment = (newComment, slug) => async (dispatch) => {
+  try{
+    const res = await axios.post(`/articles/${slug}/comments`, newComment)
+    dispatch({
       type: POST_COMMENT,
       payload: res.data.payload
-    }))
-    .catch(err => dispatch({
+    })
+  } catch (err) {
+    dispatch({
       type: POST_COMMENT_ERROR,
       payload: err.response.data
-    }));
+    })
+  }
 };
 
 // Delete a comment
-export const delComment = (id, slug) => (dispatch) => {
-  axios.delete(`/articles/${slug}/comments/${id}`)
-    .then(() => dispatch({
+export const delComment = (id, slug) => async (dispatch) => {
+  try{
+    await axios.delete(`/articles/${slug}/comments/${id}`);
+    dispatch({
       type: DELETE_COMMENT,
       payload: id
-    }))
-    .catch(err => dispatch({
+    })
+  } catch (err) {
+    dispatch({
       type: DELETE_COMMENT_ERROR,
       payload: err.response.data
-    }));
+    })
+  }
 };

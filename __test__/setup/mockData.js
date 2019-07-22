@@ -1,5 +1,7 @@
 export const initialState = {
   auth: {},
-  comments: {} 
+  comments: {
+    comments: []
+  }
 };
 export const userToken = {};
