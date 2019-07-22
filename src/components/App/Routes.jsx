@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Home from '@components/views/Home';
-import Profile from '@components/views/Profile/Profile';
-import EditProfile from '@components/views/Profile/EditProfile';
-import NotFound from '@components/views/NotFound';
+import Home from '@components/container/Home';
+import Profile from '@components/container/Profile/Profile';
+import EditProfile from '@components/container/Profile/EditProfile';
+import NotFound from '@components/container/NotFound';
 
 const Routes = () => (
   <Router>

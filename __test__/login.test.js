@@ -1,5 +1,5 @@
 import React from 'react';
-import { Login } from '@components/views/Login';
+import { Login } from '@components/container/Login';
 
 const props = {
   errors: {},

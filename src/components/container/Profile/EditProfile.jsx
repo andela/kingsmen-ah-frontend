@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import Header from '@components/commons/Header';
@@ -9,6 +10,10 @@ import FontAwesome from '@components/commons/utilities/FontAwesome';
 import { faCamera } from '@fortawesome/fontawesome-free-solid';
 import { updateProfile } from '@actions/profile';
 import './Profile.scss';
+
+const instance = axios.create({
+  headers: {}
+});
 
 const CLOUDINARY_URL = process.env.CLOUDINARY_URL || 'https://api.cloudinary.com/v1_1/adex001/image/upload';
 const CLOUDINARY_UPLOAD_PRESET = process.env.CLOUDINARY_UPLOAD_PRESET || 'hv1qo6wl';
@@ -22,7 +27,8 @@ class EditProfile extends Component {
         bio: '',
         phone: '',
         firstname: '',
-        lastname: ''
+        lastname: '',
+        location: ''
       }
     }
   }
@@ -44,23 +50,20 @@ class EditProfile extends Component {
       const formData = new FormData();
       formData.append('file', file);
       formData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET);
-      fetch(CLOUDINARY_URL, {
-          method: 'POST',
-          body: formData,
-        })
-          .then(response => response.json())
-          .then((data) => {
-            if (data.secure_url !== '') {
-              const avatar = data.secure_url;
-              this.setState({
-                profile: {
-                  ...profile,
-                  avatar,
-                }
-              });
+      const response = await instance.post(CLOUDINARY_URL, formData, {
+        headers: {
+          'Accept': 'application/json',
+          'X-Requested-With': 'XMLHttpRequest'
+        }})
+        if (response.data.secure_url !== '') {
+          const avatar = response.data.secure_url;
+          this.setState({
+            profile: {
+              ...profile,
+              avatar,
             }
-          })
-          .catch(err => (err));
+          });
+        }
       });
   }
   handleChange =(e) => {
@@ -76,10 +79,10 @@ class EditProfile extends Component {
   handleUpdate = () => {
     const { updateProfile } = this.props;
     const { profile } = this.state;
-    const { firstname, lastname, avatar, phone, bio } = profile
+    const { firstname, lastname, avatar, phone, bio, location } = profile
     const updateObject = {
       avatar: avatar || '',
-      location: 'Nigeria',
+      location: location || 'Nigeria',
       firstname,
       lastname,
       phone: Number(phone, 10),

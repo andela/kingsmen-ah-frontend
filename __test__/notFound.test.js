@@ -1,5 +1,5 @@
 import React from 'react';
-import NotFound from '@components/views/NotFound';
+import NotFound from '@components/container/NotFound';
 
 const setup = () => {
   const wrapper = shallow(<NotFound />);

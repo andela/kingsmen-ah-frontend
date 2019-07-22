@@ -7,11 +7,13 @@ import {
   SET_CURRENT_USER,
   IS_LOADING,
   SET_PROFILE,
-  LOGOUT_USER
+  LOGOUT_USER,
+  RESET_PROFILE
 } from './types';
 
 axios.defaults.baseURL =
-  'https://kingsmen-ah-backend-staging.herokuapp.com/api/v1';
+  // 'https://kingsmen-ah-backend-staging.herokuapp.com/api/v1';
+  'http://localhost:3000/api/v1';
 
 export const setAuthToken = token => {
   if (token) {
@@ -57,6 +59,7 @@ export const logoutUser = history => dispatch => {
   axios.post('/auth/logout');
   localStorage.removeItem('jwtToken');
   dispatch({ type: LOGOUT_USER });
+  dispatch({type: RESET_PROFILE })
   history.push('/');
   setAuthToken();
 };
