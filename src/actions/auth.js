@@ -1,5 +1,5 @@
-import axios from "axios";
-import { toast } from "react-toastify";
+import axios from 'axios';
+import { toast } from 'react-toastify';
 import {
   SIGNIN_FAILURE,
   SIGNIN_SUCCESS,
@@ -13,13 +13,13 @@ import {
 } from "./types";
 
 axios.defaults.baseURL =
-  "https://kingsmen-ah-backend-staging.herokuapp.com/api/v1";
+  'https://kingsmen-ah-backend-staging.herokuapp.com/api/v1';
 
 export const setAuthToken = token => {
   if (token) {
-    axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+    axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
   } else {
-    delete axios.defaults.headers.common["Authorization"];
+    delete axios.defaults.headers.common['Authorization'];
   }
 };
 export const setCurrentUser = user => {
@@ -50,16 +50,16 @@ export const getProfile = username => async dispatch => {
         payload: error.response.data.errors
       });
     }
-    toast.error("Please check your network connection and try again");
+    toast.error('Please check your network connection and try again');
   }
 };
 
 export const logoutUser = history => dispatch => {
   dispatch(isLoading(true));
-  axios.post("/auth/logout");
-  localStorage.removeItem("jwtToken");
+  axios.post('/auth/logout');
+  localStorage.removeItem('jwtToken');
   dispatch({ type: LOGOUT_USER });
-  history.push("/");
+  history.push('/');
   setAuthToken();
 };
 
@@ -67,11 +67,11 @@ export const loginUser = userData => async dispatch => {
   try {
     dispatch(isLoading(true));
 
-    const res = await axios.post("/auth/login", userData);
+    const res = await axios.post('/auth/login', userData);
     const response = res.data.payload;
 
     const { token } = response;
-    localStorage.setItem("jwtToken", token);
+    localStorage.setItem('jwtToken', token);
 
     const { id, email, username, exp } = response;
     const user = {
@@ -83,7 +83,7 @@ export const loginUser = userData => async dispatch => {
 
     setAuthToken(token);
     dispatch(setCurrentUser(user));
-    toast.success("Login successful");
+    toast.success('Login successful');
     dispatch(getProfile(username));
     dispatch({ type: SIGNIN_SUCCESS });
   } catch (error) {
@@ -104,13 +104,13 @@ export const register = userData => async dispatch => {
   try {
     dispatch(isLoading(true));
 
-    const res = await axios.post("/users", userData);
+    const res = await axios.post('/users', userData);
     const response = res.data.payload;
     if (res.status === 201) {
-      localStorage.setItem("token", response.token);
+      localStorage.setItem('token', response.token);
       setAuthToken(response.token);
       dispatch({ type: REGISTER_SUCCESS, payload: response });
-      toast.success("Registration successful");
+      toast.success('Registration successful');
       return response;
     }
   } catch (err) {

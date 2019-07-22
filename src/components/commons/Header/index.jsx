@@ -24,7 +24,7 @@ export class Header extends Component {
     };
 
     this.defaultAvatar =
-      "https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/user_male2-512.png";
+      'https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/user_male2-512.png';
   }
 
   exitModal = () => {
