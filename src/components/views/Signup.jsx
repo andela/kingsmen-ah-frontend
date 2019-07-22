@@ -6,6 +6,7 @@ import Button from "@components/commons/utilities/Button";
 import { register } from "@actions/auth";
 import Preloader from "@components/commons/Preloader";
 
+
 const emailRegex = RegExp(
   /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/
 );
