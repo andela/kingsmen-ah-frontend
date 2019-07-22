@@ -1,23 +1,54 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Home /> should render the Home component correctly 1`] = `
-<div
-  className="bg-gray-100 font-sans w-full min-h-screen m-0"
+<ContextProvider
+  value={
+    Object {
+      "store": Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      },
+      "subscription": Subscription {
+        "handleChangeWrapper": [Function],
+        "listeners": Object {
+          "clear": [Function],
+          "get": [Function],
+          "notify": [Function],
+          "subscribe": [Function],
+        },
+        "onStateChange": [Function],
+        "parentSub": undefined,
+        "store": Object {
+          "clearActions": [Function],
+          "dispatch": [Function],
+          "getActions": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+        },
+        "unsubscribe": [Function],
+      },
+    }
+  }
 >
-  <Header
+  <Connect(Home)
     profile={
       Object {
-        "avatar": "./public/img/logo.png",
-        "firstname": "Emmanuel",
-        "lastname": "Okwara",
+        "avatar": undefined,
+        "firstname": "Kings",
+        "lastname": "men",
       }
     }
     user={
       Object {
-        "isAuthenticated": true,
-        "username": "Macco",
+        "isAuthenticated": false,
+        "username": "kingsmen",
       }
     }
   />
-</div>
+</ContextProvider>
 `;

@@ -76,6 +76,10 @@ input {
   outline: none;
 }
 
+button:disabled {
+  cursor: not-allowed;
+}
+
 .tooltip {
   &.container {
     animation: flip 1000ms linear normal infinite;
