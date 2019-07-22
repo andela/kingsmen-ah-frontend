@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import FormInput from "@components/commons/FormComponents/RenderInput";
 import Button from "@components/commons/utilities/Button";
 import { register } from "@actions/auth";
+import Preloader from "@components/commons/Preloader";
 
 const emailRegex = RegExp(
   /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/
@@ -44,7 +45,7 @@ class Signup extends Component {
         break;
       case "confirmpass":
         errors.confirmpass =
-          input.password !== input.confirmpass || aValue.length === 0
+          input.password !== aValue || aValue.length === 0
             ? "Password does not match"
             : "";
         break;
@@ -71,15 +72,8 @@ class Signup extends Component {
 
   registerPage = () => {
     const { input, errors } = this.state;
+    const { loading } = this.props;
     const { username, email, password, confirmpass } = input;
-    // const { errors: errorObject } = this.props;
-
-    // const { email: mail, username: uniquename } = errorObject;
-    // const uniquename ='error';
-    // const mail ='error';
-    
-    // const unique = uniquename || "";
-    // const mailErr = mail || "";
 
     return (
       <div className="w-full md:w-2/3 lg:w-2/3 m-auto md:my-4 lg:my-6">
@@ -133,7 +127,17 @@ class Signup extends Component {
           color="blue"
           stretch
         >
-          Register
+          {loading === true ? (
+            <Preloader
+              type="button"
+              styles="TailSpin"
+              height={15}
+              width={15}
+              color="white"
+            />
+          ) : (
+            "Register"
+          )}
         </Button>
         <div className="text-xs md:text-base my-4">
           <span>Have an account?</span>
@@ -148,9 +152,8 @@ class Signup extends Component {
           </Button>
         </div>
         <span className="text-xs md:text-base lg:text-base text-gray-700">
-          To make Author’s Haven work, we log user data and share it with
-          service providers. Click “Register” above to accept Author’s Haven We
-          hope you have a pleasant read/write
+          Click “Register” above to accept Author’s Haven We hope you have a
+          pleasant read/write
         </span>
       </div>
     );
@@ -161,6 +164,15 @@ class Signup extends Component {
   }
 }
 
+Signup.defaultProps = {
+  errors: {
+    username: "username",
+    email: "username@something.com",
+    password: "username",
+    confirmpass: "username"
+  }
+};
+
 Signup.propTypes = {
   user: PropTypes.shape({
     username: PropTypes.string
@@ -170,14 +182,16 @@ Signup.propTypes = {
     email: PropTypes.string,
     password: PropTypes.string,
     confirmpass: PropTypes.string
-  }).isRequired,
+  }),
   register: PropTypes.func.isRequired,
-  showSignin: PropTypes.func.isRequired
+  showSignin: PropTypes.func.isRequired,
+  loading: PropTypes.bool.isRequired
 };
 
 const mapStateToProps = state => ({
   user: state.auth.user,
-  errors: state.auth.error.errors
+  errors: state.auth.error,
+  loading: state.auth.loading
 });
 export default connect(
   mapStateToProps,

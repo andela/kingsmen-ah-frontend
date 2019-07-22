@@ -13,9 +13,7 @@ import {
 } from "./types";
 
 axios.defaults.baseURL =
-  "http://localhost:3000/api/v1";
-// axios.defaults.baseURL =
-//   "https://kingsmen-ah-backend-staging.herokuapp.com/api/v1";
+  "https://kingsmen-ah-backend-staging.herokuapp.com/api/v1";
 
 export const setAuthToken = token => {
   if (token) {
@@ -102,29 +100,31 @@ export const loginUser = userData => async dispatch => {
   }
 };
 
-export const register = userData => dispatch => {
-  axios
-    .post("/users", userData)
-    .then(response => {
-      if (response.status === 201) {
-        localStorage.setItem("token", response.data.payload.token);
-        setAuthToken(response.data.token);
-        dispatch({ type: REGISTER_SUCCESS, payload: response.data });
-        toast.success("Registration successful");
-        return response;
+export const register = userData => async dispatch => {
+  try {
+    dispatch(isLoading(true));
+
+    const res = await axios.post("/users", userData);
+    const response = res.data.payload;
+    if (res.status === 201) {
+      localStorage.setItem("token", response.token);
+      setAuthToken(response.token);
+      dispatch({ type: REGISTER_SUCCESS, payload: response });
+      toast.success("Registration successful");
+      return response;
+    }
+  } catch (err) {
+    if (err) {
+      dispatch({ type: REGISTER_FAILURE, payload: err.response });
+      const { errors } = err.response.data;
+      const { username, email } = errors;
+      dispatch(isLoading(false));
+      if (username) {
+        toast.error(username);
       }
-    })
-    .catch(err => {
-      dispatch({ type: REGISTER_FAILURE, payload: err.response.data });
-      if (err) {
-        const { errors } = err.response.data;
-        const { username, email } = errors;
-        if (username) {
-          toast.error(username);
-        }
-        if (email) {
-          toast.error(email);
-        }
+      if (email) {
+        toast.error(email);
       }
-    });
+    }
+  }
 };
