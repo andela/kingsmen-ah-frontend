@@ -4,9 +4,15 @@ exports[`Routes should render the Routes component correctly 1`] = `
 <BrowserRouter>
   <Switch>
     <Route
-<<<<<<< HEAD
-=======
-      component={[Function]}
+      component={
+        Object {
+          "$$typeof": Symbol(react.memo),
+          "WrappedComponent": [Function],
+          "compare": null,
+          "displayName": "Connect(Home)",
+          "type": [Function],
+        }
+      }
       exact={true}
       path="/"
     />
@@ -16,36 +22,35 @@ exports[`Routes should render the Routes component correctly 1`] = `
       path="/comment"
     />
     <Route
-      component={[Function]}
-      exact={true}
-      path="/login"
-    />
-    <Route
->>>>>>> 8400d228fb03cefbe4d11b9663681d1d461fcdd5
       component={
         Object {
           "$$typeof": Symbol(react.memo),
           "WrappedComponent": [Function],
           "compare": null,
-<<<<<<< HEAD
-          "displayName": "Connect(Home)",
-=======
-          "displayName": "Connect(Signup)",
->>>>>>> 8400d228fb03cefbe4d11b9663681d1d461fcdd5
+          "displayName": "Connect(Login)",
           "type": [Function],
         }
       }
       exact={true}
-<<<<<<< HEAD
-      path="/"
-=======
+      path="/login"
+    />
+    <Route
+      component={
+        Object {
+          "$$typeof": Symbol(react.memo),
+          "WrappedComponent": [Function],
+          "compare": null,
+          "displayName": "Connect(Signup)",
+          "type": [Function],
+        }
+      }
+      exact={true}
       path="/register"
     />
     <Route
       component={[Function]}
       exact={true}
       path="/profile"
->>>>>>> 8400d228fb03cefbe4d11b9663681d1d461fcdd5
     />
     <Route
       component={[Function]}

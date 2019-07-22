@@ -1,0 +1,102 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Signup /> should render the Login component correctly 1`] = `
+<div>
+  <form
+    onSubmit={[Function]}
+  >
+    <div
+      className="w-full md:w-2/3 lg:w-2/3 m-auto md:my-4 lg:my-6"
+    >
+      <span
+        className="text-xs md:text-base lg:text-lg text-gray-700"
+      >
+        Enter your username, email address and password to create your account.
+      </span>
+      <RenderInput
+        className=""
+        error=""
+        handleChange={[Function]}
+        id="username"
+        label="Enter Username"
+        name="username"
+        type="text"
+        value=""
+      />
+      <RenderInput
+        className=""
+        error=""
+        handleChange={[Function]}
+        id="email"
+        label="Enter Email"
+        name="email"
+        type="email"
+        value=""
+      />
+      <RenderInput
+        className=""
+        error=""
+        handleChange={[Function]}
+        id="password"
+        label="Enter Password"
+        name="password"
+        type="password"
+        value=""
+      />
+      <RenderInput
+        className=""
+        error=""
+        handleChange={[Function]}
+        id="confirmpass"
+        label="Confirm Password"
+        name="confirmpass"
+        type="password"
+        value=""
+      />
+      <Button
+        color="blue"
+        onClick={[Function]}
+        stretch={true}
+        type="solid"
+      >
+        Register
+      </Button>
+      <div
+        className="text-xs md:text-base my-4"
+      >
+        <span>
+          Have an account?
+        </span>
+        <Button
+          color="blue"
+          onClick={[Function]}
+          stretch={false}
+          type="regular"
+        >
+          Sign In
+        </Button>
+      </div>
+      <div
+        className="text-xs md:text-base my-4"
+      >
+        <span>
+          Can‘t remember password?
+        </span>
+        <Button
+          color="blue"
+          onClick={[Function]}
+          stretch={false}
+          type="regular"
+        >
+          Reset password
+        </Button>
+      </div>
+      <span
+        className="text-xs md:text-base lg:text-base text-gray-700"
+      >
+        Click “Register” above to accept Author’s Haven We hope you have a pleasant read/write
+      </span>
+    </div>
+  </form>
+</div>
+`;
