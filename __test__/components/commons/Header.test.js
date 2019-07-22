@@ -1,25 +1,40 @@
 import React from 'react';
-import { Header } from '@components/commons/Header/index';
+import configureStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
+import Header from '@components/commons/Header/index';
+import { Provider } from 'react-redux';
 import { logo } from '@base/img/logo.png';
 
 const props = {
   user: {
-    isAuthenticated: false,
+    isAuthenticated: true,
     username: 'kingsmen'
   },
   profile: {
     firstname: 'Kings',
     lastname: 'men',
     avatar: logo
-  },
-  errors: {},
-  logoutUser: () => {},
-  isAuthenticated: false,
-  history: {}
+  }
 };
 
+
+const mockStore = configureStore([thunk]);
+
+const store = mockStore({
+  auth: {
+    profile: {},
+    user: {},
+    isAuthenticated: false,
+    errors: []
+  },
+});
+
 const setup = () => {
-  const wrapper = shallow(<Header {...props} />);
+  const wrapper = shallow(
+    <Provider store={store}>
+      <Header {...props} />
+    </Provider>
+  );
   return wrapper;
 };
 

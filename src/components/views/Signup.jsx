@@ -53,7 +53,8 @@ class Signup extends Component {
     this.setState({ input: { ...input, [name]: value }, errors });
   };
 
-  loginBtnClicked = () => {
+  signupBtnClicked = e => {
+    e.preventDefault();
     const { input, errors } = this.state;
     const { register } = this.props;
     const { email, password, username } = input;
@@ -76,86 +77,88 @@ class Signup extends Component {
     const { username, email, password, confirmpass } = input;
 
     return (
-      <div className="w-full md:w-2/3 lg:w-2/3 m-auto md:my-4 lg:my-6">
-        <span className="text-xs md:text-base lg:text-lg text-gray-700">
+      <form onSubmit={this.signupBtnClicked}>
+        <div className="w-full md:w-2/3 lg:w-2/3 m-auto md:my-4 lg:my-6">
+          <span className="text-xs md:text-base lg:text-lg text-gray-700">
           Enter your username, email address and password to create your
           account.
-        </span>
-        <FormInput
-          id="username"
-          type="text"
-          name="username"
-          value={username}
-          label="Enter Username"
-          className=""
-          error={errors.username}
-          handleChange={this.handleChange}
-        />
-        <FormInput
-          id="email"
-          type="email"
-          name="email"
-          value={email}
-          label="Enter Email"
-          className=""
-          error={errors.email}
-          handleChange={this.handleChange}
-        />
-        <FormInput
-          id="password"
-          type="password"
-          name="password"
-          value={password}
-          label="Enter Password"
-          className=""
-          error={errors.password}
-          handleChange={this.handleChange}
-        />
-        <FormInput
-          id="confirmpass"
-          type="password"
-          name="confirmpass"
-          value={confirmpass}
-          label="Confirm Password"
-          className=""
-          error={errors.confirmpass}
-          handleChange={this.handleChange}
-        />
-        <Button
-          type="solid"
-          onClick={this.loginBtnClicked}
-          color="blue"
-          stretch
-        >
-          {loading === true ? (
-            <Preloader
-              type="button"
-              styles="TailSpin"
-              height={15}
-              width={15}
-              color="white"
-            />
+          </span>
+          <FormInput
+            id="username"
+            type="text"
+            name="username"
+            value={username}
+            label="Enter Username"
+            className=""
+            error={errors.username}
+            handleChange={this.handleChange}
+          />
+          <FormInput
+            id="email"
+            type="email"
+            name="email"
+            value={email}
+            label="Enter Email"
+            className=""
+            error={errors.email}
+            handleChange={this.handleChange}
+          />
+          <FormInput
+            id="password"
+            type="password"
+            name="password"
+            value={password}
+            label="Enter Password"
+            className=""
+            error={errors.password}
+            handleChange={this.handleChange}
+          />
+          <FormInput
+            id="confirmpass"
+            type="password"
+            name="confirmpass"
+            value={confirmpass}
+            label="Confirm Password"
+            className=""
+            error={errors.confirmpass}
+            handleChange={this.handleChange}
+          />
+          <Button
+            type="solid"
+            onClick={this.signupBtnClicked}
+            color="blue"
+            stretch
+          >
+            {loading === true ? (
+              <Preloader
+                type="button"
+                styles="TailSpin"
+                height={15}
+                width={15}
+                color="white"
+              />
           ) : (
             "Register"
           )}
-        </Button>
-        <div className="text-xs md:text-base my-4">
-          <span>Have an account?</span>
-          <Button type="regular" onClick={this.showSigninModal} color="blue">
+          </Button>
+          <div className="text-xs md:text-base my-4">
+            <span>Have an account?</span>
+            <Button type="regular" onClick={this.showSigninModal} color="blue">
             Sign In
-          </Button>
-        </div>
-        <div className="text-xs md:text-base my-4">
-          <span>Can&lsquo;t remember password?</span>
-          <Button type="regular" onClick={() => {}} color="blue">
+            </Button>
+          </div>
+          <div className="text-xs md:text-base my-4">
+            <span>Can&lsquo;t remember password?</span>
+            <Button type="regular" onClick={() => {}} color="blue">
             Reset password
-          </Button>
-        </div>
-        <span className="text-xs md:text-base lg:text-base text-gray-700">
+            </Button>
+          </div>
+          <span className="text-xs md:text-base lg:text-base text-gray-700">
           Click “Register” above to accept Author’s Haven We hope you have a
           pleasant read/write
-        </span>
-      </div>
+          </span>
+        </div>
+      </form>
     );
   };
 
