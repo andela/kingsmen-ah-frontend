@@ -15,6 +15,7 @@ $modal-bg: rgba(52, 54, 66, 0.9);
   z-index: 21;
 
   &.is-visible {
+    position: fixed;
     opacity: 1;
     transition: opacity 0.3s 0, visibility 0 0;
     visibility: visible;
@@ -23,6 +24,18 @@ $modal-bg: rgba(52, 54, 66, 0.9);
   &.modal-container {
     transform: translateY(0);
   }
+}
+
+body .modal.is-visible {
+  height: 100vh;
+  overflow-y: hidden;
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .modal-container {

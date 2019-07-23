@@ -19,8 +19,8 @@ class Modal extends Component {
     } = this.props;
     return (
       <Portal>
-        <div className={classNames('modal flex', { 'is-visible': toggle })}>
-          <div className="modal-container text-center relative justify-center items-center">
+        <div className={classNames('modal', { 'is-visible': toggle })}>
+          <div className="modal-container text-center center justify-center items-center">
             <div
               role="presentation"
               className="absolute modal-exit bg-white rounded-full py-1 px-3 shadow-lg cursor-pointer flex hover:bg-gray-300"

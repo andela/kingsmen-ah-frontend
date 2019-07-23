@@ -3,6 +3,8 @@ import reducer from '@reducers/articles';
 const state = {
   loading: false,
   errors: {},
+  tags: [],
+  article: {},
   articles: []
 };
 
@@ -30,7 +32,7 @@ describe('Article Reducers', () => {
     expect(newState).toEqual({
         ...state,
         loading: false,
-        articles: {title: 'Kingsmen'}
+        article: {title: 'Kingsmen'}
     });
   });
 
@@ -43,33 +45,111 @@ describe('Article Reducers', () => {
     expect(newState).toEqual({
         ...state,
         loading: false,
-        articles: {error: 'Error'}
+        errors: {error: 'Error'}
     });
   });
 
-  it('should handle _ARTICLE_SUCCESS action', () => {
+  it('should handle GET_ARTICLE_SUCCESS action', () => {
     const newState = reducer(state, {
-        type: 'ADD_ARTICLE_SUCCESS',
+        type: 'GET_ARTICLE_SUCCESS',
         payload: { title: 'Kingsmen' },
     });
 
     expect(newState).toEqual({
         ...state,
         loading: false,
-        articles: {title: 'Kingsmen'}
+        article: {title: 'Kingsmen'}
     });
   });
 
-  it('should handle ADD_ARTICLE_FAILURE action', () => {
+  it('should handle GET_ARTICLE_FAILURE action', () => {
     const newState = reducer(state, {
-        type: 'ADD_ARTICLE_FAILURE',
+        type: 'GET_ARTICLE_FAILURE',
         payload: { error: 'Error' },
     });
 
     expect(newState).toEqual({
         ...state,
         loading: false,
-        articles: {error: 'Error'}
+        errors: {error: 'Error'}
+    });
+  });
+
+  it('should handle GET_ARTICLES_SUCCESS action', () => {
+    const newState = reducer(state, {
+        type: 'GET_ARTICLES_SUCCESS',
+        payload: [{ title: 'Kingsmen' }],
+    });
+
+    expect(newState).toEqual({
+        ...state,
+        loading: false,
+        articles: [{title: 'Kingsmen'}]
+    });
+  });
+
+  it('should handle GET_ARTICLES_FAILURE action', () => {
+    const newState = reducer(state, {
+        type: 'GET_ARTICLES_FAILURE',
+        payload: { error: 'Error' },
+    });
+
+    expect(newState).toEqual({
+        ...state,
+        loading: false,
+        errors: {error: 'Error'}
+    });
+  });
+
+  it('should handle EDIT_ARTICLE_SUCCESS action', () => {
+    const newState = reducer(state, {
+        type: 'EDIT_ARTICLE_SUCCESS',
+        payload: { title: 'Kingsmen' },
+    });
+
+    expect(newState).toEqual({
+        ...state,
+        loading: false,
+        article: {title: 'Kingsmen'}
+    });
+  });
+
+  it('should handle EDIT_ARTICLE_FAILURE action', () => {
+    const newState = reducer(state, {
+        type: 'EDIT_ARTICLE_FAILURE',
+        payload: { error: 'Error' },
+    });
+
+    expect(newState).toEqual({
+        ...state,
+        loading: false,
+        errors: {error: 'Error'}
+    });
+  });
+
+  it('should handle GET_TAGS_SUCCESS action', () => {
+    const newState = reducer(state, {
+        type: 'GET_TAGS_SUCCESS',
+        payload: ['andela'],
+    });
+
+    expect(newState).toEqual({
+        ...state,
+        loading: false,
+        tags: ['andela']
+    });
+  });
+
+  it('should handle GET_TAGS_FAILURE action', () => {
+    const newState = reducer(state, {
+        type: 'GET_TAGS_FAILURE',
+        payload: { error: 'Error' },
+    });
+
+    expect(newState).toEqual({
+        ...state,
+        loading: false,
+        errors: {error: 'Error'}
     });
   });
 });

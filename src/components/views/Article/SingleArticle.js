@@ -3,6 +3,7 @@ import moment from 'moment';
 import PropTypes from 'prop-types';
 import Tags from '@components/commons/Cards/Tags';
 import ReactHtmlParser from 'react-html-parser';
+import Helmet from 'react-helmet';
 import PageLayout from '@components/layout/PageLayout';
 import ArticleRating from '@components/commons/Cards/displayStar';
 import convertToJSON from '../../../helpers/convertFromJSON';
@@ -64,17 +65,20 @@ class SingleArticle extends PureComponent {
     
     return (
       <PageLayout>
+        <Helmet>
+          <title>{`${article.title} - Author's Haven`}</title>
+        </Helmet>
         <div className="content-area mx-auto mt-8">
           <h2 className="text-3xl font-semibold title tracking-wider">{article.title}</h2>
 
           <div className="my-8 flex items-center">
-            <img className="w-20 h-20 rounded-full mr-4" src={article.author.profile.avatar || this.defaultAvatar} alt="Avatar of Jonathan Reinink" />
+            <img className="w-12 h-12 rounded-full mr-4" src={article.author.profile.avatar || this.defaultAvatar} alt="Avatar of Jonathan Reinink" />
             <div className="ml-4">
-              <h4 className="text-base">Malik Berry</h4>
+              <h4 className="text-sm">Malik Berry</h4>
               <div className="flex items-center text-sm text-gray-600">
-                <p>{moment(article.createdAt).format("MMM DD, YYYY")}</p>
-                <span className="mx-3 text-lg text-black my-auto">.</span>
-                <p>1 mins read</p>
+                <p className="text-xs">{moment(article.createdAt).format("MMM DD, YYYY")}</p>
+                <span className="mx-3 text-black my-auto">.</span>
+                <p className="text-xs">1 mins read</p>
               </div>
               <ArticleRating averageRating={article.averageRating ? article.averageRating : 0} />
             </div>
@@ -84,6 +88,10 @@ class SingleArticle extends PureComponent {
 
           <div className="py-5 border-b-2">
             <Tags tags={tags} />
+          </div>
+
+          <div className="comments my-4">
+            <h2 className="text-lg font-semibold comment-res">Responses</h2>
           </div>
         </div>
       </PageLayout>

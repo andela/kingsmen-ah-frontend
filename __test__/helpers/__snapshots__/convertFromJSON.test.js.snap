@@ -1,0 +1,135 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Helpers should convert an object to an HTML string: 
+<div class="ce-block">
+  <div class="ce-block__content">
+    <div class="ce-paragraph cdx-block">
+      <p>Hello World</p>
+    </div>
+  </div>
+</div>
+
+<div class="ce-block">
+  <div class="ce-block__content">
+    <div class="ce-paragraph cdx-block">
+      <img src="link" alt="hello" />
+      <div class="text-center">
+        <i>hello</i>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="ce-block">
+  <div class="ce-block__content">
+    <div class="ce-paragraph cdx-block">
+      <h3>Hello</h3>
+    </div>
+  </div>
+</div>
+
+<div class="ce-block">
+  <div class="ce-block__content">
+    <div class="ce-code">
+      <code><h2>Hello</h2></code>
+    </div>
+  </div>
+</div>
+
+<div class="ce-block">
+  <div class="ce-block__content">
+    <div class="ce-code">
+      <code><h2>Hello</h2></code>
+    </div>
+  </div>
+</div>
+
+<div class="ce-block">
+  <div class="ce-block__content">
+    <div class="ce-paragraph cdx-block">
+      <ul class="cdx-list--unordered"><li class="cdx-list__item">Hello</li></ul>
+    </div>
+  </div>
+</div>
+
+<div class="ce-block">
+  <div class="ce-block__content">
+    <div class="ce-paragraph cdx-block">
+      <ol class="cdx-list--ordered"><li class="cdx-list__item">Hello</li></ol>
+    </div>
+  </div>
+</div>
+
+<div class="ce-block">
+  <div class="ce-block__content">
+    <div class="ce-delimiter cdx-block"></div>
+  </div>
+</div>
+ 1`] = `
+"
+<div class=\\"ce-block\\">
+  <div class=\\"ce-block__content\\">
+    <div class=\\"ce-paragraph cdx-block\\">
+      <p>Hello World</p>
+    </div>
+  </div>
+</div>
+
+<div class=\\"ce-block\\">
+  <div class=\\"ce-block__content\\">
+    <div class=\\"ce-paragraph cdx-block\\">
+      <img src=\\"link\\" alt=\\"hello\\" />
+      <div class=\\"text-center\\">
+        <i>hello</i>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class=\\"ce-block\\">
+  <div class=\\"ce-block__content\\">
+    <div class=\\"ce-paragraph cdx-block\\">
+      <h3>Hello</h3>
+    </div>
+  </div>
+</div>
+
+<div class=\\"ce-block\\">
+  <div class=\\"ce-block__content\\">
+    <div class=\\"ce-code\\">
+      <code><h2>Hello</h2></code>
+    </div>
+  </div>
+</div>
+
+<div class=\\"ce-block\\">
+  <div class=\\"ce-block__content\\">
+    <div class=\\"ce-code\\">
+      <code><h2>Hello</h2></code>
+    </div>
+  </div>
+</div>
+
+<div class=\\"ce-block\\">
+  <div class=\\"ce-block__content\\">
+    <div class=\\"ce-paragraph cdx-block\\">
+      <ul class=\\"cdx-list--unordered\\"><li class=\\"cdx-list__item\\">Hello</li></ul>
+    </div>
+  </div>
+</div>
+
+<div class=\\"ce-block\\">
+  <div class=\\"ce-block__content\\">
+    <div class=\\"ce-paragraph cdx-block\\">
+      <ol class=\\"cdx-list--ordered\\"><li class=\\"cdx-list__item\\">Hello</li></ol>
+    </div>
+  </div>
+</div>
+
+<div class=\\"ce-block\\">
+  <div class=\\"ce-block__content\\">
+    <div class=\\"ce-delimiter cdx-block\\"></div>
+  </div>
+</div>
+"
+`;

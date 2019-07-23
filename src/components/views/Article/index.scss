@@ -7,6 +7,9 @@ $base-color: #335bcf;
   font-family: 'Roboto Slab', serif;
 }
 
+._1KJtL {
+  display: none !important;
+}
 .body {
   font-family: Georgia, 'Times New Roman', Times, serif;
   font-weight: 400;
@@ -19,6 +22,7 @@ $base-color: #335bcf;
 .ce-block__content {
   margin: 0 !important;
 }
+
 
 .ce-block__content {
   margin-right: 0;
@@ -36,7 +40,23 @@ $base-color: #335bcf;
 
 .ce-paragraph {
   line-height: 1.6em;
+  font-weight: 400;
   outline: none;
+  font-size: 17px;
+
+  p {
+    line-height: 1.6em;
+    font-family: auto;
+
+  }
+
+  a {
+    text-decoration: underline;
+  }
+
+  code {
+    font-size: inherit;
+  }
 }
 
 ul {
@@ -75,7 +95,16 @@ ul {
   .content-area {
     width: 90%;
   }
+
+  .ce-paragraph {
+    font-size: 14px;
+  }
 }
+
+.comment-res {
+  font-family: 'Roboto Slab', sans-serif;
+}
+
 
 @media only screen and (max-width: 768px) and (min-width: 600px) {
   .content-area {
@@ -123,16 +152,14 @@ ul {
 }
 
 .tag-input-field-class {
+  font-size: .8em;
   background: inherit;
   border: none;
-  margin-top: 8px;
-  width: 50%;
+  margin-top: .8em;
+  width: 200px;
   border-bottom: 1px solid $base-color;
 }
 
-.codex-editor__redactor {
-  padding: 0 !important;
-}
 
 button:disabled {
   cursor: not-allowed !important;

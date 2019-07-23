@@ -10,11 +10,7 @@ const props = {
 };
 
 const setup = () => {
-<<<<<<< HEAD
-  const wrapper = shallow(<Button {...props} />);
-=======
   const wrapper = shallow(<Button {...props}>Login</Button>);
->>>>>>> develop
   return wrapper;
 };
 
@@ -34,6 +30,7 @@ describe('<Button />', () => {
   });
 
   it('should pass since button exists', () => {
-    expect(wrapper).toHaveLength(1);
+    const wrapper = shallow(<Button {...props} stretch={false}>Login</Button>);
+    expect(wrapper.find('.block .w-full')).toEqual({});
   });
 });

@@ -33,15 +33,17 @@ class EditArticle extends Component {
         }).isRequired
       })
     }).isRequired,
-    loading: PropTypes.bool.isRequired,
+    history: PropTypes.shape({}).isRequired,
+    editArticle: PropTypes.func.isRequired,
     getSingleArticle: PropTypes.func.isRequired
   }
   constructor(props) {
     super(props);
     this.title = React.createRef();
+    const { article } = this.props;
 
     this.state = {
-      title: '',
+      title: `${article.title}`,
     };
   }
 
@@ -66,8 +68,8 @@ class EditArticle extends Component {
   }
 
   editArticle = () => {
-      const { match: { params: {articleId} } }= this.props;
-      const { editArticle, history } = this.props
+    const { match: { params: {articleId} } } = this.props;
+    const { editArticle, history } = this.props
     const { title } = this.state;
     this.editor.isReady
       .then(() => {
@@ -77,9 +79,7 @@ class EditArticle extends Component {
             body: JSON.stringify(outputData),
           };
 
-          console.log(values);
-          // editArticle(articleId, values, history);
-          // console.log(editArticle(articleId, values, history));
+          editArticle(articleId, values, history);
         });
       })
       .catch(() => {
@@ -88,28 +88,30 @@ class EditArticle extends Component {
   }
 
   render() {
-    const { title } = this.state;
-    const { article, loading } = this.props;
+    const { article } = this.props;
     const body = this.getBodyObject(article.body);
     
-    if (!this.editor && !loading) {
+    if (!this.editor) {
       this.editor = Editor(body);
-      console.log('Instantiating')
-    } else {
-      console.log(loading);
-      return;
     }
 
     return (
       <PageLayout>
         <Helmet>
-          <title>{`Editing ${article.title} - Author&apos;s Haven`}</title>
+          <title>{`Editing ${article.title} - Author's Haven`}</title>
         </Helmet>
         <div className="flex float-right">
           <Button type="solid" color="blue" onClick={this.editArticle}>Edit Article</Button>
         </div>
         <div className="content-area mx-auto mt-6">
-          <Textarea className="textarea" name="title" value={title} onChange={this.onChange} placeholder="Title" maxLength="50" />
+          <Textarea
+            className="textarea"
+            name="title"
+            defaultValue={article.title}
+            onChange={this.onChange}
+            placeholder="Title"
+            maxLength="50"
+          />
           <div id="editorjs" />
         </div>
       </PageLayout>

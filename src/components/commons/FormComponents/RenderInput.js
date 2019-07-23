@@ -60,7 +60,7 @@ class RenderInput extends Component {
             id={id}
             type={type}
             name={name}
-            className={`${className} w-full py-2 border-gray-600 border-b-2 outline-none`}
+            className={`${className} w-full py-2 border-gray-600 border-b-2 outline-none input`}
             value={value}
             onChange={handleChange}
             onFocus={this.onFocus}

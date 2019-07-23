@@ -10,6 +10,7 @@ module.exports = {
     '.+\\.(css|scss)$': 'identity-obj-proxy',
     '.+\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2)$': 'jest-transform-stub',
     '^@components/(.*)$': '<rootDir>/src/components/$1',
+    '^@containers/(.*)$': '<rootDir>/src/containers/$1',
     '^@helpers/(.*)$': '<rootDir>/src/helpers/$1',
     '^@reducers/(.*)$': '<rootDir>/src/reducers/$1',
     '^@actions/(.*)$': '<rootDir>/src/actions/$1',

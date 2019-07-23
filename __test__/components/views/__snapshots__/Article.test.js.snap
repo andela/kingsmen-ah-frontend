@@ -1,0 +1,188 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Article/> renders Edit Article page component without crashing 1`] = `
+<PageLayout>
+  <HelmetWrapper
+    defer={true}
+    encodeSpecialCharacters={true}
+  >
+    <title>
+      Editing hello - Author's Haven
+    </title>
+  </HelmetWrapper>
+  <div
+    className="flex float-right"
+  >
+    <Button
+      color="blue"
+      onClick={[Function]}
+      stretch={false}
+      type="solid"
+    >
+      Edit Article
+    </Button>
+  </div>
+  <div
+    className="content-area mx-auto mt-6"
+  >
+    <TextareaAutosize
+      className="textarea"
+      defaultValue="hello"
+      inputRef={[Function]}
+      maxLength="50"
+      name="title"
+      onChange={[Function]}
+      onHeightChange={[Function]}
+      placeholder="Title"
+      useCacheForDOMMeasurements={false}
+    />
+    <div
+      id="editorjs"
+    />
+  </div>
+</PageLayout>
+`;
+
+exports[`<Article/> renders New Article page component without crashing 1`] = `
+<ContextConsumer>
+  <Component />
+</ContextConsumer>
+`;
+
+exports[`<Article/> renders Single Article page component without crashing 1`] = `
+<PageLayout>
+  <HelmetWrapper
+    defer={true}
+    encodeSpecialCharacters={true}
+  >
+    <title>
+      hello - Author's Haven
+    </title>
+  </HelmetWrapper>
+  <div
+    className="content-area mx-auto mt-8"
+  >
+    <h2
+      className="text-3xl font-semibold title tracking-wider"
+    >
+      hello
+    </h2>
+    <div
+      className="my-8 flex items-center"
+    >
+      <img
+        alt="Avatar of Jonathan Reinink"
+        className="w-12 h-12 rounded-full mr-4"
+        src="https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/user_male2-512.png"
+      />
+      <div
+        className="ml-4"
+      >
+        <h4
+          className="text-sm"
+        >
+          Malik Berry
+        </h4>
+        <div
+          className="flex items-center text-sm text-gray-600"
+        >
+          <p
+            className="text-xs"
+          >
+            Jul 23, 2019
+          </p>
+          <span
+            className="mx-3 text-black my-auto"
+          >
+            .
+          </span>
+          <p
+            className="text-xs"
+          >
+            1 mins read
+          </p>
+        </div>
+        <DisplayStar
+          averageRating={0}
+        />
+      </div>
+    </div>
+    <div
+      className="text-lg body"
+    >
+      <div
+        className="ce-block"
+        key="0"
+      >
+        <div
+          className="ce-block__content"
+          key="0"
+        >
+          <div
+            className="ce-paragraph cdx-block"
+            key="0"
+          >
+            <p
+              key="0"
+            >
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed nisi lacus sed viverra tellus in hac habitasse platea. At auctor urna nunc id cursus metus aliquam
+              <b
+                key="1"
+              >
+                 eleifend mi. Vulputate mi sit amet mauris commodo quis imperdiet massa tincidunt. Scelerisque varius morbi enim nunc faucibus. Turpis in eu mi bibendum neque egestas congue quisque. Sed sed risus pretium quam. Congue mauris rhoncus aenean vel elit scelerisque mauris pellentesque. Eget est lorem ipsum dolor. Hac habitasse platea dictumst vestibulum rhoncus. Duis at tellus at urna condimentum mattis pellentesque id. Facilisis gravida neque convallis a cras.
+              </b>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div
+        className="ce-block"
+        key="1"
+      >
+        <div
+          className="ce-block__content"
+          key="0"
+        >
+          <div
+            className="ce-paragraph cdx-block"
+            key="0"
+          >
+            <p
+              key="0"
+            >
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed nisi lacus sed viver
+              <code
+                className="inline-code"
+                key="1"
+              >
+                ra tellus in hac ha
+              </code>
+              bitasse platea. At auctor urna nunc id cursus metus aliquam eleifend mi. Vulputate mi sit amet mauris commodo quis imperdiet massa tincidunt. Scelerisque varius morbi enim nunc faucibus. T
+              <mark
+                className="cdx-marker"
+                key="3"
+              >
+                urpis in eu mi bibendum neque egestas congue quisque. Sed sed risus pretium quam. Congue mauris rhoncus aenean vel elit scelerisque mauris pellentesque. Eget est lorem ipsum dolor. Hac habitasse platea dictumst vestibulum rhoncus. Duis at tellus at urna condimentum mattis pellentesque id. Facilisis gravida neque convallis a cras.
+              </mark>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="py-5 border-b-2"
+    >
+      <Tags />
+    </div>
+    <div
+      className="comments my-4"
+    >
+      <h2
+        className="text-lg font-semibold comment-res"
+      >
+        Responses
+      </h2>
+    </div>
+  </div>
+</PageLayout>
+`;

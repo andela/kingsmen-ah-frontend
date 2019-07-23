@@ -1,5 +1,123 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<Cards /> render the article card component 1`] = `
+<div
+  className="w-full rounded-lg mb-6 lg:w-2/3 md:w-2/3"
+>
+  <div
+    className="flex flex-col"
+  >
+    <Link
+      to="/article/ape"
+    >
+      <img
+        alt="Article"
+        className="article-img"
+        height="200px"
+        src="https://miro.medium.com/max/1400/1*s692eS0M3mX14zMU4HJVkw.jpeg"
+        width="100%"
+      />
+    </Link>
+    <div
+      className="text-sm mt-2"
+    >
+      <Link
+        to="/article/ape"
+      >
+        <h2
+          className="font-semibold text-lg"
+        >
+          Hello World
+        </h2>
+      </Link>
+      <p
+        className="text-gray-600"
+      >
+        lorem lorem lore lorem lorem...
+      </p>
+      <Link
+        className="mr-3"
+        to="/profile/"
+      />
+      <div
+        className="flex font-thin text-gray-600 text-xs"
+      >
+        <p>
+          Jan. 18
+        </p>
+        <span
+          className="mx-2 mb-3 text-black font-bold"
+        >
+          .
+        </span>
+        <p>
+          2 mins read
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Cards /> render the article card component 2`] = `
+<div
+  className="w-full rounded-lg mb-6 lg:w-1/3 md:w-1/2"
+>
+  <div
+    className="flex flex-row-reverse justify-between lg:flex-row md:flex-row"
+  >
+    <Link
+      to="/article/ape"
+    >
+      <img
+        alt="Article"
+        className="article-img"
+        height="200px"
+        src="https://miro.medium.com/max/1400/1*s692eS0M3mX14zMU4HJVkw.jpeg"
+        width="200px"
+      />
+    </Link>
+    <div
+      className="text-sm "
+    >
+      <Link
+        to="/article/ape"
+      >
+        <h2
+          className="font-semibold text-lg"
+        >
+          Hello World
+        </h2>
+      </Link>
+      <p
+        className="text-gray-600"
+      >
+        lorem lorem lore lorem lorem...
+      </p>
+      <Link
+        className="mr-3"
+        to="/profile/"
+      />
+      <div
+        className="flex font-thin text-gray-600 text-xs"
+      >
+        <p>
+          Jan. 18
+        </p>
+        <span
+          className="mx-2 mb-3 text-black font-bold"
+        >
+          .
+        </span>
+        <p>
+          2 mins read
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`<Cards /> render the comment card component 1`] = `
 <div
   className="px-auto m-12 p-1 bg-gray-200"
@@ -29,7 +147,7 @@ exports[`<Cards /> render the comment card component 1`] = `
           <p
             className="text-gray-600"
           >
-            <Component />
+            2345678
           </p>
         </div>
         <div
@@ -146,8 +264,204 @@ exports[`<Cards /> render the create new comment card component 1`] = `
 </div>
 `;
 
+exports[`<Cards /> render the display 2 stars component 1`] = `
+<Fragment>
+  <FontAwesome
+    styleClass="fa fa-edit mr-2 text-gray-700"
+    type={
+      Object {
+        "icon": Array [
+          576,
+          512,
+          Array [],
+          "f005",
+          "M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z",
+        ],
+        "iconName": "star",
+        "prefix": "far",
+      }
+    }
+  />
+  <FontAwesome
+    styleClass="fa fa-edit mr-2 text-gray-700"
+    type={
+      Object {
+        "icon": Array [
+          576,
+          512,
+          Array [],
+          "f005",
+          "M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z",
+        ],
+        "iconName": "star",
+        "prefix": "far",
+      }
+    }
+  />
+</Fragment>
+`;
+
+exports[`<Cards /> render the display 3 stars component 1`] = `
+<Fragment>
+  <FontAwesome
+    styleClass="fa fa-edit mr-2 text-gray-700"
+    type={
+      Object {
+        "icon": Array [
+          576,
+          512,
+          Array [],
+          "f005",
+          "M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z",
+        ],
+        "iconName": "star",
+        "prefix": "far",
+      }
+    }
+  />
+  <FontAwesome
+    styleClass="fa fa-edit mr-2 text-gray-700"
+    type={
+      Object {
+        "icon": Array [
+          576,
+          512,
+          Array [],
+          "f005",
+          "M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z",
+        ],
+        "iconName": "star",
+        "prefix": "far",
+      }
+    }
+  />
+  <FontAwesome
+    styleClass="fa fa-edit mr-2 text-gray-700"
+    type={
+      Object {
+        "icon": Array [
+          576,
+          512,
+          Array [],
+          "f005",
+          "M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z",
+        ],
+        "iconName": "star",
+        "prefix": "far",
+      }
+    }
+  />
+</Fragment>
+`;
+
+exports[`<Cards /> render the display 4 stars component 1`] = `
+<Fragment>
+  <FontAwesome
+    styleClass="fa fa-edit mr-2 text-gray-700"
+    type={
+      Object {
+        "icon": Array [
+          576,
+          512,
+          Array [],
+          "f005",
+          "M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z",
+        ],
+        "iconName": "star",
+        "prefix": "far",
+      }
+    }
+  />
+  <FontAwesome
+    styleClass="fa fa-edit mr-2 text-gray-700"
+    type={
+      Object {
+        "icon": Array [
+          576,
+          512,
+          Array [],
+          "f005",
+          "M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z",
+        ],
+        "iconName": "star",
+        "prefix": "far",
+      }
+    }
+  />
+  <FontAwesome
+    styleClass="fa fa-edit mr-2 text-gray-700"
+    type={
+      Object {
+        "icon": Array [
+          576,
+          512,
+          Array [],
+          "f005",
+          "M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z",
+        ],
+        "iconName": "star",
+        "prefix": "far",
+      }
+    }
+  />
+  <FontAwesome
+    styleClass="fa fa-edit mr-2 text-gray-700"
+    type={
+      Object {
+        "icon": Array [
+          576,
+          512,
+          Array [],
+          "f005",
+          "M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z",
+        ],
+        "iconName": "star",
+        "prefix": "far",
+      }
+    }
+  />
+</Fragment>
+`;
+
+exports[`<Cards /> render the display a star component 1`] = `
+<FontAwesome
+  styleClass="fa fa-edit mr-2 text-gray-700"
+  type={
+    Object {
+      "icon": Array [
+        576,
+        512,
+        Array [],
+        "f005",
+        "M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z",
+      ],
+      "iconName": "star",
+      "prefix": "far",
+    }
+  }
+/>
+`;
+
+exports[`<Cards /> render the display a star component 2`] = `<div />`;
+
 exports[`<Cards /> render the display star component 1`] = `
 <Fragment>
+  <FontAwesome
+    styleClass="fa fa-edit mr-2 text-gray-700"
+    type={
+      Object {
+        "icon": Array [
+          576,
+          512,
+          Array [],
+          "f005",
+          "M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z",
+        ],
+        "iconName": "star",
+        "prefix": "far",
+      }
+    }
+  />
   <FontAwesome
     styleClass="fa fa-edit mr-2 text-gray-700"
     type={
@@ -245,7 +559,7 @@ exports[`<Cards /> render the profile card component 1`] = `
             authur
           </p>
           <ReadTime
-            time={2019-07-19T14:09:08.390Z}
+            time=""
           />
           <p
             className="text-black text-sm bold font-sans w-full"
@@ -265,7 +579,7 @@ exports[`<Cards /> render the read time component 1`] = `
 <p
   className="text-black text-gray-600 text-sm bold font-sans w-full"
 >
-  <Component />
+  12345
 </p>
 `;
 
@@ -291,7 +605,7 @@ exports[`<Cards /> render the search card component 1`] = `
     >
       Kingsmen
        
-      <Component />
+      2345678
     </p>
   </div>
   <div
@@ -312,7 +626,7 @@ exports[`<Cards /> render the search card component 1`] = `
     >
       Kingsmen
        
-      <Component />
+      2345678
     </p>
   </div>
   <div
@@ -333,7 +647,7 @@ exports[`<Cards /> render the search card component 1`] = `
     >
       Kingsmen
        
-      <Component />
+      2345678
     </p>
   </div>
 </div>
@@ -419,7 +733,7 @@ exports[`<Cards /> render the suggested card component 1`] = `
       <p
         className="text-gray-600"
       >
-        <Component />
+        2345678
       </p>
     </div>
   </div>
@@ -429,5 +743,12 @@ exports[`<Cards /> render the suggested card component 1`] = `
 exports[`<Cards /> render the tags component 1`] = `
 <div
   className="flex flex-wrap font-sans"
-/>
+>
+  <p
+    className="py-1 px-2 bg-gray text-black text-sm font-thin rounded border mr-2 mb-2"
+    key="0"
+  >
+    andela
+  </p>
+</div>
 `;

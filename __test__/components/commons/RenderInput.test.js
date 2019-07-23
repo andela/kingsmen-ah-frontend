@@ -40,8 +40,9 @@ describe('Render Input', () => {
     });
 
     it('should call onFocusOut prop', () => {
-      const wrapper = mount(<RenderInput {...props} onBlur={mockChange} />);
-
+      const wrapper = mount(<RenderInput {...props} onBlur={mockChange} value="" />);
+      
+      wrapper.find("input").simulate("change");
       wrapper.find("input").simulate("blur");
       expect(mockChange).toHaveBeenCalled();
     });

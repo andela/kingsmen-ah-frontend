@@ -13,3 +13,13 @@ label {
   font-size: .8em;
   top: -7px;
 }
+
+@media only screen and (max-width: 600px) {
+  .input {
+    font-size: .8em;
+  }
+
+  label {
+    font-size: .9em;
+  }
+}

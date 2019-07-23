@@ -9,7 +9,7 @@ exports[`Routes should render the Routes component correctly 1`] = `
           "$$typeof": Symbol(react.memo),
           "WrappedComponent": [Function],
           "compare": null,
-          "displayName": "Connect(Home)",
+          "displayName": "Connect(Connect(Home))",
           "type": [Function],
         }
       }
@@ -17,17 +17,12 @@ exports[`Routes should render the Routes component correctly 1`] = `
       path="/"
     />
     <Route
-      component={[Function]}
-      exact={true}
-      path="/login"
-    />
-    <Route
       component={
         Object {
           "$$typeof": Symbol(react.memo),
           "WrappedComponent": [Function],
           "compare": null,
-          "displayName": "Connect(withRouter(NewArticle))",
+          "displayName": "Connect(Authenticator)",
           "type": [Function],
         }
       }
@@ -53,7 +48,7 @@ exports[`Routes should render the Routes component correctly 1`] = `
           "$$typeof": Symbol(react.memo),
           "WrappedComponent": [Function],
           "compare": null,
-          "displayName": "Connect(withRouter(EditArticle))",
+          "displayName": "Connect(AuthorizeArticle)",
           "type": [Function],
         }
       }

@@ -26,11 +26,15 @@ let ready = false;
 const logger = console;
 class NewArticle extends Component {
   static propTypes = {
-    draft: PropTypes.bool
+    draft: PropTypes.bool,
+    errors: PropTypes.shape({
+      global: PropTypes.string
+    })
   }
 
   static defaultProps = {
-    draft: false
+    draft: false,
+    errors: ''
   }
 
   constructor(props) {
@@ -145,8 +149,8 @@ class NewArticle extends Component {
           <Button type="solid" color="blue" onClick={this.showTagModal} disabled={!ready}>Review Article</Button>
         </div>
         <div className="content-area mx-auto mt-6">
-          <Textarea inputRef={this.title} className="textarea" name="title" onChange={this.onChange} placeholder="Title" maxLength="50" />
-          <div id="editorjs" />
+          <Textarea inputRef={this.title} className="textarea" name="title" onChange={this.onChange} placeholder="Title" data-gramm_editor="false" maxLength="50" />
+          <div id="editorjs" data-gramm_editor="false" />
         </div>
 
         <Portal>
@@ -172,6 +176,7 @@ class NewArticle extends Component {
                       handleDrag={this.handleDrag}
                       handleTagClick={this.handleTagClick}
                       placeholder="Add a tag"
+                      inputFieldPosition="bottom"
                       classNames={{
                         tags: 'tagsClass',
                         tagInput: 'tagInputClass',

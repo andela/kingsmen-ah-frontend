@@ -12,7 +12,7 @@ exports[`Render Input should render the RenderInput component when used 1`] = `
       Name
     </label>
     <input
-      className=" w-full py-2 border-gray-600 border-b-2 outline-none"
+      className=" w-full py-2 border-gray-600 border-b-2 outline-none input"
       error=""
       id="name"
       name="name"

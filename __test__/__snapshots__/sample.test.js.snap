@@ -14,7 +14,7 @@ exports[`App should render the App component correctly 1`] = `
     closeOnClick={true}
     draggable={true}
     draggablePercent={80}
-    hideProgressBar={false}
+    hideProgressBar={true}
     newestOnTop={false}
     pauseOnFocusLoss={true}
     pauseOnHover={true}
@@ -27,9 +27,6 @@ exports[`App should render the App component correctly 1`] = `
     toastClassName={null}
     transition={[Function]}
   />
-<<<<<<< HEAD
-  <Routes />
-=======
   <PersistGate
     loading={null}
     persistor={
@@ -48,6 +45,5 @@ exports[`App should render the App component correctly 1`] = `
   >
     <Routes />
   </PersistGate>
->>>>>>> develop
 </Fragment>
 `;

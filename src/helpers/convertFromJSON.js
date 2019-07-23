@@ -1,87 +1,119 @@
+export const paragraphBlock = (payload) => `
+<div class="ce-block">
+  <div class="ce-block__content">
+    <div class="ce-paragraph cdx-block">
+      <p>${payload.data.text}</p>
+    </div>
+  </div>
+</div>
+`;
+
+export const imageBlock = (payload) => `
+<div class="ce-block">
+  <div class="ce-block__content">
+    <div class="ce-paragraph cdx-block">
+      <img src="${payload.data.file.url}" alt="${payload.data.caption}" />
+      <div class="text-center">
+        <i>${payload.data.caption}</i>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+export const headerBlock = (payload) => `
+<div class="ce-block">
+  <div class="ce-block__content">
+    <div class="ce-paragraph cdx-block">
+      <h${payload.data.level}>${payload.data.text}</h${payload.data.level}>
+    </div>
+  </div>
+</div>
+`;
+
+export const rawBlock = (payload) => `
+<div class="ce-block">
+  <div class="ce-block__content">
+    <div class="ce-code">
+      <code>${payload.data.html}</code>
+    </div>
+  </div>
+</div>
+`;
+
+export const codeBlock = (payload) => `
+<div class="ce-block">
+  <div class="ce-block__content">
+    <div class="ce-code">
+      <code>${payload.data.code}</code>
+    </div>
+  </div>
+</div>
+`;
+
+const orderedList = (payload) => `
+<div class="ce-block">
+  <div class="ce-block__content">
+    <div class="ce-paragraph cdx-block">
+      <ul class="cdx-list--unordered">${payload.join('')}</ul>
+    </div>
+  </div>
+</div>
+`;
+
+const unorderedList = (payload) => `
+<div class="ce-block">
+  <div class="ce-block__content">
+    <div class="ce-paragraph cdx-block">
+      <ol class="cdx-list--ordered">${payload.join('')}</ol>
+    </div>
+  </div>
+</div>
+`;
+
+const delimeterBlock = () => `
+<div class="ce-block">
+  <div class="ce-block__content">
+    <div class="ce-delimiter cdx-block"></div>
+  </div>
+</div>
+`;
+
 function convertFromJSON(raw) {
   let articleHTML = '';
 
   raw.blocks.map(obj => {
     switch (obj.type) {
       case 'paragraph':
-        articleHTML += `<div class="ce-block">
-          <div class="ce-block__content">
-            <div class="ce-paragraph cdx-block">
-              ${obj.data.text}
-            </div>
-          </div>
-        </div>\n`;
+        articleHTML += paragraphBlock(obj);
         break;
       case 'image':
-        articleHTML += `<div class="ce-block">
-          <div class="ce-block__content">
-            <div class="ce-paragraph cdx-block">
-              <img src="${obj.data.url}" alt="${obj.data.caption}" />
-              <div class="text-center">
-                <i>${obj.data.caption}</i>
-              </div>
-            </div>
-          </div>
-        </div>\n`;
+        articleHTML += imageBlock(obj);
         break;
       case 'header':
-        articleHTML += `<div class="ce-block">
-          <div class="ce-block__content">
-            <div class="ce-paragraph cdx-block">
-              <h${obj.data.level}>${obj.data.text}</h${obj.data.level}>
-            </div>
-          </div>
-        </div>\n`;
+        articleHTML += headerBlock(obj);
         break;
       case 'raw':
-        articleHTML += `<div class="ce-block">
-          <div class="ce-block__content">
-            <div class="ce-rawtool">
-              <code>${obj.data.html}</code>
-            </div>
-          </div>
-        </div>\n`;
+        articleHTML += rawBlock(obj);
         break;
       case 'code':
-        articleHTML += `<div class="ce-block">
-          <div class="ce-block__content">
-            <div class="ce-code">
-              <code>${obj.data.code}</code>
-            </div>
-          </div>
-        </div>\n`;
+        articleHTML += codeBlock(obj);
         break;
       case 'list':
         if (obj.data.style === 'unordered') {
           const list = obj.data.items.map(item => {
             return `<li class="cdx-list__item">${item}</li>`;
           });
-          articleHTML += `<div class="ce-block">
-            <div class="ce-block__content">
-              <div class="ce-paragraph cdx-block">
-                <ul class="cdx-list--unordered">${list}</ul>
-              </div>
-              </div>
-            </div>\n`;
+          articleHTML += orderedList(list);
         } else {
           const list = obj.data.items.map(item => {
             return `<li class="cdx-list__item">${item}</li>`;
           });
-          articleHTML += `<div class="ce-block">
-            <div class="ce-block__content">
-              <div class="ce-paragraph cdx-block">
-                <ol class="cdx-list--ordered">${list}</ol>
-              </div>
-              </div>
-            </div>\n`;
+          articleHTML += unorderedList(list);
         }
         break;
       case 'delimeter':
-        articleHTML += `<div class="ce-block">
-          <div class="ce-block__content">
-            <div class="ce-delimiter cdx-block"></div>
-          </div>
-        </div>\n`;
+        articleHTML += delimeterBlock();
         break;
       default:
         return '';

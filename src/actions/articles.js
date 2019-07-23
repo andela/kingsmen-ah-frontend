@@ -10,6 +10,8 @@ import {
   GET_ARTICLES_FAILURE,
   GET_ARTICLE_FAILURE,
   GET_ARTICLE_SUCCESS,
+  DELETE_ARTICLE_SUCCESS,
+  DELETE_ARTICLE_FAILURE,
   GET_TAGS_SUCCESS,
   GET_TAGS_FAILURE
 } from './types';
@@ -62,12 +64,12 @@ export const editArticleFailure = error => ({
 });
 
 export const deleteArticleSuccess = article => ({
-  type: ADD_ARTICLE_SUCCESS,
+  type: DELETE_ARTICLE_SUCCESS,
   payload: article
 });
 
 export const deleteArticleFailure = error => ({
-  type: ADD_ARTICLE_FAILURE,
+  type: DELETE_ARTICLE_FAILURE,
   payload: error
 });
 
@@ -146,11 +148,10 @@ export const getSingleArticle = id => async (dispatch) => {
 export const deleteArticle = id => async (dispatch) => {
   try {
     dispatch(isLoading);
-
-    const response = await axios.delete(`/articles/${id}`);
-
-    dispatch(fetchArticlesSuccess(response.data.data.payload));
+    
+    await axios.delete(`/articles/${id}`);
+    toast.error('Article Deleted!');
   } catch (error) {
-    dispatch(fetchArticlesFailure(error.response.data.errors.global));
+    dispatch(deleteArticleFailure(error.response.data.errors.global));
   }
 }
