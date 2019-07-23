@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -26,12 +27,13 @@ class Profile extends Component {
         isMyProfile: true
       });
     }
+    console.log('username', username);
     fetchGuest(usernameURL, history);
   }
   render() {
     const { user, profile, isAuthenticated} = this.props;
     const {tabs, clickedTab, isMyProfile} = this.state;
-    
+    console.log('ismyprofile', isMyProfile);
     return (
       <div>
         <Header
@@ -77,8 +79,8 @@ Profile.propTypes = {
     username: PropTypes.string.isRequired
   }).isRequired,
   profile: PropTypes.shape({
-  }).isRequired,
-  isAuthenticated: PropTypes.bool.isRequired,
+  }),
+  isAuthenticated: PropTypes.bool,
   errors: PropTypes.shape({}).isRequired,
   match: PropTypes.shape({
     params: PropTypes.shape({
@@ -90,7 +92,10 @@ Profile.propTypes = {
     push: PropTypes.func
   }).isRequired,
 };
-
+Profile.defaultProps = {
+  profile: {},
+  isAuthenticated: false,
+};
 const mapStateToProps = state => ({
   user: state.auth.user,
   profile: state.auth.profile,

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {  Link } from 'react-router-dom';
 
-export default function ProfileImage({ profile, user }) {
+export default function ProfileImage({ profile, user, isMyProfile }) {
   const { firstname, lastname, avatar } = profile;
   const { username } = user;
 
@@ -22,7 +22,9 @@ export default function ProfileImage({ profile, user }) {
         <img src={avatar || avatarDefault} alt='profile avatar' className="rounded-full border-solid border-white w-24 h-24" />
         <div className="ml-5">
           <h2 className="font-lobster text-3xl">{`${firstname || 'John'} ${lastname || 'Doe'}`}</h2>
-          <Link to={`/profile/${username}/edit`} style={style}> Edit profile</Link>
+          <div className={isMyProfile? '' : 'hide'}>
+            <Link to={`/profile/${username}/edit`} style={style}> Edit profile</Link>
+          </div>
         </div>
       </div>
     </div>
@@ -38,4 +40,5 @@ ProfileImage.propTypes = {
   user: PropTypes.shape({
     username: PropTypes.string.isRequired
   }).isRequired,
+  isMyProfile: PropTypes.bool.isRequired,
 }

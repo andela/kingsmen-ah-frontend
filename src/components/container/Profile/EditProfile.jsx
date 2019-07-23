@@ -7,6 +7,7 @@ import PropTypes from 'prop-types';
 import Footer from '@components/commons/utilities/Footer';
 import Button from '@components/commons/utilities/Button';
 import FontAwesome from '@components/commons/utilities/FontAwesome';
+import IsLoggedIn from '@components/commons/IsLoggedIn';
 import { faCamera } from '@fortawesome/fontawesome-free-solid';
 import { updateProfile } from '@actions/profile';
 import './Profile.scss';
@@ -100,6 +101,7 @@ class EditProfile extends Component {
     const avatarDefault = 'https://visualpharm.com/assets/344/Male%20User-595b40b65ba036ed117d4d28.svg';
     return (
       <div className="flex-col flex full-height">
+        <IsLoggedIn isAuthenticated={isAuthenticated} />
         <Header
           user={{ user: { ...user, isAuthenticated } }}
           profile={profile}
@@ -205,7 +207,7 @@ class EditProfile extends Component {
 }
 EditProfile.propTypes = {
   user: PropTypes.shape({
-    username: PropTypes.string.isRequired
+    username: PropTypes.string
   }).isRequired,
   profile: PropTypes.shape({
     avatar: PropTypes.string,
@@ -215,12 +217,13 @@ EditProfile.propTypes = {
   history: PropTypes.shape({
     push: PropTypes.func
   }).isRequired,
-  isAuthenticated: PropTypes.bool.isRequired,
+  isAuthenticated: PropTypes.bool,
   errors: PropTypes.shape({}).isRequired,
   updateProfile: PropTypes.func.isRequired
 }
 EditProfile.defaultProps = {
-  profile: {}
+  profile: {},
+  isAuthenticated: false,
 };
 const mapStateToProps = state => ({
   user: state.auth.user,
