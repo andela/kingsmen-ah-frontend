@@ -1,4 +1,5 @@
 export const initialState = {
-  auth: {}
+  auth: {},
+  profile: {}
 };
 export const userToken = {};

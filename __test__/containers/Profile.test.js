@@ -7,20 +7,19 @@ import Profile from '@components/container/Profile/Profile';
 const mockStore = configureStore([thunk]);
 
 const props = {
- user: {
-   isAuthenticated: false,
-   username: 'kingsmen'
- },
+  user: {
+    isAuthenticated: false,
+    username: 'kingsmen'
+  },
 };
 
 const store = mockStore({
- auth: {
-   isAuthenticated: true,
-   profile: {},
-   user: {},
-   errors: {}
- },
-
+  auth: {},
+  profile: {
+    profile: {},
+  guest: {},
+  guestError: {},
+  }
 });
 
 const setup = () => {
@@ -37,20 +36,6 @@ describe('Tests for the <Profile />', () => {
  beforeEach(() => {
    wrapper = setup();
  });
-
- it('should have a <Profile /> component', () => {
-   const props = {
-     name: 'Test Name',
-     onChange: jest.fn(),
-     submit: jest.fn(),
-     reset: jest.fn(),
-     value: '',
-     commentError: ''
-   };
-
-   const cardOne = shallow(<Profile {...props} />);
-   expect(cardOne).toHaveLength(1);
- })
 
  it('should render the <Profile /> component correctly', () => {
    expect(wrapper).toHaveLength(1);
