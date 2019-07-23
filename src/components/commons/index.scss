@@ -64,7 +64,7 @@ input {
 }
 
 .bg-blue-700 {
-  background: $base-color;
+  background: $base-color !important;
 }
 
 .hover\:bg-blue-800:hover {
