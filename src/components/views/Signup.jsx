@@ -154,10 +154,6 @@ export class Signup extends Component {
             Reset password
             </Button>
           </div>
-          <span className="text-xs md:text-base lg:text-base text-gray-700">
-          Click “Register” above to accept Author’s Haven We hope you have a
-          pleasant read/write
-          </span>
         </div>
       </form>
     );
