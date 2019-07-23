@@ -23,8 +23,6 @@ export const getComments = (slug) => async (dispatch) => {
 export const postComment = (newComment, slug) => async (dispatch) => {
   try{
     const res = await axios.post(`/articles/${slug}/comments`, newComment);
-    // eslint-disable-next-line no-console
-    console.log(res)
     dispatch({
       type: POST_COMMENT,
       payload: res.data.payload

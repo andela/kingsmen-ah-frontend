@@ -287,33 +287,6 @@ describe('Tests for the COMMENT ACTIONS', () => {
       })
   });
 
-  test('Dispatches the DELETE_COMMENT action and payload', (done) => {
-    moxios.withMock(() => {
-      let onFulfilled = sinon.spy()
-      axios.delete('/articles/andela/comments/1').then(onFulfilled)
-
-      moxios.wait(() => {
-        let request = moxios.requests.mostRecent()
-        request.respondWith({
-          status: 200
-        }).then(() => {
-          equal(onFulfilled.called, true)
-          done()
-        })
-      })
-    })
-
-    const expectedActions = [{
-      type: DELETE_COMMENT
-    }]
-
-    store.dispatch(actions.delComment())
-      .then(() => {
-        expect(store.getActions()).toEqual(expectedActions);
-        done();
-      })
-  });
-
   test('Dispatches the POST_COMMENT action and payload', (done) => {
     moxios.withMock(() => {
       let onFulfilled = sinon.spy()
@@ -344,6 +317,36 @@ describe('Tests for the COMMENT ACTIONS', () => {
     }]
 
     store.dispatch(actions.postComment())
+      .then(() => {
+        expect(store.getActions()).toEqual(expectedActions);
+        done();
+      })
+  });
+
+  test('Dispatches the DELETE_COMMENT action and payload', (done) => {
+    moxios.withMock(() => {
+      let onFulfilled = sinon.spy()
+      axios.delete('/articles/andela/comments/1', {
+        status: 200
+      }).then(onFulfilled)
+
+      moxios.wait(() => {
+        let request = moxios.requests.mostRecent()
+        request.respondWith({
+          status: 200
+        }).then(() => {
+          equal(onFulfilled.called, true)
+          done()
+        })
+      })
+      done()
+    })
+
+    const expectedActions = [{
+      type: DELETE_COMMENT,
+    }]
+
+    store.dispatch(actions.delComment())
       .then(() => {
         expect(store.getActions()).toEqual(expectedActions);
         done();
