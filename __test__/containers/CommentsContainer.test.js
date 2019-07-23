@@ -108,7 +108,7 @@ describe('Tests for the COMMENT REDUCER', () => {
 
   test('Test for POST_COMMENT', () => {
     const mock = {
-      comments: null
+      comments: []
     }
 
     const action = {
@@ -287,42 +287,6 @@ describe('Tests for the COMMENT ACTIONS', () => {
       })
   });
 
-  test('Dispatches the POST_COMMENT action and payload', (done) => {
-    moxios.withMock(() => {
-      let onFulfilled = sinon.spy()
-      axios.post('/articles/andela/comments', {
-        status: 200,
-        response: {
-          payload: { comment: 1 }
-        }
-      }).then(onFulfilled)
-
-      moxios.wait(() => {
-        let request = moxios.requests.mostRecent()
-        request.respondWith({
-          status: 200,
-          response: {
-            payload: { comment: 1 }
-          }
-        }).then(() => {
-          equal(onFulfilled.called, true)
-          done()
-        })
-      })
-    })
-
-    const expectedActions = [{
-      payload: { comment: 1 },
-      type: POST_COMMENT
-    }]
-
-    store.dispatch(actions.postComment(1))
-      .then(() => {
-        expect(store.getActions()).toEqual(expectedActions);
-        done();
-      })
-  });
-
   test('Dispatches the DELETE_COMMENT action and payload', (done) => {
     moxios.withMock(() => {
       let onFulfilled = sinon.spy()
@@ -344,6 +308,37 @@ describe('Tests for the COMMENT ACTIONS', () => {
     }]
 
     store.dispatch(actions.delComment())
+      .then(() => {
+        expect(store.getActions()).toEqual(expectedActions);
+        done();
+      })
+  });
+
+  test('Dispatches the POST_COMMENT action and payload', (done) => {
+    moxios.withMock(() => {
+      let onFulfilled = sinon.spy()
+      axios.post('/articles/andela/comments').then(onFulfilled)
+
+      moxios.wait(() => {
+        let request = moxios.requests.mostRecent()
+        request.respondWith({
+          status: 200,
+          response: {
+            payload: { comment: 1 }
+          }
+        }).then(() => {
+          equal(onFulfilled.called, true)
+          done()
+        })
+      })
+    })
+
+    const expectedActions = [{
+      payload: { comment: 1 },
+      type: POST_COMMENT
+    }]
+
+    store.dispatch(actions.postComment({ comment: 1 }))
       .then(() => {
         expect(store.getActions()).toEqual(expectedActions);
         done();
