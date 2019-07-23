@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Footer from '@components/commons/utilities/Footer';
 import CommentCard from '../commons/Cards/CommentCard';
-import CreateCommentCard from '../commons/Cards/CreateCommentCard';
+import CreateCommentCard from '../../containers/CreateCommentCard';
 import { getComments, postComment, delComment } from '../../actions/comments';
 import formatDate from '../commons/utilities/helpers'
 

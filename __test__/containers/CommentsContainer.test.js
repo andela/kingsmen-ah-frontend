@@ -7,11 +7,11 @@ import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import CommentsContainer from '@components/views/CommentsContainer';
-import CreateCommentCard from '@components/commons/Cards/CreateCommentCard';
 import CommentCard from '@components/commons/Cards/CommentCard';
 import * as actions from '@actions/comments';
 import reducers from '@reducers/comments';
 import { GET_COMMENTS, POST_COMMENT, DELETE_COMMENT, DELETE_COMMENT_ERROR, GET_COMMENTS_ERROR, POST_COMMENT_ERROR } from '@actions/types';
+import CreateCommentCard from '../../src/containers/CreateCommentCard';
 
 const mockStore = configureStore([thunk]);
 
@@ -317,14 +317,19 @@ describe('Tests for the COMMENT ACTIONS', () => {
   test('Dispatches the POST_COMMENT action and payload', (done) => {
     moxios.withMock(() => {
       let onFulfilled = sinon.spy()
-      axios.post('/articles/andela/comments').then(onFulfilled)
+      axios.post('/articles/andela/comments', {
+        status: 200,
+        response: {
+          payload: { title: 'res' }
+        }
+      }).then(onFulfilled)
 
       moxios.wait(() => {
         let request = moxios.requests.mostRecent()
         request.respondWith({
           status: 200,
           response: {
-            payload: { comment: 1 }
+            payload: { title: 'res' }
           }
         }).then(() => {
           equal(onFulfilled.called, true)
@@ -334,11 +339,11 @@ describe('Tests for the COMMENT ACTIONS', () => {
     })
 
     const expectedActions = [{
-      payload: { comment: 1 },
-      type: POST_COMMENT
+      type: POST_COMMENT,
+      payload: { title: 'res' }
     }]
 
-    store.dispatch(actions.postComment({ comment: 1 }))
+    store.dispatch(actions.postComment())
       .then(() => {
         expect(store.getActions()).toEqual(expectedActions);
         done();

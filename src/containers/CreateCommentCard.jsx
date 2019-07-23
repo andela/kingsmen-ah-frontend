@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Button from '../utilities/Button';
-import Alert from './Alert';
+import Button from '../components/commons/utilities/Button';
+import Alert from '../components/commons/Cards/Alert';
 
 export function CreateCommentCard({
   name, avatar, alt, value, onSubmit, onChange, commentError, submit, reset
