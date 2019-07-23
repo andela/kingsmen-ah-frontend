@@ -51,5 +51,8 @@ export default function DisplayStar({ averageRating }) {
 }
 
 DisplayStar.propTypes = {
-  averageRating: PropTypes.number.isRequired
+  averageRating: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string
+  ]).isRequired
 };

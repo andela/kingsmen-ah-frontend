@@ -8,7 +8,7 @@ function Button({ type, children, color, stretch, onClick, ...rest }) {
     <button
       type='submit'
       className={classnames(
-        'bg-transparent hover:text-white py-2 px-4 border rounded mr-2 text-sm',
+        'bg-transparent hover:text-white py-2 px-4 border  rounded mr-2 text-sm',
         {
           [`hover:bg-${color}-700 text-${color}-700 border-${color}-700 hover:border-transparent ${
             stretch ? 'block w-full' : ''
@@ -34,8 +34,9 @@ function Button({ type, children, color, stretch, onClick, ...rest }) {
 
 Button.propTypes = {
   type: PropTypes.string.isRequired,
-  children: PropTypes.oneOfType([PropTypes.element, PropTypes.string])
-    .isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.element, PropTypes.string
+  ]).isRequired,
   color: PropTypes.string.isRequired,
   stretch: PropTypes.bool,
   onClick: PropTypes.func.isRequired

@@ -176,7 +176,7 @@ export class Header extends Component {
 
         <div
           className={classname({
-            'block bg-white border-t-2 py-2 shadow-lg absolute right-0 w-full md:w-2/5 lg:w-2/5': true,
+            'block bg-white border-t-2 py-2 shadow-lg absolute right-0 w-full md:w-2/5 lg:w-2/5 z-20': true,
             hidden: authHidden,
             'lg:max-w-xs': !showSearchBar
           })}
@@ -208,7 +208,7 @@ export class Header extends Component {
                   Profile
                 </Link>
                 <Link
-                  to='/articles'
+                  to='/new-article'
                   className='block border-b pb-2 pt-2 hover:text-blue-700'
                 >
                   New Article

@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Content:400,700&display=swap');
+$dark: rgba(209, 202, 202, 0.5);
+$base-color: #335bcf;
+
+.title {
+  font-family: 'Roboto Slab', serif;
+}
+
+._1KJtL {
+  display: none !important;
+}
+.body {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: 400;
+  letter-spacing: 1px;
+  color: rgba(0, 0, 0, 0.84) !important;
+  word-break: break-word;
+  text-rendering: optimizeLegibility;
+}
+
+.ce-block__content {
+  margin: 0 !important;
+}
+
+
+.ce-block__content {
+  margin-right: 0;
+  max-width: 100%;
+}
+
+.ce-toolbar__content {
+  max-width: 100%;
+}
+
+.cdx-block,
+.ce--block {
+  padding: .7em 0;
+}
+
+.ce-paragraph {
+  line-height: 1.6em;
+  font-weight: 400;
+  outline: none;
+  font-size: 17px;
+
+  p {
+    line-height: 1.6em;
+    font-family: auto;
+
+  }
+
+  a {
+    text-decoration: underline;
+  }
+
+  code {
+    font-size: inherit;
+  }
+}
+
+ul {
+  list-style: disc !important;
+}
+
+.ce-rawtool {
+  border-radius: 5px;
+  background-color: #1e2128;
+  padding: 10px;
+  font-size: 12px;
+  line-height: 1.8;
+  letter-spacing: -0.2px;
+  color: #9ca3b3;
+}
+
+.ce-delimiter:before {
+  display: inline-block;
+  content: "***";
+  font-size: 30px;
+  line-height: 65px;
+  height: 30px;
+  letter-spacing: 0.2em;
+}
+
+.article-container {
+  width: 85%;
+}
+
+.content-area {
+  width: 60%;
+}
+
+@media only screen and (max-width: 600px) {
+  .article-container,
+  .content-area {
+    width: 90%;
+  }
+
+  .ce-paragraph {
+    font-size: 14px;
+  }
+}
+
+.comment-res {
+  font-family: 'Roboto Slab', sans-serif;
+}
+
+
+@media only screen and (max-width: 768px) and (min-width: 600px) {
+  .content-area {
+    width: 70%;
+  }
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+.textarea {
+  border-left: 1px solid $dark;
+  font-family: Georgia;
+  font-size: 2em;
+  letter-spacing: 1px;
+  outline: none;
+  padding: 10px;
+  width: 100%;
+}
+
+.tagClass {
+  background: $dark;
+  border-radius: 5px;
+  padding: 8px 12px;
+  font-size: .8em;
+  margin-right: 10px;
+}
+
+.tagsClass {
+  margin: 20px auto !important;
+}
+
+.tagInputClass {
+  width: 100%;
+  text-align: center;
+}
+
+.selectedClass {
+  margin: 0 auto !important;
+}
+
+.tag-input-field-class {
+  font-size: .8em;
+  background: inherit;
+  border: none;
+  margin-top: .8em;
+  width: 200px;
+  border-bottom: 1px solid $base-color;
+}
+
+
+button:disabled {
+  cursor: not-allowed !important;
+}

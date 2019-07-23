@@ -49,46 +49,48 @@ export class Login extends Component {
         <span className='text-xs md:text-base lg:text-lg text-gray-700'>
           Enter the email address and password associated with your account.
         </span>
-        <FormInput
-          id='email'
-          type='email'
-          name='email'
-          value={email}
-          label='Enter Email'
-          className=''
-          error={errors.email}
-          handleChange={this.handleChange}
-        />
-        <FormInput
-          id='password'
-          type='password'
-          name='password'
-          value={password}
-          label='Enter Password'
-          className=''
-          error={errors.password}
-          handleChange={this.handleChange}
-        />
-        <Button
-          type='solid'
-          onClick={this.loginBtnClicked}
-          color='blue'
-          stretch
-          disabled={loading || !valid}
-          title={!valid ? 'Please fill both fields' : null}
-        >
-          {loading === true ? (
-            <Preloader
-              type='button'
-              styles='TailSpin'
-              height={15}
-              width={15}
-              color='white'
-            />
-          ) : (
-            'Sign In'
-          )}
-        </Button>
+        <form onSubmit={this.loginBtnClicked} className="mt-4">
+          <FormInput
+            id='email'
+            type='email'
+            name='email'
+            value={email}
+            label='Enter Email'
+            className=''
+            error={errors.email}
+            handleChange={this.handleChange}
+          />
+          <FormInput
+            id='password'
+            type='password'
+            name='password'
+            value={password}
+            label='Enter Password'
+            className=''
+            error={errors.password}
+            handleChange={this.handleChange}
+          />
+          <Button
+            type='solid'
+            onClick={this.loginBtnClicked}
+            color='blue'
+            stretch
+            disabled={loading || !valid}
+            title={!valid ? 'Please fill both fields' : null}
+          >
+            {loading === true ? (
+              <Preloader
+                type='button'
+                styles='TailSpin'
+                height={15}
+                width={15}
+                color='white'
+              />
+            ) : (
+              'Sign In'
+            )}
+          </Button>
+        </form>
         <div className='text-xs md:text-base my-4'>
           <span>No Account?</span>
           <Button

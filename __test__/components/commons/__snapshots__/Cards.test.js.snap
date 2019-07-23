@@ -1,0 +1,754 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Cards /> render the article card component 1`] = `
+<div
+  className="w-full rounded-lg mb-6 lg:w-2/3 md:w-2/3"
+>
+  <div
+    className="flex flex-col"
+  >
+    <Link
+      to="/article/ape"
+    >
+      <img
+        alt="Article"
+        className="article-img"
+        height="200px"
+        src="https://miro.medium.com/max/1400/1*s692eS0M3mX14zMU4HJVkw.jpeg"
+        width="100%"
+      />
+    </Link>
+    <div
+      className="text-sm mt-2"
+    >
+      <Link
+        to="/article/ape"
+      >
+        <h2
+          className="font-semibold text-lg"
+        >
+          Hello World
+        </h2>
+      </Link>
+      <p
+        className="text-gray-600"
+      >
+        lorem lorem lore lorem lorem...
+      </p>
+      <Link
+        className="mr-3"
+        to="/profile/"
+      />
+      <div
+        className="flex font-thin text-gray-600 text-xs"
+      >
+        <p>
+          Jan. 18
+        </p>
+        <span
+          className="mx-2 mb-3 text-black font-bold"
+        >
+          .
+        </span>
+        <p>
+          2 mins read
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Cards /> render the article card component 2`] = `
+<div
+  className="w-full rounded-lg mb-6 lg:w-1/3 md:w-1/2"
+>
+  <div
+    className="flex flex-row-reverse justify-between lg:flex-row md:flex-row"
+  >
+    <Link
+      to="/article/ape"
+    >
+      <img
+        alt="Article"
+        className="article-img"
+        height="200px"
+        src="https://miro.medium.com/max/1400/1*s692eS0M3mX14zMU4HJVkw.jpeg"
+        width="200px"
+      />
+    </Link>
+    <div
+      className="text-sm "
+    >
+      <Link
+        to="/article/ape"
+      >
+        <h2
+          className="font-semibold text-lg"
+        >
+          Hello World
+        </h2>
+      </Link>
+      <p
+        className="text-gray-600"
+      >
+        lorem lorem lore lorem lorem...
+      </p>
+      <Link
+        className="mr-3"
+        to="/profile/"
+      />
+      <div
+        className="flex font-thin text-gray-600 text-xs"
+      >
+        <p>
+          Jan. 18
+        </p>
+        <span
+          className="mx-2 mb-3 text-black font-bold"
+        >
+          .
+        </span>
+        <p>
+          2 mins read
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Cards /> render the comment card component 1`] = `
+<div
+  className="px-auto m-12 p-1 bg-gray-200"
+>
+  <div
+    className="w-full"
+  >
+    <div
+      className="border-r border-b border-l border-gray-400 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal"
+    >
+      <div
+        className="flex mb-4"
+      >
+        <img
+          alt="image"
+          className="w-10 h-10 rounded-full mr-4"
+          src="https://tailwindcss.com/img/card-left.jpg"
+        />
+        <div
+          className="text-sm"
+        >
+          <p
+            className="text-gray-900 leading-none"
+          >
+            Kingsmen
+          </p>
+          <p
+            className="text-gray-600"
+          >
+            2345678
+          </p>
+        </div>
+        <div
+          className="text-bg flex ml-auto"
+        >
+          <FontAwesome
+            styleClass="fa fa-edit mr-2 text-gray-700"
+            type={
+              Object {
+                "icon": Array [
+                  576,
+                  512,
+                  Array [],
+                  "f044",
+                  "M402.6 83.2l90.2 90.2c3.8 3.8 3.8 10 0 13.8L274.4 405.6l-92.8 10.3c-12.4 1.4-22.9-9.1-21.5-21.5l10.3-92.8L388.8 83.2c3.8-3.8 10-3.8 13.8 0zm162-22.9l-48.8-48.8c-15.2-15.2-39.9-15.2-55.2 0l-35.4 35.4c-3.8 3.8-3.8 10 0 13.8l90.2 90.2c3.8 3.8 10 3.8 13.8 0l35.4-35.4c15.2-15.3 15.2-40 0-55.2zM384 346.2V448H64V128h229.8c3.2 0 6.2-1.3 8.5-3.5l40-40c7.6-7.6 2.2-20.5-8.5-20.5H48C21.5 64 0 85.5 0 112v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V306.2c0-10.7-12.9-16-20.5-8.5l-40 40c-2.2 2.3-3.5 5.3-3.5 8.5z",
+                ],
+                "iconName": "edit",
+                "prefix": "fas",
+              }
+            }
+          />
+          <FontAwesome
+            styleClass="fa fa-edit mr-2 text-gray-700"
+            type={
+              Object {
+                "icon": Array [
+                  448,
+                  512,
+                  Array [],
+                  "f1f8",
+                  "M0 84V56c0-13.3 10.7-24 24-24h112l9.4-18.7c4-8.2 12.3-13.3 21.4-13.3h114.3c9.1 0 17.4 5.1 21.5 13.3L312 32h112c13.3 0 24 10.7 24 24v28c0 6.6-5.4 12-12 12H12C5.4 96 0 90.6 0 84zm415.2 56.7L394.8 467c-1.6 25.3-22.6 45-47.9 45H101.1c-25.3 0-46.3-19.7-47.9-45L32.8 140.7c-.4-6.9 5.1-12.7 12-12.7h358.5c6.8 0 12.3 5.8 11.9 12.7z",
+                ],
+                "iconName": "trash",
+                "prefix": "fas",
+              }
+            }
+          />
+        </div>
+      </div>
+      <div
+        className="mb-4 ml-8"
+      >
+        <p
+          className="text-gray-700 text-base"
+        >
+          Hello World
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Cards /> render the create new comment card component 1`] = `
+<div
+  className="px-auto m-12 p-1 bg-gray-200"
+>
+  <div
+    className="w-full"
+  >
+    <div
+      className="border-r border-b border-l border-gray-400 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal"
+    >
+      <div
+        className="flex items-center mb-4"
+      >
+        <img
+          alt="image"
+          className="w-10 h-10 rounded-full mr-4"
+          src="https://tailwindcss.com/img/card-left.jpg"
+        />
+        <div
+          className="text-sm"
+        >
+          <p
+            className="text-gray-900 leading-none"
+          >
+            Kingsmen
+          </p>
+        </div>
+      </div>
+      <form
+        className="rounded pb-2"
+      >
+        <div
+          className="mb-2"
+        >
+          <textarea
+            className="resize appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            placeholder="What's on your mind?"
+            rows="6"
+            type="text"
+          />
+        </div>
+        <div
+          className="flex justify-end"
+        >
+          <button
+            className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white px-4 mr-2 border border-blue-500 hover:border-transparent rounded"
+            type="submit"
+          >
+            Comment
+          </button>
+          <button
+            className="ml-2 bg-transparent hover:bg-red-500 text-red-700 font-semibold hover:text-white py-2 px-4 border border-red-500 hover:border-transparent rounded"
+            type="submit"
+          >
+            Cancel
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Cards /> render the display 2 stars component 1`] = `
+<Fragment>
+  <FontAwesome
+    styleClass="fa fa-edit mr-2 text-gray-700"
+    type={
+      Object {
+        "icon": Array [
+          576,
+          512,
+          Array [],
+          "f005",
+          "M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z",
+        ],
+        "iconName": "star",
+        "prefix": "far",
+      }
+    }
+  />
+  <FontAwesome
+    styleClass="fa fa-edit mr-2 text-gray-700"
+    type={
+      Object {
+        "icon": Array [
+          576,
+          512,
+          Array [],
+          "f005",
+          "M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z",
+        ],
+        "iconName": "star",
+        "prefix": "far",
+      }
+    }
+  />
+</Fragment>
+`;
+
+exports[`<Cards /> render the display 3 stars component 1`] = `
+<Fragment>
+  <FontAwesome
+    styleClass="fa fa-edit mr-2 text-gray-700"
+    type={
+      Object {
+        "icon": Array [
+          576,
+          512,
+          Array [],
+          "f005",
+          "M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z",
+        ],
+        "iconName": "star",
+        "prefix": "far",
+      }
+    }
+  />
+  <FontAwesome
+    styleClass="fa fa-edit mr-2 text-gray-700"
+    type={
+      Object {
+        "icon": Array [
+          576,
+          512,
+          Array [],
+          "f005",
+          "M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z",
+        ],
+        "iconName": "star",
+        "prefix": "far",
+      }
+    }
+  />
+  <FontAwesome
+    styleClass="fa fa-edit mr-2 text-gray-700"
+    type={
+      Object {
+        "icon": Array [
+          576,
+          512,
+          Array [],
+          "f005",
+          "M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z",
+        ],
+        "iconName": "star",
+        "prefix": "far",
+      }
+    }
+  />
+</Fragment>
+`;
+
+exports[`<Cards /> render the display 4 stars component 1`] = `
+<Fragment>
+  <FontAwesome
+    styleClass="fa fa-edit mr-2 text-gray-700"
+    type={
+      Object {
+        "icon": Array [
+          576,
+          512,
+          Array [],
+          "f005",
+          "M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z",
+        ],
+        "iconName": "star",
+        "prefix": "far",
+      }
+    }
+  />
+  <FontAwesome
+    styleClass="fa fa-edit mr-2 text-gray-700"
+    type={
+      Object {
+        "icon": Array [
+          576,
+          512,
+          Array [],
+          "f005",
+          "M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z",
+        ],
+        "iconName": "star",
+        "prefix": "far",
+      }
+    }
+  />
+  <FontAwesome
+    styleClass="fa fa-edit mr-2 text-gray-700"
+    type={
+      Object {
+        "icon": Array [
+          576,
+          512,
+          Array [],
+          "f005",
+          "M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z",
+        ],
+        "iconName": "star",
+        "prefix": "far",
+      }
+    }
+  />
+  <FontAwesome
+    styleClass="fa fa-edit mr-2 text-gray-700"
+    type={
+      Object {
+        "icon": Array [
+          576,
+          512,
+          Array [],
+          "f005",
+          "M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z",
+        ],
+        "iconName": "star",
+        "prefix": "far",
+      }
+    }
+  />
+</Fragment>
+`;
+
+exports[`<Cards /> render the display a star component 1`] = `
+<FontAwesome
+  styleClass="fa fa-edit mr-2 text-gray-700"
+  type={
+    Object {
+      "icon": Array [
+        576,
+        512,
+        Array [],
+        "f005",
+        "M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z",
+      ],
+      "iconName": "star",
+      "prefix": "far",
+    }
+  }
+/>
+`;
+
+exports[`<Cards /> render the display a star component 2`] = `<div />`;
+
+exports[`<Cards /> render the display star component 1`] = `
+<Fragment>
+  <FontAwesome
+    styleClass="fa fa-edit mr-2 text-gray-700"
+    type={
+      Object {
+        "icon": Array [
+          576,
+          512,
+          Array [],
+          "f005",
+          "M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z",
+        ],
+        "iconName": "star",
+        "prefix": "far",
+      }
+    }
+  />
+  <FontAwesome
+    styleClass="fa fa-edit mr-2 text-gray-700"
+    type={
+      Object {
+        "icon": Array [
+          576,
+          512,
+          Array [],
+          "f005",
+          "M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z",
+        ],
+        "iconName": "star",
+        "prefix": "far",
+      }
+    }
+  />
+  <FontAwesome
+    styleClass="fa fa-edit mr-2 text-gray-700"
+    type={
+      Object {
+        "icon": Array [
+          576,
+          512,
+          Array [],
+          "f005",
+          "M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z",
+        ],
+        "iconName": "star",
+        "prefix": "far",
+      }
+    }
+  />
+  <FontAwesome
+    styleClass="fa fa-edit mr-2 text-gray-700"
+    type={
+      Object {
+        "icon": Array [
+          576,
+          512,
+          Array [],
+          "f005",
+          "M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z",
+        ],
+        "iconName": "star",
+        "prefix": "far",
+      }
+    }
+  />
+  <FontAwesome
+    styleClass="fa fa-edit mr-2 text-gray-700"
+    type={
+      Object {
+        "icon": Array [
+          576,
+          512,
+          Array [],
+          "f005",
+          "M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z",
+        ],
+        "iconName": "star",
+        "prefix": "far",
+      }
+    }
+  />
+</Fragment>
+`;
+
+exports[`<Cards /> render the profile card component 1`] = `
+<div
+  className="p-12"
+>
+  <div
+    className="block w-full font-sans"
+  >
+    <div
+      className="rounded rounded-t-lg overflow-hidden shadow my-3"
+    >
+      <div
+        className="bg-white h-3"
+      />
+      <div
+        className="flex -mt-2"
+      >
+        <img
+          alt="profile"
+          className="rounded-full border-solid border-white border-2 m-4 w-20 h-20"
+          src=""
+        />
+        <div
+          className="flex content-center flex-wrap px-2 p-4 "
+        >
+          <p
+            className="text-black text-sm bold font-sans w-full"
+          >
+            authur
+          </p>
+          <ReadTime
+            time=""
+          />
+          <p
+            className="text-black text-sm bold font-sans w-full"
+          >
+            <DisplayStar
+              averageRating={4}
+            />
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Cards /> render the read time component 1`] = `
+<p
+  className="text-black text-gray-600 text-sm bold font-sans w-full"
+>
+  12345
+</p>
+`;
+
+exports[`<Cards /> render the search card component 1`] = `
+<div
+  className="max-w-lg mx-auto mt-16 mb-16 rounded overflow-hidden border border-4 border-gray-600"
+>
+  <div
+    className="px-6 py-4 border hover:bg-gray-300"
+  >
+    <p
+      className="text-xl font-bold mb-2"
+    >
+      Top On Author's Haven
+    </p>
+    <p
+      className="text-gray-700 text-base mb-2"
+    >
+      Hello World
+    </p>
+    <p
+      className="text-gray-600 text-xs"
+    >
+      Kingsmen
+       
+      2345678
+    </p>
+  </div>
+  <div
+    className="px-6 py-4 border hover:bg-gray-300"
+  >
+    <p
+      className="text-xl font-bold mb-2"
+    >
+      Top On Author's Haven
+    </p>
+    <p
+      className="text-gray-700 text-base mb-2"
+    >
+      Hello World
+    </p>
+    <p
+      className="text-gray-600 text-xs"
+    >
+      Kingsmen
+       
+      2345678
+    </p>
+  </div>
+  <div
+    className="px-6 py-4 border hover:bg-gray-300"
+  >
+    <p
+      className="text-xl font-bold mb-2"
+    >
+      Top On Author's Haven
+    </p>
+    <p
+      className="text-gray-700 text-base mb-2"
+    >
+      Hello World
+    </p>
+    <p
+      className="text-gray-600 text-xs"
+    >
+      Kingsmen
+       
+      2345678
+    </p>
+  </div>
+</div>
+`;
+
+exports[`<Cards /> render the suggested card component 1`] = `
+<div
+  className="max-w-sm mx-auto mt-16 rounded overflow-hidden shadow-lg"
+>
+  <img
+    alt="Sunset in the mountains"
+    className="w-full"
+    src="https://tailwindcss.com/img/card-top.jpg"
+  />
+  <div
+    className="px-6 py-4"
+  >
+    <div
+      className="text-xl mb-2"
+    >
+      <p>
+        <span
+          className="text-sm flex justify-end"
+        >
+          <FontAwesome
+            styleClass="fa fa-edit mr-2 text-gray-700"
+            type={
+              Object {
+                "icon": Array [
+                  576,
+                  512,
+                  Array [],
+                  "f005",
+                  "M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z",
+                ],
+                "iconName": "star",
+                "prefix": "far",
+              }
+            }
+          />
+          <FontAwesome
+            styleClass="fa fa-edit mr-2 text-gray-700"
+            type={
+              Object {
+                "icon": Array [
+                  576,
+                  512,
+                  Array [],
+                  "f005",
+                  "M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z",
+                ],
+                "iconName": "star",
+                "prefix": "far",
+              }
+            }
+          />
+        </span>
+        Top On Author's Haven
+      </p>
+    </div>
+    <p
+      className="text-gray-700 text-base"
+    >
+      Hello World
+    </p>
+  </div>
+  <div
+    className="flex items-center mt-1 mb-4 ml-6"
+  >
+    <img
+      alt="Sunset in the mountains"
+      className="w-10 h-10 rounded-full mr-4"
+      src="https://tailwindcss.com/img/card-top.jpg"
+    />
+    <div
+      className="text-sm"
+    >
+      <p
+        className="text-gray-900 leading-none"
+      >
+        Kingsmen
+      </p>
+      <p
+        className="text-gray-600"
+      >
+        2345678
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Cards /> render the tags component 1`] = `
+<div
+  className="flex flex-wrap font-sans"
+>
+  <p
+    className="py-1 px-2 bg-gray text-black text-sm font-thin rounded border mr-2 mb-2"
+    key="0"
+  >
+    andela
+  </p>
+</div>
+`;

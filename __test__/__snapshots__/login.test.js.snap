@@ -10,36 +10,41 @@ exports[`<Login /> should render the Login component correctly 1`] = `
     >
       Enter the email address and password associated with your account.
     </span>
-    <RenderInput
-      className=""
-      error=""
-      handleChange={[Function]}
-      id="email"
-      label="Enter Email"
-      name="email"
-      type="email"
-      value=""
-    />
-    <RenderInput
-      className=""
-      error=""
-      handleChange={[Function]}
-      id="password"
-      label="Enter Password"
-      name="password"
-      type="password"
-      value=""
-    />
-    <Button
-      color="blue"
-      disabled={true}
-      onClick={[Function]}
-      stretch={true}
-      title="Please fill both fields"
-      type="solid"
+    <form
+      className="mt-4"
+      onSubmit={[Function]}
     >
-      Sign In
-    </Button>
+      <RenderInput
+        className=""
+        error=""
+        handleChange={[Function]}
+        id="email"
+        label="Enter Email"
+        name="email"
+        type="email"
+        value=""
+      />
+      <RenderInput
+        className=""
+        error=""
+        handleChange={[Function]}
+        id="password"
+        label="Enter Password"
+        name="password"
+        type="password"
+        value=""
+      />
+      <Button
+        color="blue"
+        disabled={true}
+        onClick={[Function]}
+        stretch={true}
+        title="Please fill both fields"
+        type="solid"
+      >
+        Sign In
+      </Button>
+    </form>
     <div
       className="text-xs md:text-base my-4"
     >

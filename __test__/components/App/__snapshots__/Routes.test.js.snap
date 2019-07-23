@@ -9,7 +9,7 @@ exports[`Routes should render the Routes component correctly 1`] = `
           "$$typeof": Symbol(react.memo),
           "WrappedComponent": [Function],
           "compare": null,
-          "displayName": "Connect(Home)",
+          "displayName": "Connect(Connect(Home))",
           "type": [Function],
         }
       }
@@ -17,8 +17,48 @@ exports[`Routes should render the Routes component correctly 1`] = `
       path="/"
     />
     <Route
+      component={
+        Object {
+          "$$typeof": Symbol(react.memo),
+          "WrappedComponent": [Function],
+          "compare": null,
+          "displayName": "Connect(Authenticator)",
+          "type": [Function],
+        }
+      }
+      exact={true}
+      path="/new-article"
+    />
+    <Route
+      component={
+        Object {
+          "$$typeof": Symbol(react.memo),
+          "WrappedComponent": [Function],
+          "compare": null,
+          "displayName": "Connect(SingleArticle)",
+          "type": [Function],
+        }
+      }
+      exact={true}
+      path="/article/:articleId"
+    />
+    <Route
+      component={
+        Object {
+          "$$typeof": Symbol(react.memo),
+          "WrappedComponent": [Function],
+          "compare": null,
+          "displayName": "Connect(AuthorizeArticle)",
+          "type": [Function],
+        }
+      }
+      exact={true}
+      path="/article/:articleId/edit"
+    />
+    <Route
       component={[Function]}
-      path="/"
+      exact={true}
+      path="/*"
     />
   </Switch>
 </BrowserRouter>

@@ -16,7 +16,7 @@ const initialState = {
   isAuthenticated: false
 };
 
-const authReducer = (state = initialState, action) => {
+export default (state = initialState, action) => {
   switch (action.type) {
     case IS_LOADING:
       return {
@@ -66,5 +66,3 @@ const authReducer = (state = initialState, action) => {
       return state;
   }
 };
-
-export default authReducer;

@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PageLayout /> should display the page layout correctly 1`] = `
+<Fragment>
+  <Connect(withRouter(Header)) />
+  <div>
+    Hello World
+  </div>
+</Fragment>
+`;

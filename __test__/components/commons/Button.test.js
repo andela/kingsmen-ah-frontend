@@ -3,7 +3,9 @@ import Button from '@components/commons/utilities/Button';
 
 const props = {
   type: 'solid',
+  text: 'Login',
   color: 'blue',
+  stretch: true,
   onClick: jest.fn()
 };
 
@@ -28,6 +30,7 @@ describe('<Button />', () => {
   });
 
   it('should pass since button exists', () => {
-    expect(wrapper).toHaveLength(1);
+    const wrapper = shallow(<Button {...props} stretch={false}>Login</Button>);
+    expect(wrapper.find('.block .w-full')).toEqual({});
   });
 });
