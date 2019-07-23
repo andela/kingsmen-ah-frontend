@@ -1,5 +1,6 @@
 const merge = require('webpack-merge');
 const webpack = require('webpack');
+const Dotenv = require('dotenv-webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const baseConfig = require('./webpack.base.js');
 
@@ -33,7 +34,11 @@ module.exports = merge(baseConfig, {
       title: 'Authors Haven',
       template: './src/index.html'
     }),
+
     new webpack.HotModuleReplacementPlugin({}),
+    new Dotenv({
+      path: './.env'
+    }),
   ],
 
   mode: 'development'

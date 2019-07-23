@@ -22,7 +22,7 @@ const instance = axios.create({
 
 export const fetchGuest = (username, history) => async dispatch => {
   try {
-    dispatch(isLoading(true));
+    // dispatch(isLoading(true));
     dispatch({type: RESET_PROFILE })
     const res = await instance.get(`/profiles/${username}`);
     dispatch(getGuestProfile(res.data.payload));

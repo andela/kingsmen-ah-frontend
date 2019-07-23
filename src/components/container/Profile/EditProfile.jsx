@@ -15,8 +15,8 @@ const instance = axios.create({
   headers: {}
 });
 
-const CLOUDINARY_URL = process.env.CLOUDINARY_URL || 'https://api.cloudinary.com/v1_1/adex001/image/upload';
-const CLOUDINARY_UPLOAD_PRESET = process.env.CLOUDINARY_UPLOAD_PRESET || 'hv1qo6wl';
+const CLOUDINARY_URL = process.env.CLOUDINARY_URL;
+const CLOUDINARY_UPLOAD_PRESET = process.env.CLOUDINARY_UPLOAD_PRESET;
 
 class EditProfile extends Component {
   constructor(props) {
@@ -32,7 +32,7 @@ class EditProfile extends Component {
       }
     }
   }
-  componentWillMount(){
+  componentDidMount(){
     const { profile } = this.props;
     this.setState({
       profile: {
