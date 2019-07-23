@@ -16,7 +16,7 @@ class IsLoggedIn extends Component {
       return history.push('/');
     }
     return (
-      <Fragment> </Fragment>
+      <Fragment /> 
     )
   }
 }

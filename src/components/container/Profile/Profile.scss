@@ -1,9 +1,10 @@
 .full-height{
-  min-height: 100vh;
+  min-height: 90vh;
 }
 
 .profile-container{
-  width: 75%;
+  width: 85%;
+  max-width: 1000px;
   margin: 0 auto
 }
 .active {
@@ -18,7 +19,7 @@
 .camera-avatar{
   position: absolute;
   top: 45px;
-  left: 65px;
+  left: 45px;
   transition: 0.5s ease-in-out;
 }
 .cursor-pointer:hover .avatar{
@@ -45,6 +46,15 @@
   margin-top: 5px;
 }
 .field span{
-  display: block;
-  flex: 1
+  display: inline-block;
+  min-width: 120px;
+  max-width: 150px;
+  color: gray;
+  padding-top: 5px
+}
+.field input {
+  max-width: 430px;
+}
+.buttons {
+  max-width: 550px;
 }
