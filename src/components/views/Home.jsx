@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import Header from '@components/commons/Header';
 import NavBar from '@components/commons/NavBar';
 import ArticleCard from '@components/commons/Cards/Article';
-import { fetchArticles } from '@actions/articles';
+import { fetchArticles, fetchMoreArticles } from '@actions/articles';
 
 class Home extends Component {
   constructor(props) {
@@ -55,14 +55,40 @@ class Home extends Component {
     </div>
   );
 
+  handleScroll = event => {
+    const {
+      nextPage: { next }
+    } = this.props;
+    const node = event.target;
+    const bottom = node.scrollHeight - node.scrollTop === node.clientHeight;
+    if (bottom) {
+      if (next) {
+        const { fetchMoreArticles } = this.props;
+        fetchMoreArticles(next);
+      }
+    }
+  };
+
   render() {
-    const { user, profile, isAuthenticated, articles, loading } = this.props;
+    let {
+      user,
+      profile,
+      isAuthenticated,
+      articles,
+      loading,
+      next,
+      loadingMore
+    } = this.props;
     const mainArticle = articles.slice(0, 1);
     const subArticles = articles.slice(1, 4);
     const remainingArticles = articles.slice(4);
 
     return (
-      <div className='bg-gray-100 font-sans w-full min-h-screen m-0'>
+      <div
+        className='bg-gray-100 font-sans w-full min-h-screen m-0'
+        onScroll={this.handleScroll}
+        style={{ overflowY: 'scroll', maxHeight: window.innerHeight }}
+      >
         <Header
           user={{ user: { ...user, isAuthenticated } }}
           profile={profile}
@@ -127,6 +153,33 @@ class Home extends Component {
             </div>
           </Fragment>
         )}
+        {next === '' && !loading && !loadingMore ? (
+          <div className='justify-center text-sm italic text-gray-700 text-center mb-6'>
+            You are up to date
+          </div>
+        ) : (
+          ''
+        )}
+
+        {loadingMore ? (
+          <Fragment>
+            <div className='container mx-auto px-2'>
+              <div className='flex flex-wrap justify-between'>
+                <div className='w-full md:w-1/4'>
+                  {this.smallArticleLoader()}
+                </div>
+                <div className='w-full md:w-1/4'>
+                  {this.smallArticleLoader()}
+                </div>
+                <div className='w-full md:w-1/4'>
+                  {this.smallArticleLoader()}
+                </div>
+              </div>
+            </div>
+          </Fragment>
+        ) : (
+          ''
+        )}
       </div>
     );
   }
@@ -139,7 +192,15 @@ Home.propTypes = {
   errors: PropTypes.shape({}).isRequired,
   fetchArticles: PropTypes.func.isRequired,
   articles: PropTypes.array.isRequired,
-  loading: PropTypes.bool.isRequired
+  loading: PropTypes.bool.isRequired,
+  fetchMoreArticles: PropTypes.func.isRequired,
+  nextPage: PropTypes.shape({ next: PropTypes.string }).isRequired,
+  next: PropTypes.string,
+  loadingMore: PropTypes.bool.isRequired
+};
+
+Home.defaultProps = {
+  next: ''
 };
 
 const mapStateToProps = state => ({
@@ -148,10 +209,12 @@ const mapStateToProps = state => ({
   isAuthenticated: state.auth.isAuthenticated,
   errors: state.auth.errors,
   articles: state.article.articles,
-  loading: state.article.loading
+  loading: state.article.loading,
+  nextPage: state.article.nextPage,
+  loadingMore: state.article.loadingMore
 });
 
 export default connect(
   mapStateToProps,
-  { fetchArticles }
+  { fetchArticles, fetchMoreArticles }
 )(Home);
