@@ -1,6 +1,4 @@
 import React from 'react';
-import toJson from 'enzyme-to-json';
-import Editor from '@components/views/Article/Editor';
 import NewArticle from '@components/views/Article/NewArticle';
 import EditArticle from '@components/views/Article/EditArticle';
 import SingleArticle from '@components/views/Article/SingleArticle';

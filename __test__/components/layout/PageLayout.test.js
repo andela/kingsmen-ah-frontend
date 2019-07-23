@@ -1,7 +1,5 @@
 import React from 'react';
 import PageLayout from '@components/layout/PageLayout';
-import toJson from 'enzyme-to-json';
-import { wrap } from 'module';
 
 
 describe('<PageLayout />', () => {
