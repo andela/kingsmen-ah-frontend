@@ -43,6 +43,7 @@ export const getProfile = username => async dispatch => {
   try {
     const res = await axios.get(`/profiles/${username}`);
     dispatch(setUserProfile(res.data.payload));
+    window.location.reload();
   } catch (error) {
     if (error.response) {
       return dispatch({

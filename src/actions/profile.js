@@ -22,10 +22,10 @@ const instance = axios.create({
 
 export const fetchGuest = (username, history) => async dispatch => {
   try {
-    // dispatch(isLoading(true));
     dispatch({type: RESET_PROFILE })
     const res = await instance.get(`/profiles/${username}`);
     dispatch(getGuestProfile(res.data.payload));
+    dispatch(isLoading(false));
   } catch (err) {
     if (err.response) {
       history.push('/notfound');
@@ -44,6 +44,7 @@ export const updateProfile = payload => async dispatch => {
     dispatch(setUserProfile(res.data.payload));
     dispatch(updateUserProfile(res.data.payload))
     toast.success('Profile successfully Updated!');
+    dispatch(isLoading(false));
   } catch (err) {
     dispatch(isLoading(false));
   }

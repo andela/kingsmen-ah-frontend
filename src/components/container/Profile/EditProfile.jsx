@@ -78,7 +78,7 @@ class EditProfile extends Component {
     });
   }
   handleUpdate = () => {
-    const { updateProfile } = this.props;
+    const { updateProfile, history, user: {username} } = this.props;
     const { profile } = this.state;
     const { firstname, lastname, avatar, phone, bio, location } = profile
     const updateObject = {
@@ -90,6 +90,7 @@ class EditProfile extends Component {
       bio,
     }
     updateProfile(updateObject);
+    history.push(`/profile/${username}`);
   }
   render() {
     const { user, profile, isAuthenticated, history } = this.props;

@@ -15,11 +15,10 @@ export default function ProfileImage({ profile, user, isMyProfile }) {
     fontSize: '0.7rem',
     fontFamily: 'Roboto'
   };
-  const avatarDefault = 'https://visualpharm.com/assets/344/Male%20User-595b40b65ba036ed117d4d28.svg';
   return (
     <div>
       <div className="flex mb-5 mt-5">
-        <img src={avatar || avatarDefault} alt='profile avatar' className="rounded-full border-solid border-white w-24 h-24" />
+        <img src={avatar} alt='profile avatar' className="rounded-full border-solid border-white w-24 h-24" />
         <div className="ml-5">
           <h2 className="font-lobster text-3xl">{`${firstname || 'John'} ${lastname || 'Doe'}`}</h2>
           <div className={isMyProfile? '' : 'hide'}>
@@ -36,9 +35,15 @@ ProfileImage.propTypes = {
     firstname: PropTypes.string,
     lastname: PropTypes.string,
     avatar: PropTypes.string
-  }).isRequired,
+  }),
   user: PropTypes.shape({
-    username: PropTypes.string.isRequired
+    username: PropTypes.string
   }).isRequired,
   isMyProfile: PropTypes.bool.isRequired,
+}
+
+ProfileImage.defaultProps = {
+  profile: {
+    avatar: 'https://visualpharm.com/assets/344/Male%20User-595b40b65ba036ed117d4d28.svg'
+  },
 }

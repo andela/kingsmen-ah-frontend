@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -20,20 +19,27 @@ class Profile extends Component {
   }
 
   componentDidMount() {
-    const { user: {username}, fetchGuest, history  } = this.props;
+    const { user: {username}, fetchGuest, history, profile  } = this.props;
     const { match: { params: { username: usernameURL } } } = this.props;
-    if (username === usernameURL) {
+    if (username === usernameURL) {      
       this.setState({
         isMyProfile: true
       });
     }
-    console.log('username', username);
-    fetchGuest(usernameURL, history);
+
+    if(Object.keys(profile) < 1){
+      fetchGuest(usernameURL, history);
+    }
+
   }
   render() {
-    const { user, profile, isAuthenticated} = this.props;
+    const { user, isAuthenticated} = this.props;
+    let { profile, guest } = this.props;
+    if (Object.keys(profile) < 1) {
+      profile = guest;
+    }
+    
     const {tabs, clickedTab, isMyProfile} = this.state;
-    console.log('ismyprofile', isMyProfile);
     return (
       <div>
         <Header
@@ -42,7 +48,7 @@ class Profile extends Component {
         />
         <div className="flex flex-col full-height">
           <div className="profile-container">
-            <ProfileImage profile={profile} user={user} myProfile={isMyProfile} />
+            <ProfileImage profile={profile} user={user} isMyProfile={isMyProfile} />
           </div>
           <ul className="justify-center flex py-2 border-b-2 font-sans ">
             {tabs.map(tab => {
@@ -76,10 +82,12 @@ class Profile extends Component {
 
 Profile.propTypes = {
   user: PropTypes.shape({
-    username: PropTypes.string.isRequired
+    username: PropTypes.string
   }).isRequired,
   profile: PropTypes.shape({
-  }),
+    length: PropTypes.func
+  }).isRequired,
+  guest: PropTypes.shape({}),
   isAuthenticated: PropTypes.bool,
   errors: PropTypes.shape({}).isRequired,
   match: PropTypes.shape({
@@ -93,12 +101,13 @@ Profile.propTypes = {
   }).isRequired,
 };
 Profile.defaultProps = {
-  profile: {},
+  guest: {},
   isAuthenticated: false,
 };
 const mapStateToProps = state => ({
   user: state.auth.user,
   profile: state.auth.profile,
+  guest: state.profile.guest,
   isAuthenticated: state.auth.isAuthenticated,
   errors: state.auth.errors
 });
