@@ -11,7 +11,6 @@ import {
 
 axios.defaults.baseURL =
   'https://kingsmen-ah-backend-staging.herokuapp.com/api/v1';
-// axios.defaults.baseURL = 'http://localhost:3000/api/v1';
 
 export const isLoading = () => ({
   type: IS_LOADING

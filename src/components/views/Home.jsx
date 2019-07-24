@@ -191,7 +191,7 @@ Home.propTypes = {
   isAuthenticated: PropTypes.bool.isRequired,
   errors: PropTypes.shape({}).isRequired,
   fetchArticles: PropTypes.func.isRequired,
-  articles: PropTypes.array.isRequired,
+  articles: PropTypes.shape([]).isRequired,
   loading: PropTypes.bool.isRequired,
   fetchMoreArticles: PropTypes.func.isRequired,
   nextPage: PropTypes.shape({ next: PropTypes.string }).isRequired,
