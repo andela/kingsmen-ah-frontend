@@ -71,6 +71,10 @@ input {
   background: $base-hover-color;
 }
 
+.hover\:bg-blue-700:hover {
+  background: $base-color;
+}
+
 button,
 input {
   outline: none;
