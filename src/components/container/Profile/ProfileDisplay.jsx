@@ -11,7 +11,6 @@ export default function ProfileDisplay(props) {
       </div>
     )
   }
-  // Get articles, bookmarks and so on
 
   switch(tab) {
     case 'Followers': 
