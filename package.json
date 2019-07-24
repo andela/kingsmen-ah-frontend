@@ -46,6 +46,7 @@
     "jest-junit": "^6.4.0",
     "jest-transform-stub": "^2.0.0",
     "postcss-loader": "^3.0.0",
+    "sinon": "^7.3.2",
     "webpack-dev-server": "^3.7.2"
   },
   "dependencies": {
@@ -62,6 +63,7 @@
     "@fortawesome/fontawesome-free-solid": "^5.0.13",
     "@fortawesome/fontawesome-svg-core": "^1.2.19",
     "@fortawesome/react-fontawesome": "^0.1.4",
+    "assert": "^2.0.0",
     "autoprefixer": "^9.6.1",
     "axios": "^0.19.0",
     "axios-mock-adapter": "^1.17.0",
@@ -73,6 +75,7 @@
     "classnames": "^2.2.6",
     "compression-webpack-plugin": "^3.0.0",
     "css-loader": "^3.0.0",
+    "date-fns": "^1.30.1",
     "dotenv": "^8.0.0",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
