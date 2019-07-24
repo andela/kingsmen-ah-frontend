@@ -71,8 +71,8 @@ input {
   background: $base-hover-color;
 }
 
-.hover\:bg-blue-700:hover {
-  background: $base-color;
+.hover\:text-blue-700:hover {
+  color: $base-color !important;
 }
 
 button,
@@ -104,4 +104,8 @@ button:disabled {
   100% {
     transform: rotate(360deg);
   }
+}
+
+.sunken {
+  box-shadow: 1px 1px 5px #ccc inset;
 }

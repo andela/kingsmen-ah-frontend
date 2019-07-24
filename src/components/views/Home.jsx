@@ -154,8 +154,8 @@ class Home extends Component {
           </Fragment>
         )}
         {next === '' && !loading && !loadingMore ? (
-          <div className='justify-center text-sm italic text-gray-700 text-center mb-6'>
-            You are up to date
+          <div className='justify-center text-sm italic text-gray-500 text-center mb-6'>
+            <span className='sunken p-2 rounded-lg'>You are up to date</span>
           </div>
         ) : (
           ''
