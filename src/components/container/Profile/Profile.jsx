@@ -11,34 +11,27 @@ import './Profile.scss';
 class Profile extends Component {
   constructor(props) {
     super(props);
+    const { user: {username}, fetchGuest, history, profile  } = props;
+    const { match: { params: { username: usernameURL } } } = props;
+    
     this.state = {
       tabs: [ 'Followers', 'Articles', 'Bookmarks' ],
       clickedTab: 'Articles',
-      isMyProfile: false
+      isMyProfile: username === usernameURL
     }
-  }
-
-  componentDidMount() {
-    const { user: {username}, fetchGuest, history, profile  } = this.props;
-    const { match: { params: { username: usernameURL } } } = this.props;
-    if (username === usernameURL) {      
-      this.setState({
-        isMyProfile: true
-      });
-    }
-
-    if(Object.keys(profile) < 1){
+    const { isMyProfile } = this.state;
+    
+    if(Object.keys(profile) < 1 || !isMyProfile){
       fetchGuest(usernameURL, history);
     }
-
   }
+
   render() {
     const { user, isAuthenticated} = this.props;
     let { profile, guest } = this.props;
     if (Object.keys(profile) < 1) {
       profile = guest;
     }
-    
     const {tabs, clickedTab, isMyProfile} = this.state;
     return (
       <div>
@@ -84,9 +77,7 @@ Profile.propTypes = {
   user: PropTypes.shape({
     username: PropTypes.string
   }).isRequired,
-  profile: PropTypes.shape({
-    length: PropTypes.func
-  }).isRequired,
+  profile: PropTypes.shape({}).isRequired,
   guest: PropTypes.shape({}),
   isAuthenticated: PropTypes.bool,
   errors: PropTypes.shape({}).isRequired,

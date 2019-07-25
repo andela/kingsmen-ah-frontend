@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React, { Component, Fragment } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
@@ -7,7 +8,6 @@ import PropTypes from 'prop-types';
 import Footer from '@components/commons/utilities/Footer';
 import Button from '@components/commons/utilities/Button';
 import FontAwesome from '@components/commons/utilities/FontAwesome';
-import IsLoggedIn from '@components/commons/IsLoggedIn';
 import { faCamera } from '@fortawesome/fontawesome-free-solid';
 import { updateProfile } from '@actions/profile';
 import './Profile.scss';
@@ -20,27 +20,36 @@ const CLOUDINARY_URL = process.env.CLOUDINARY_URL;
 const CLOUDINARY_UPLOAD_PRESET = process.env.CLOUDINARY_UPLOAD_PRESET;
 
 class EditProfile extends Component {
+  static initialState = {
+    profile: {
+      avatar: '',
+      bio: '',
+      phone: '',
+      firstname: '',
+      lastname: '',
+      location: '',
+    },
+    localState: false
+  }
+
   constructor(props) {
     super(props);
-    this.state = {
-      profile: {
-        avatar: '',
-        bio: '',
-        phone: '',
-        firstname: '',
-        lastname: '',
-        location: ''
-      }
+    const { history, isAuthenticated } = props;
+    if(!isAuthenticated) {
+      return history.push('/');
     }
+    this.state = { ...EditProfile.initialState || {}}
+    
   }
-  componentDidMount(){
-    const { profile } = this.props;
-    this.setState({
-      profile: {
-        ...profile
-      }
-    })
+
+  static getDerivedStateFromProps({ profile }, state) {
+    if (profile && !state.localState) {
+      return { profile, localState: true }
+    }
+
+    return null;
   }
+
   handleImage = (e) => {
     const { profile } = this.state;
     e.preventDefault();
@@ -88,7 +97,8 @@ class EditProfile extends Component {
     updateProfile(updateObject);
     history.push(`/profile/${username}`);
   }
-  render() {
+
+  render() {  
     const { user, profile, isAuthenticated, history } = this.props;
     const { firstname, lastname } = profile;
     const { username } = user;
@@ -98,7 +108,6 @@ class EditProfile extends Component {
     const avatarDefault = 'https://visualpharm.com/assets/344/Male%20User-595b40b65ba036ed117d4d28.svg';
     return (
       <Fragment>
-        <IsLoggedIn isAuthenticated={isAuthenticated} />
         <Header
           user={{ user: { ...user, isAuthenticated } }}
           profile={profile}
@@ -185,7 +194,7 @@ class EditProfile extends Component {
                 />
               </div>
               <div className="flex mt-10 mb-10 buttons justify-center">
-                <Button type="outlined" color="green" onClick={this.handleUpdate} onKeyDown={()=>{}}> Save </Button>
+                <Button type="outlined" color="green" onClick={this.handleUpdate} onKeyDown={()=>{}}> Update </Button>
                 <Button
                   type="outlined"
                   color="red"

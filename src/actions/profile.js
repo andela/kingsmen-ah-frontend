@@ -1,6 +1,10 @@
 import axios from 'axios';
 import { toast } from 'react-toastify';
-import { UPDATE_PROFILE, FETCH_GUEST_PROFILE, GET_GUEST_PROFILE_ERROR, RESET_PROFILE  } from './types';
+import { UPDATE_PROFILE, 
+  FETCH_GUEST_PROFILE, 
+  GET_GUEST_PROFILE_ERROR, 
+  RESET_PROFILE 
+} from './types';
 import { isLoading, setUserProfile } from './auth';
 
 export const updateUserProfile = payload => {
