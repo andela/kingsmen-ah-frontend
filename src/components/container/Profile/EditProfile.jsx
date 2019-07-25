@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import React, { Component, Fragment } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
