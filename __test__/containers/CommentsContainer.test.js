@@ -6,7 +6,7 @@ import { equal } from 'assert';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
-import CommentsContainer from '@components/views/CommentsContainer';
+import CommentsContainer from '@components/container/CommentsContainer';
 import CommentCard from '@components/commons/Cards/CommentCard';
 import * as actions from '@actions/comments';
 import reducers from '@reducers/comments';

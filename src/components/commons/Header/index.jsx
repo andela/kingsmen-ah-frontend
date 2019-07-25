@@ -6,7 +6,7 @@ import classname from 'classnames';
 import logo from '@base/img/logo.png';
 import { faSearch } from '@fortawesome/fontawesome-free-solid';
 import Modal from '@components/commons/Modal';
-import LoginPage from '@components/views/Login';
+import LoginPage from '@components/container/Login';
 import { logoutUser } from '@actions/auth';
 import Button from '../utilities/Button';
 import FontAwesome from '../utilities/FontAwesome';

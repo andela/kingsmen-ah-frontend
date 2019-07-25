@@ -17,6 +17,43 @@ exports[`Routes should render the Routes component correctly 1`] = `
       path="/"
     />
     <Route
+      component={
+        Object {
+          "$$typeof": Symbol(react.memo),
+          "WrappedComponent": [Function],
+          "compare": null,
+          "displayName": "Connect(Profile)",
+          "type": [Function],
+        }
+      }
+      exact={true}
+      path="/profile/:username"
+    />
+    <Route
+      component={
+        Object {
+          "$$typeof": Symbol(react.memo),
+          "WrappedComponent": [Function],
+          "compare": null,
+          "displayName": "Connect(withRouter(EditProfile))",
+          "initialState": Object {
+            "localState": false,
+            "profile": Object {
+              "avatar": "",
+              "bio": "",
+              "firstname": "",
+              "lastname": "",
+              "location": "",
+              "phone": "",
+            },
+          },
+          "type": [Function],
+        }
+      }
+      exact={true}
+      path="/profile/:username/edit"
+    />
+    <Route
       component={[Function]}
       path="/"
     />

@@ -2,7 +2,7 @@ import React from 'react';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
-import Home from '@components/views/Home';
+import Home from '@components/container/Home';
 import { logo } from '@base/img/logo.png';
 
 const mockStore = configureStore([thunk]);
