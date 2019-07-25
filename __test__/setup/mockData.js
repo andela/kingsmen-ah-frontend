@@ -6,6 +6,9 @@ export const initialState = {
     loadingMore: false,
     nextPage: {}
   },
-  auth: {}
+  auth: {},
+  comments: {
+    comments: []
+  }
 };
 export const userToken = {};

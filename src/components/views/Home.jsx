@@ -10,11 +10,7 @@ import { fetchArticles, fetchMoreArticles } from '@actions/articles';
 class Home extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
-  }
-
-  componentDidMount() {
-    const { fetchArticles } = this.props;
+    const { fetchArticles } = props;
     fetchArticles();
   }
 

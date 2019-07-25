@@ -4,6 +4,7 @@ import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import Home from '@components/views/Home';
 import { logo } from '@base/img/logo.png';
+import reducers from '@reducers/articles';
 
 const mockStore = configureStore([thunk]);
 
@@ -25,7 +26,7 @@ const store = mockStore({
     user: {},
     isAuthenticated: false,
     errors: []
-  },
+  }
 });
 
 const setup = () => {
@@ -45,5 +46,31 @@ describe('<Home />', () => {
 
   it('should render the Home component correctly', () => {
     expect(toJson(wrapper)).toMatchSnapshot();
+  });
+});
+
+describe('Reducer', () => {
+  it('Fetch Articles', () => {
+    const mock = {
+      article: {
+        loading: false,
+        loadingMore: false,
+        errors: {},
+        articles: {
+          filter: jest.fn()
+        },
+        nextPage: {}
+      }
+    };
+
+    const action = {
+      type: 'GET_ARTICLES_SUCCESS',
+      payload: {
+        filter: jest.fn()
+      }
+    };
+
+    const state = reducers(undefined, action);
+    expect(JSON.stringify(state)).toEqual(JSON.stringify(mock.article));
   });
 });

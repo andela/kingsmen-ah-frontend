@@ -13,14 +13,19 @@ describe('Routes', () => {
 
   beforeEach(() => {
     store = mockStore({
-      auth: { user: {}, profile: {} },
-      profile: {},
-      isAuthenticated: false,
-      errors: {},
-      article: { articles: [] },
-      loading: false,
-      nextPage: {},
-      loadingMore: false
+      auth: {
+        user: {},
+        profile: {},
+        isAuthenticated: false,
+        loading: false,
+        errors: {}
+      },
+      article: {
+        articles: [],
+        nextPage: {},
+        loadingMore: false,
+        loading: false
+      }
     });
     history = {
       push: jest.fn()
