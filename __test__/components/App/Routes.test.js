@@ -10,7 +10,9 @@ describe('Routes', () => {
 
     beforeEach(() => {
         store = createStore(combineReducers({
-            auth
+            auth,
+            // profile,
+            // comment
         }));
         history = {
           push: jest.fn()

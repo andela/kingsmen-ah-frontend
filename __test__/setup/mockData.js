@@ -1,6 +1,9 @@
 export const initialState = {
   auth: {},
-  profile: {}
+  profile: {},
+  comments: {
+    comments: []
+  }
 };
 
 export const profileInitialState = {
