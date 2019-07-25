@@ -1,21 +1,27 @@
 import React from 'react';
-import Routes from '@components/App/Routes';
-import { createStore, combineReducers } from 'redux';
 import { BrowserRouter, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import auth from '@reducers/auth';
-import article from '@reducers/articles';
+import thunk from 'redux-thunk';
+import configureMockStore from 'redux-mock-store';
+import Routes from '@components/App/Routes';
+
+const middlewares = [thunk];
+const mockStore = configureMockStore(middlewares);
 
 describe('Routes', () => {
   let store, history;
 
   beforeEach(() => {
-    store = createStore(
-      combineReducers({
-        auth,
-        article
-      })
-    );
+    store = mockStore({
+      auth: { user: {}, profile: {} },
+      profile: {},
+      isAuthenticated: false,
+      errors: {},
+      article: { articles: [] },
+      loading: false,
+      nextPage: {},
+      loadingMore: false
+    });
     history = {
       push: jest.fn()
     };
@@ -26,10 +32,7 @@ describe('Routes', () => {
       <Provider store={store}>
         <BrowserRouter>
           <Switch>
-            <Routes
-              dispatch={jest.fn()}
-              fetchArticles={store.dispatch(() => {})}
-            />
+            <Routes dispatch={jest.fn()} />
           </Switch>
         </BrowserRouter>
       </Provider>
