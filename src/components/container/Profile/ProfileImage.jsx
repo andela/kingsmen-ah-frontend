@@ -18,9 +18,9 @@ export default function ProfileImage({ profile, user, isMyProfile }) {
   return (
     <div>
       <div className="flex mb-5 mt-5">
-        <img src={avatar} alt='profile avatar' className="rounded-full border-solid border-white w-24 h-24" />
+        <img src={avatar || 'https://visualpharm.com/assets/344/Male%20User-595b40b65ba036ed117d4d28.svg'} alt='profile avatar' className="rounded-full border-solid border-white w-24 h-24" />
         <div className="ml-5">
-          <h2 className="font-lobster text-3xl">{`${firstname || 'John'} ${lastname || 'Doe'}`}</h2>
+          <h2 className="font-lobster text-3xl">{`${firstname || '|'} ${lastname || '|'}`}</h2>
           <div className={isMyProfile? '' : 'hide'}>
             <Link to={`/profile/${username}/edit`} style={style}> Edit profile</Link>
           </div>

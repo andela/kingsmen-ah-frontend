@@ -44,12 +44,12 @@ export const fetchGuest = (username, history) => async dispatch => {
 export const updateProfile = payload => async dispatch => {
   try {
     dispatch(isLoading(true));
-    const res = await axios.put('/users', payload);
+    const res = await axios.put('/users', payload);    
     dispatch(setUserProfile(res.data.payload));
     dispatch(updateUserProfile(res.data.payload))
     toast.success('Profile successfully Updated!');
     dispatch(isLoading(false));
   } catch (err) {
-    dispatch(isLoading(false));
+    dispatch(isLoading(false));    
   }
 }

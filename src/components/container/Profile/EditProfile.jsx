@@ -33,8 +33,10 @@ class EditProfile extends Component {
 
   constructor(props) {
     super(props);
-    const { history, isAuthenticated } = props;
-    if(!isAuthenticated) {
+    const { user: {username}, history,  isAuthenticated  } = props;
+    const { match: { params: { username: usernameURL } } } = props;
+
+    if(!isAuthenticated || (username !== usernameURL)) {
       return history.push('/');
     }
     this.state = { ...EditProfile.initialState || {}}
@@ -127,7 +129,7 @@ class EditProfile extends Component {
                   />
                 </span>
               </div>
-              <h2 className="text-2xl text-center font-bold mt-5">{`${firstname || 'ade'} ${lastname || ''}`}</h2>
+              <h2 className="text-2xl text-center font-bold mt-5">{`${firstname || '|'} ${lastname || ''}`}</h2>
             </div>
             <div className="profile-update-form md:mt-10 profile-container flex-2">
               <div className="field flex">
@@ -220,7 +222,13 @@ EditProfile.propTypes = {
     avatar: PropTypes.string,
     firstname: PropTypes.string,
     lastname: PropTypes.string
-  }),
+  }),  
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      username: PropTypes.string
+    })
+  }).isRequired,
+
   history: PropTypes.shape({
     push: PropTypes.func
   }).isRequired,
