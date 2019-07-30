@@ -82,14 +82,22 @@ describe('Tests for the <CommentsContainer />', () => {
 describe('Tests for the COMMENT REDUCER', () => {
   test('INITIAL STATE', () => {
     const action = { type: 'dummy_action' };
-    const initialState = { comments: [] };
+    const initialState = {
+      comments: [],
+      errors: {},
+      likedComment: {},
+      unlikedComment: {}
+    };
 
     expect(reducers(undefined, action)).toEqual(initialState);
   });
 
   test('Test for GET_COMMENTS', () => {
     const mock = {
-      comments: null
+      comments: undefined,
+      errors: {},
+      likedComment: {},
+      unlikedComment: {}
     }
 
     const action = {
@@ -102,13 +110,16 @@ describe('Tests for the COMMENT REDUCER', () => {
     const state = reducers(undefined, action);
 
     expect(state).toEqual({
-      ...mock.comments
+      ...mock
     });
   });
 
   test('Test for POST_COMMENT', () => {
     const mock = {
-      comments: []
+      comments: undefined,
+      errors: {},
+      likedComment: {},
+      unlikedComment: {}
     }
 
     const action = {
@@ -121,14 +132,17 @@ describe('Tests for the COMMENT REDUCER', () => {
     const state = reducers(undefined, action);
 
     expect(state).toEqual({
-      ...mock.comments
+      ...mock
     });
   });
 
   test('Test for DELETE_COMMENT', () => {
     const mock = {
       comments: {
-        comments: []
+        comments: [],
+        errors: {},
+        likedComment: {},
+        unlikedComment: {}
       }
     }
 
@@ -142,6 +156,46 @@ describe('Tests for the COMMENT REDUCER', () => {
     const state = reducers(undefined, action);
 
     expect(state).toEqual({ ...mock.comments });
+  });
+
+  test('Test for LIKE_COMMENT', () => {
+    const mock = {
+      comments: [],
+      errors: {},
+      likedComment: {},
+      unlikedComment: {}
+    }
+
+    const action = {
+      type: 'LIKE_COMMENT',
+      payload: {}
+    };
+
+    const state = reducers(undefined, action);
+
+    expect(state).toEqual({
+      ...mock
+    });
+  });
+
+  test('Test for UNLIKE_COMMENT', () => {
+    const mock = {
+      comments: [],
+      errors: {},
+      likedComment: {},
+      unlikedComment: {}
+    }
+
+    const action = {
+      type: 'UNLIKE_COMMENT',
+      payload: {}
+    };
+
+    const state = reducers(undefined, action);
+
+    expect(state).toEqual({
+      ...mock
+    });
   });
 
   test('Test for GET_COMMENTS_ERROR', () => {
@@ -172,6 +226,40 @@ describe('Tests for the COMMENT REDUCER', () => {
     const state = reducers(undefined, action);
 
     expect(state).toEqual();
+  });
+
+  test('Test for LIKE_COMMENT_ERROR', () => {
+    const mock = {
+      comments: [],
+      errors: undefined,
+      likedComment: {},
+      unlikedComment: {}
+    }
+
+    const action = {
+      type: 'LIKE_COMMENT_ERROR'
+    };
+
+    const state = reducers(undefined, action);
+
+    expect(state).toEqual({...mock});
+  });
+
+  test('Test for UNLIKE_COMMENT_ERROR', () => {
+    const mock = {
+      comments: [],
+      errors: undefined,
+      likedComment: {},
+      unlikedComment: {}
+    }
+
+    const action = {
+      type: 'UNLIKE_COMMENT_ERROR'
+    };
+
+    const state = reducers(undefined, action);
+
+    expect(state).toEqual({...mock});
   });
 })
 

@@ -48,9 +48,9 @@ CommentCard.propTypes = {
   name: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
   avatar: PropTypes.string,
-  likes: PropTypes.number.isRequired,
-  userLike: PropTypes.bool.isRequired,
-  like: PropTypes.func.isRequired,
+  likes: PropTypes.number,
+  userLike: PropTypes.bool,
+  like: PropTypes.func,
   alt: PropTypes.string,
   createdAt: PropTypes.string.isRequired,
   del: PropTypes.func
@@ -59,7 +59,10 @@ CommentCard.propTypes = {
 CommentCard.defaultProps = {
   avatar: 'https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/user_male2-512.png',
   alt: 'avatar',
-  del: () => { }
+  likes: 0,
+  userLike: false,
+  like: () => {},
+  del: () => {}
 };
 
 export default CommentCard;
