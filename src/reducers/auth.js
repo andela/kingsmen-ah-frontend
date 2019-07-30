@@ -5,7 +5,9 @@ import {
   IS_LOADING,
   SET_PROFILE,
   LOGOUT_USER,
-  GET_PROFILE_ERROR
+  GET_PROFILE_ERROR,
+  REGISTER_SUCCESS,
+  REGISTER_FAILURE,
 } from '../actions/types';
 
 const initialState = {
@@ -61,6 +63,21 @@ const authReducer = (state = initialState, action) => {
       return {
         ...state,
         errors: action.payload
+      };
+      case REGISTER_SUCCESS:
+      return {
+        ...state,
+        user: action.payload,
+        isAuthenticated: true,
+        message: action.payload.message,
+        loading: false
+      };
+    case REGISTER_FAILURE:
+      return {
+        ...state,
+        error: action.payload,
+        message: action.payload,
+        loading: false
       };
     default:
       return state;
