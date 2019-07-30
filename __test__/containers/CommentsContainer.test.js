@@ -6,12 +6,12 @@ import { equal } from 'assert';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
-import CommentsContainer from '@components/views/CommentsContainer';
 import CommentCard from '@components/commons/Cards/CommentCard';
 import * as actions from '@actions/comments';
 import reducers from '@reducers/comments';
 import { GET_COMMENTS, POST_COMMENT, DELETE_COMMENT, DELETE_COMMENT_ERROR, GET_COMMENTS_ERROR, POST_COMMENT_ERROR } from '@actions/types';
-import CreateCommentCard from '../../src/containers/CreateCommentCard';
+import CreateCommentCard from '@components/commons/Cards/CreateCommentCard';
+import CommentsContainer from '../../src/containers/CommentsContainer';
 
 const mockStore = configureStore([thunk]);
 
