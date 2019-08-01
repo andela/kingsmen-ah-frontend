@@ -40,7 +40,7 @@ const extractArticleDetails = (article, isSmall) => {
     if (obj.type === 'paragraph') {
       body += obj.data.text;
     } else if (obj.type === 'image') {
-      if (!image) image = obj.data.url;
+      if (!image) image = obj.data.file.url;
     }
   });
 

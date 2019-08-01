@@ -18,7 +18,7 @@ describe('<Login />', () => {
   beforeEach(() => {
     wrapper = setup();
   });
-
+  
   it('should have an email field', () => {
     const field = wrapper.find('RenderInput').first();
     expect(field.exists()).toBe(true);
