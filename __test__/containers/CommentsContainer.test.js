@@ -11,7 +11,7 @@ import * as actions from '@actions/comments';
 import reducers from '@reducers/comments';
 import { GET_COMMENTS, POST_COMMENT, DELETE_COMMENT, DELETE_COMMENT_ERROR, GET_COMMENTS_ERROR, POST_COMMENT_ERROR } from '@actions/types';
 import CreateCommentCard from '@components/commons/Cards/CreateCommentCard';
-import CommentsContainer from '../../src/containers/CommentsContainer';
+import CommentsContainer from '@containers/CommentsContainer';
 
 const mockStore = configureStore([thunk]);
 
