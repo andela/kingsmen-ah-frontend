@@ -11,6 +11,9 @@
       "@components/*": [
         "./src/components/*"
       ],
+      "@containers/*": [
+        "./src/containers/*"
+      ],
       "@config/*": [
         "./src/config/*"
       ],

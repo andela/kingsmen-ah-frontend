@@ -13,6 +13,7 @@ module.exports = {
     alias: {
       '@actions': path.resolve(__dirname, './src/actions'),
       '@components': path.resolve(__dirname, './src/components'),
+      '@containers': path.resolve(__dirname, './src/containers'),
       '@config': path.resolve(__dirname, './src/config'),
       '@helpers': path.resolve(__dirname, './src/helpers'),
       '@reducers': path.resolve(__dirname, './src/reducers'),

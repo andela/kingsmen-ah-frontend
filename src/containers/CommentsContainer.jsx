@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Footer from '@components/commons/utilities/Footer';
-import CommentCard from '../commons/Cards/CommentCard';
-import CreateCommentCard from '../../containers/CreateCommentCard';
-import { getComments, postComment, delComment } from '../../actions/comments';
-import formatDate from '../commons/utilities/helpers'
+import CommentCard from '@components/commons/Cards/CommentCard';
+import CreateCommentCard from '@components/commons/Cards/CreateCommentCard';
+import formatDate from '@components/commons/utilities/helpers'
+import { getComments, postComment, delComment, likeComment, unlikeComment } from '../actions/comments';
 
 /**
  *
@@ -44,7 +44,7 @@ export class CommentsContainer extends Component {
       const { postComment } = this.props;
       const newComment = { comment }
       postComment(newComment, slug);
-      this.clearComment();
+      this.clearComment(e);
     }
   }
 
@@ -86,6 +86,7 @@ export class CommentsContainer extends Component {
    */
   createCommentListings = (comments) => {
     const data = comments.map(comment => {
+      const { CommentLikes } = comment;
       const date = formatDate(comment.createdAt);
       return (
         <CommentCard
@@ -93,8 +94,11 @@ export class CommentsContainer extends Component {
           name={comment.author.username}
           alt={comment.author.username}
           body={comment.body}
-          createdAt={date.long}
+          createdAt={date.short}
           del={() => this.deleteComment(comment.id)}
+          likes={comment.CommentLikes.length}
+          userLike={this.findLike(CommentLikes)}
+          like={() => this.handleLikes(comment.id)}
         />
       );
     });
@@ -107,11 +111,28 @@ export class CommentsContainer extends Component {
    * Clear comment textarea
    * @memberof CommentsContainer
    */
-  clearComment = () => {
+  clearComment = (e) => {
+    e.preventDefault()
     this.setState({
       comment: '',
       errors: {}
     });
+  }
+
+  /**
+  *
+  * @param {*} CommentLikes
+  * @returns
+  * @memberof CommentsContainer
+  */
+  findLike(CommentLikes) {
+    let { user } = this.props;
+
+    if (CommentLikes.filter(like => like.userId === user.id).length > 0) {
+      return true
+    } else {
+      return false
+    }
   }
 
   /**
@@ -123,6 +144,29 @@ export class CommentsContainer extends Component {
     const { slug } = this.props;
     const { delComment } = this.props;
     delComment(id, slug);
+  }
+
+
+  /**
+   *
+   * Handle like/unlike logic
+   * @param {*} id of the comment
+   * @memberof CommentsContainer
+   */
+  handleLikes(id) {
+    const { slug } = this.props;
+    const { likeComment, unlikeComment, user, comments } = this.props;
+
+    const userId = user.id;
+
+    const comment = comments.filter(comment => comment.id === id);
+    const { CommentLikes } = comment[0];
+
+    if (CommentLikes.filter(like => like.userId === userId).length > 0) {
+      unlikeComment(id, slug);
+    } else {
+      likeComment(id, slug);
+    }
   }
 
   render() {
@@ -155,6 +199,7 @@ CommentsContainer.propTypes = {
   })).isRequired,
   user: PropTypes.shape({
     username: PropTypes.string,
+    id: PropTypes.string,
   }).isRequired,
   profile: PropTypes.shape({
     avatar: PropTypes.string,
@@ -162,7 +207,9 @@ CommentsContainer.propTypes = {
   slug: PropTypes.string.isRequired,
   getComments: PropTypes.func.isRequired,
   postComment: PropTypes.func.isRequired,
-  delComment: PropTypes.func.isRequired
+  delComment: PropTypes.func.isRequired,
+  likeComment: PropTypes.func.isRequired,
+  unlikeComment: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
@@ -171,4 +218,4 @@ const mapStateToProps = state => ({
   profile: state.auth.profile
 });
 
-export default connect(mapStateToProps, { getComments, postComment, delComment })(withRouter(CommentsContainer));
+export default connect(mapStateToProps, { getComments, postComment, delComment, likeComment, unlikeComment })(withRouter(CommentsContainer));

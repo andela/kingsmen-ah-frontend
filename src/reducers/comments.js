@@ -1,9 +1,12 @@
 import {
-  GET_COMMENTS, POST_COMMENT, DELETE_COMMENT, GET_COMMENTS_ERROR, POST_COMMENT_ERROR, DELETE_COMMENT_ERROR
+  GET_COMMENTS, POST_COMMENT, DELETE_COMMENT, GET_COMMENTS_ERROR, POST_COMMENT_ERROR, DELETE_COMMENT_ERROR, LIKE_COMMENT, UNLIKE_COMMENT, LIKE_COMMENT_ERROR, UNLIKE_COMMENT_ERROR
 } from '../actions/types';
 
 const initialState = {
-  comments: []
+  comments: [],
+  likedComment: {},
+  unlikedComment: {},
+  errors: {}
 };
 
 export default (state = initialState, action) => {
@@ -34,6 +37,30 @@ export default (state = initialState, action) => {
 
     case DELETE_COMMENT_ERROR:
       return action.payload;
+
+    case LIKE_COMMENT:
+      return {
+        ...state,
+        likedComment: action.payload
+      };
+
+    case LIKE_COMMENT_ERROR:
+      return {
+        ...state,
+        errors: action.payload
+      };
+
+    case UNLIKE_COMMENT:
+      return {
+        ...state,
+        unlikedComment: action.payload
+      };
+
+    case UNLIKE_COMMENT_ERROR:
+      return {
+        ...state,
+        errors: action.payload
+      };
 
     default: return state;
   }
